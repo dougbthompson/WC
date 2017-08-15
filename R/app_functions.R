@@ -58,3 +58,64 @@ as.data.frame.list=function(x, row.names=NULL, optional=FALSE, ...) {
   return(df)
 }
 
+app_locations_csv = function(locations) {
+
+  data_dir = '/home/dougt/wc/wc/data'
+  eventid <- '2000000163'
+
+  if (nrow(locations)) {
+    julian_unix_day_0 = 2440587.500000
+    seconds_per_day = 24 * 60 * 60
+
+    locations %>%
+      transmute(
+        lat1=latitude
+       ,lat2=latitude
+       ,long1=longitude
+       ,long2=longitude
+       ,lc = location_class
+       ,decimal_day = (date/seconds_per_day) + julian_unix_day_0) -> filtered_output
+
+    csv = paste0(data_dir, '/', eventid, '.csv')
+    write.table(file=csv, filtered_output, row.names=F, quote=F,sep='\t')
+
+    return(filtered_output)
+  }
+}
+
+app_locations_ssm_csv = function(locations) {
+
+      data_dir = '/home/dougt/wc/wc/data'
+      eventid <- '2000000163'
+      csv = paste0(data_dir, '/', eventid, '.csv')
+
+      filtered_output <- locations
+      location_filename = paste0(data_dir, '/', eventid, 'SSM.txt')
+
+      fread(paste('ssh argos@mola "nosql repair | bin/tab2tabFilter filterLand" <',csv)) %>% filter(passed==1) -> filtered_output
+
+      if (nrow(filtered_output)) {
+        filtered_output %>%
+        transmute(
+           date           = (decimal_day - julian_unix_day_0) * seconds_per_day
+          ,latitude       = lat
+          ,longitude      = long
+          ,location_class = lc
+        ) -> filtered_argos
+
+        transmute(
+           filtered_argos
+          ,datesec = format(anytime(as.numeric(as.character(date))+0), '%m/%d/%Y %H:%M')
+          ,lon     = ((as.numeric(as.character(longitude))+180) %% 360) - 180
+          ,lat     = as.numeric(as.character(latitude))
+          ,lon025=-999 ,lat025=-999 ,lon5=-999 ,lat5=-999
+          ,lon975=-999 ,lat975=-999 ,mplon=-999 ,mplat=-999
+          ,id=eventid
+        ) ->.;
+
+        write.csv(., file = location_filename, quote=F, row.names=F)
+        ### system(paste('chmod ugo+rwx', location_filename))
+        ### system(paste('scp', location_filename, 'vmuser@mola:/var/www/html/atnupload/embargos/'))
+      }
+}
+

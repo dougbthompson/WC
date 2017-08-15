@@ -27,11 +27,15 @@ main = function() {
     dbWriteTable (db_connection, "tmp_all_deployments", value=pg_all_deployments, append=TRUE, row.names=FALSE);
 
     for (wc_id in all_deployments$wc_id) {
-      print (wc_id)
+      # print (wc_id)
       all_locations <- fetch_all_locations (id=wc_id)
       if (nrow(all_locations) > 0) {
         pg_all_locations <- sqldf(paste0("select '",wc_id,"' as wc_id, z.* from all_locations z"), drv="SQLite")
         dbWriteTable (db_connection, "tmp_all_locations", value=pg_all_locations, append=TRUE, row.names=FALSE);
+
+        data_dir = '/home/dougt/wc/wc/data/'
+        saveRDS (file=paste0(data_dir, wc_id, '.rds'), object=all_locations)
+        write.table (file=paste0(data_dir, wc_id, '.csv'), all_locations, row.names=F, quote=T, sep=',')
       }
     }
 
