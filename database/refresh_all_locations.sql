@@ -1,5 +1,5 @@
 CREATE OR REPLACE FUNCTION refresh_wc_all_locations()
-RETURNS void AS $$
+RETURNS integer AS $$
 
 DECLARE
     curs1 CURSOR FOR 
@@ -39,6 +39,7 @@ BEGIN
     end loop;
     close curs1;
 
+    return 1;
 END;
 $$ LANGUAGE plpgsql volatile;
 

@@ -1,5 +1,5 @@
 CREATE OR REPLACE FUNCTION refresh_wc_all_deployments()
-RETURNS void AS $$
+RETURNS integer AS $$
 
 DECLARE
     curs1 CURSOR FOR SELECT wc_id, last_update_date FROM tmp_all_deployments;
@@ -31,6 +31,7 @@ BEGIN
     end loop;
     close curs1;
 
+    return 1;
 END;
 $$ LANGUAGE plpgsql volatile;
 
