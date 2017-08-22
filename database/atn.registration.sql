@@ -1,15 +1,14 @@
 
-drop table if exists atn_contact;
-create table atn_contact (
-    id               bigint       not null,
+drop table if exists biologging.atn_contact;
+create table biologging.atn_contact (
+    id               serial        pimary key,
 	project_id       bigint           null,
 	organisation_id  bigint           null,
-	contact_desc     varchar(255)     null,
-	primary key (id)
+	contact_desc     varchar(255)     null
 );
-drop table if exists atn_user;
-create table atn_user (
-    id                 bigint       not null,
+drop table if exists biologging.atn_user;
+create table biologging.atn_user (
+    id                 serial        primary key,
 	role_id            bigint           null,
 	project_id         varchar(255)     null,
 	organisation_id    varchar(255)     null,
@@ -26,54 +25,49 @@ create table atn_user (
 	authorized_status  varchar(8)       null,
 	citation           varchar(255)     null,
 	registered_date    integer      not null,
-	last_update_date   integer      not null,
-	primary key (id)
+	last_update_date   integer      not null
 );
-drop table if exists atn_user_role;
-create table atn_user_role (
-    id               bigint       not null,
-	role_name        varchar(255) not null,
-	primary key (id)
+drop table if exists biologging.atn_user_role;
+create table biologging.atn_user_role (
+    id               serial       primary key,
+	role_name        varchar(255) not null
 );
-drop table if exists atn_organisation;
-create table atn_organisation (
-    id                 bigint       not null,
-	organisation_name  varchar(255) not null,
+drop table if exists biologging.atn_organisation;
+create table biologging.atn_organisation (
+    id                 serial        primary key,
+	organisation_name  varchar(255)  not null,
     fax                varchar(255)     null,
     phone              varchar(255)     null,
 	address1           varchar(255)     null,
 	address2           varchar(255)     null,
 	address3           varchar(255)     null,
-    status             varchar(255)     null,
-	primary key (id)
+    status             varchar(255)     null
 );
-drop table if exists atn_project;
-create table atn_project (
-    id               bigint        not null,
+drop table if exists biologging.atn_project;
+create table biologging.atn_project (
+    id               serial        primary key,
 	project_name     varchar(255)  not null,
-	project_year     bigint        not null,
-	primary key (id)
+	project_year     bigint        not null
 );
-drop table if exists atn_organisation_project;
-create table atn_organisation_project (
-    id                bigint       not null,
+drop table if exists biologging.atn_organisation_project;
+create table biologging.atn_organisation_project (
+    id                serial           primary key,
 	project_id        bigint           null,
-	organisation_id   bigint           null,
-	primary key (id)
+	organisation_id   bigint           null
 );
-drop table if exists atn_project_role;
-create table atn_project_role (
-    id                bigint       not null,
+drop table if exists biologging.atn_project_role;
+create table biologging.atn_project_role (
+    id                serial           primary key,
 	project_id        bigint           null,
 	user_id           bigint           null,
-	user_role_id      bigint           null,
-	primary key (id)
+	user_role_id      bigint           null
 );
-drop table if exists atn_role;
-create table atn_role (
+drop table if exists biologging.atn_role;
+create table biologging.atn_role (
     id                serial       primary key,
 	role_desc         varchar(255) not null
 );
-insert into atn_role(role_desc) values('Principal Investigator'),('Co-Investigator'),
+insert into biologging.atn_role(role_desc) values('Principal Investigator'),('Co-Investigator'),
             ('Research Assistant'),('Technical Assistant'),('Administrator'),('Student');
+
 
