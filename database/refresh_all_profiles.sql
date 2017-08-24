@@ -4,6 +4,7 @@ RETURNS integer AS $$
 DECLARE
     curs1 CURSOR FOR 
         SELECT wc_id, date FROM tmp_all_profiles;
+
     v_bin            text[];
     v_date           integer;
     v_discontinuity  text[];
