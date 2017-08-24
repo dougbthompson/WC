@@ -24,5 +24,15 @@
 ### existing data, plus additions to the schema to support new data
 ### formats coming from WC.
 
-##
+## Registration tables (user registration update 8/17)
+### atn.registration.sql:
+#### atn_contact
+#### atn_organisation
+#### atn_organisation_project
+#### atn_project
+#### atn_project_role
+#### atn_role
+#### atn_user
+#### atn_user_role
+#### 
 
