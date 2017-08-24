@@ -1,11 +1,14 @@
+
 # WC
-Wildlife Computers - documentation and extensions to API
+## Wildlife Computers - documentation and extensions to API
 
-Database
+## Database
+### All database scripts for ATN-IMOS core, Core II, extensions for WoRMS database data.
 
-R code
+## R code
 
-Python code
+## Python code
 
-Wildlife Computers - API documentation
+## Wildlife Computers - API documentation
+
 
