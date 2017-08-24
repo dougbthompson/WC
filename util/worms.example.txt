@@ -1,0 +1,77 @@
+
+atndb=# select * from biologging.species_atn_worms_avb where id = 105710 and language_code = 'eng';
+
+   id   | vernacular | language_code | language 
+--------+------------+---------------+----------
+ 105710 | eagle rays | eng           | English
+ 105710 | manta rays | eng           | English
+
+
+atndb=# select * from biologging.species_atn_worms_arb where id = 105789;
+
+-- RECORD 1 ]---+--------------------------------------------------------------------------------------------
+id              | 105789
+aphia_id        | 105789
+url             | http://www.marinespecies.org/aphia.php?p=taxdetails&id=105789
+scientific_name | Carcharhinus falciformis
+authority       | (Mu00fcller & Henle, 1839)
+rank            | Species
+status          | accepted
+unaccept_reason | 
+valid_aphia_id  | 105789
+valid_name      | Carcharhinus falciformis
+valid_authority | (Mu00fcller & Henle, 1839)
+kingdom         | Animalia
+phylum          | Chordata
+class           | Elasmobranchii
+order_name      | Carcharhiniformes
+family          | Carcharhinidae
+genus           | Carcharhinus
+citation        | Bailly, N. (2008). Carcharhinus falciformis (Mu00fcller & Henle, 1839). In: Froese, R. and D. Pauly. Editors. (2017). 
+                  FishBase. Accessed through:  World Register of Marine Species at 
+                  http://www.marinespecies.org/aphia.php?p=taxdetails&id=105789 on 2017-07-27
+ls_id           | urn:lsid:marinespecies.org:taxname:105789
+is_marine       | t
+is_freshwater   | f
+is_terrestrial  | f
+is_extinct      | 
+match_type      | exact
+modified        | 2008-01-15T18:27:08Z
+
+atndb=# select locality, higher_geograhpy from biologging.species_atn_worms_adb where id = 105789;
+
+              locality               |      higher_geograhpy       
+-------------------------------------+-----------------------------
+ European waters (ERMS scope)        | North Atlantic Ocean
+ North West Atlantic                 | North Atlantic Ocean
+ Mozambique                          | Mozambique
+ Tanzania                            | Tanzania
+ Somalia                             | Federal Republic of Somalia
+ Madagascar                          | Madagascar
+ Aldabra                             | Indian Ocean
+ Comores                             | Comores
+ Madagascar                          | Madagascar
+ Mozambique                          | Mozambique
+ Tanzania                            | Tanzania
+ Comores                             | Comores
+ Aldabra                             | Indian Ocean
+ Somalia                             | Federal Republic of Somalia
+ Comores                             | Comores
+ Red Sea                             | Red Sea
+ Somalia                             | Federal Republic of Somalia
+ Eritrea                             | Eritrea
+ South Africa (country)              | South Africa
+ Mozambique                          | Mozambique
+ Seychelles                          | Seychelles
+ Tanzania                            | Tanzania
+ Djibouti                            | Djibouti
+ Mauritius                           | Republic of Mauritius
+ Madagascar                          | Madagascar
+ Mediterranean Sea                   | Mediterranean Sea
+ New Zealand Exclusive Economic Zone | New Zealand
+ Gulf of Mexico                      | Gulf of Mexico
+ Portuguese Exclusive Economic Zone  | North Atlantic Ocean
+ Spanish Exclusive Economic Zone     | Spain
+ Western Indian Ocean                | 
+ Mediterranean Sea                   | Mediterranean Sea
+
