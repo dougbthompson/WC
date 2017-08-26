@@ -1,0 +1,57 @@
+
+AlbacoreTuna ................. http://www.marinespecies.org/aphia.php?p=taxdetails&id=127026 (Long-Fin Tuna)
+AtlanticBluefinTuna .......... http://www.marinespecies.org/aphia.php?p=taxdetails&id=127029
+AtlanticSailfish ............. http://www.marinespecies.org/aphia.php?p=taxdetails&id=105837
+BaskingShark ................. http://www.marinespecies.org/aphia.php?p=taxdetails&id=105837
+BeardedSeal .................. http://www.marinespecies.org/aphia.php?p=taxdetails&id=137079
+Black-footedAlbatross ........ http://www.marinespecies.org/aphia.php?p=taxdetails&id=344106
+BlackMarlin .................. http://www.marinespecies.org/aphia.php?p=taxdetails&id=321911
+BlueMarlin ................... http://www.marinespecies.org/aphia.php?p=taxdetails&id=126950
+BlueShark .................... http://www.marinespecies.org/aphia.php?p=taxdetails&id=105839
+BlueWhale .................... http://www.marinespecies.org/aphia.php?p=taxdetails&id=137090
+CaliforniaSeaLion ............ http://www.marinespecies.org/aphia.php?p=taxdetails&id=255003
+CommonThresherShark .......... http://www.marinespecies.org/aphia.php?p=taxdetails&id=105836
+CrabeaterSeal ................ http://www.marinespecies.org/aphia.php?p=taxdetails&id=344008
+DevilRay ..................... http://www.marinespecies.org/aphia.php?p=taxdetails&id=158530
+Dolphin-fish ................. http://www.marinespecies.org/aphia.php?p=taxdetails&id=126846 (Dolphinfish)
+FinWhale ..................... http://www.marinespecies.org/aphia.php?p=taxdetails&id=137091
+GalapagosSeaLion ............. http://www.marinespecies.org/aphia.php?p=taxdetails&id=255005
+GalapagosShark ............... http://www.marinespecies.org/aphia.php?p=taxdetails&id=105790
+GreenlandShark ............... http://www.marinespecies.org/aphia.php?p=taxdetails&id=105919
+GreyReefShark ................ http://www.marinespecies.org/aphia.php?p=taxdetails&id=217337
+HawksbillTurtle .............. http://www.marinespecies.org/aphia.php?p=taxdetails&id=137207
+HumboldtSquid ................ http://www.marinespecies.org/aphia.php?p=taxdetails&id=342291 (Jumbo Flying Squid)
+HumpbackWhale ................ http://www.marinespecies.org/aphia.php?p=taxdetails&id=137092
+JuvenileWhiteShark ........... http://www.marinespecies.org/aphia.php?p=taxdetails&id=105838
+LaysanAlbatross .............. http://www.marinespecies.org/aphia.php?p=taxdetails&id=344104
+LeatherbackSeaTurtle ......... http://www.marinespecies.org/aphia.php?p=taxdetails&id=137209
+LoggerheadSeaTurtle .......... http://www.marinespecies.org/aphia.php?p=taxdetails&id=137205
+MantaRay ..................... http://www.marinespecies.org/aphia.php?p=taxdetails&id=105710
+MediterraneanSpearfish ....... http://www.marinespecies.org/aphia.php?p=taxdetails&id=126952
+NorthernElephantSeal ......... http://www.marinespecies.org/aphia.php?p=taxdetails&id=255018
+NorthernFurSeal .............. http://www.marinespecies.org/aphia.php?p=taxdetails&id=254997
+OceanicWhitetipShark ......... http://www.marinespecies.org/aphia.php?p=taxdetails&id=105794 (https://en.wikipedia.org/wiki/Oceanic_whitetip_shark)
+OceanSunfish ................. http://www.marinespecies.org/aphia.php?p=taxdetails&id=105837
+PacificBluefinTuna ........... http://www.marinespecies.org/aphia.php?p=taxdetails&id=273823
+PacificSailfish .............. http://www.marinespecies.org/aphia.php?p=taxdetails&id=158812
+PorbeagleShark ............... http://www.marinespecies.org/aphia.php?p=taxdetails&id=105841
+SalmonShark .................. http://www.marinespecies.org/aphia.php?p=taxdetails&id=271421
+SandtigerShark ............... http://www.marinespecies.org/aphia.php?p=taxdetails&id=105843
+ShortbillSpearfish ........... http://www.marinespecies.org/aphia.php?p=taxdetails&id=219734
+ShortfinMakoShark ............ http://www.marinespecies.org/aphia.php?p=taxdetails&id=105839
+SilkyShark ................... http://www.marinespecies.org/aphia.php?p=taxdetails&id=105789
+SilvertipShark ............... http://www.marinespecies.org/aphia.php?p=taxdetails&id=217352
+SmoothHammerhead ............. http://www.marinespecies.org/aphia.php?p=taxdetails&id=105819
+SootyShearwater .............. http://www.marinespecies.org/aphia.php?p=taxdetails&id=137202
+SouthAmericanSeaLion ......... http://www.marinespecies.org/aphia.php?p=taxdetails&id=231425
+SouthernElephantSeal ......... http://www.marinespecies.org/aphia.php?p=taxdetails&id=231413
+SpermWhale ................... http://www.marinespecies.org/aphia.php?p=taxdetails&id=137119
+StripedMarlin ................ http://www.marinespecies.org/aphia.php?p=taxdetails&id=712907
+Swordfish .................... http://www.marinespecies.org/aphia.php?p=taxdetails&id=137102
+TigerShark ................... http://www.marinespecies.org/aphia.php?p=taxdetails&id=105843
+WeddellSeal .................. http://www.marinespecies.org/aphia.php?p=taxdetails&id=195932
+WhaleShark ................... http://www.marinespecies.org/aphia.php?p=taxdetails&id=105846
+WhiteMarlin .................. http://www.marinespecies.org/aphia.php?p=taxdetails&id=712906 (Atlantic White Marlin)
+WhiteShark ................... http://www.marinespecies.org/aphia.php?p=taxdetails&id=105838
+YellowfinTuna ................ http://www.marinespecies.org/aphia.php?p=taxdetails&id=127027
+
