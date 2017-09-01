@@ -12,12 +12,13 @@ wc_spreadsheet = function(id, db_connection) {
   response <- fetch_wc_raw(request)
   zip_contents  <- response$content
 
-  zip_temp_dir <- tempdir()
-  # system (paste0('cd ', zip_temp_dir))
+  # zip_temp_dir <- tempdir()
+  zip_temp_dir = paste0('/home/dougt/wc/wc/data.all/')
+  ## system (paste0('cd ', zip_temp_dir))
   system (paste0('cd ', zip_temp_dir, '; mkdir ', id, '; cd ', id))
 
   # new lower nested temp directory (the wc_id)
-  zip_temp_dir <- paste0(tempdir(), '/', id, '/')
+  zip_temp_dir <- paste0(zip_temp_dir, id, '/')
   zip_file_name <- paste0(zip_temp_dir, id, '.zip')
 
   zip_fd <- file(zip_file_name, 'wb')
@@ -42,8 +43,9 @@ wc_spreadsheet = function(id, db_connection) {
 
   # if the table already exists, insert into it, otherwise write a new table
   for (name in table_names)  {
+    print (paste(id, name))
     df <- df_list[[name]]
-    dbWriteTable (conn=db_connection, name=paste0('wc_zip_', name), append=T, row.names=F, value=df)
+    # dbWriteTable (conn=db_connection, name=paste0('wc_zip_', name), append=T, row.names=F, value=df)
   }
 }
 
