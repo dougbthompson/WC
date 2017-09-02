@@ -7,8 +7,10 @@
 ### User Registration tables, initial cut
 
 ## R code
+### 09/01/17 added processing of zip file for all.csv files
 
 ## Python code
+### 09/01/17 begin testing python database access
 
 ## Wildlife Computers - API documentation
 
