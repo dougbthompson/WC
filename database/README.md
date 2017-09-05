@@ -30,8 +30,7 @@
 #### atn_organisation
 #### atn_organisation_project
 #### atn_project
-#### atn_project_role
-#### atn_role
+#### atn_project_user_role
 #### atn_user
 #### atn_user_role
 #### 
