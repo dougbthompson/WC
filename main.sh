@@ -13,7 +13,10 @@ R --silent --vanilla < main.R
 export DT=`date "+%Y-%m-%d"`
 
 cd /home/dougt/wc/wc
-ls -alR > /tmp/wc.dat
+echo ""     > /tmp/wc.dat
+./main2.sh >> /tmp/wc.dat
+echo ""    >> /tmp/wc.dat
+ls -alR    >> /tmp/wc.dat
 
 # cat /tmp/wc.dat | mailx -s"SYS:SQL ${DT}" dbt@stanford.edu
 /usr/bin/nawk -F, '
