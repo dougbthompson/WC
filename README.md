@@ -13,5 +13,6 @@
 ### 09/01/17 begin testing python database access
 
 ## Wildlife Computers - API documentation
+### 09/04/17 begin to analyze the requirements to generate eventid's and trackes
 
 
