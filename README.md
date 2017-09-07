@@ -16,4 +16,7 @@
 ## Wildlife Computers - API documentation
 ### 09/04/17 begin to analyze the requirements to generate eventid's and trackes
 
+## Drupal 8
+### development of a new registration system
+### custom modules being developed for database access
 
