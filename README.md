@@ -19,4 +19,5 @@
 ## Drupal 8
 ### development of a new registration system
 ### custom modules being developed for database access
+### custom modules being developed for Core II registration tables (lower, upper)
 
