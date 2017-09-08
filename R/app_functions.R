@@ -1,3 +1,4 @@
+#!/usr/bin/R
 
 ###
 ### Copyright 2017 (c) Stanford University, Hopkins Marine Station
@@ -60,7 +61,7 @@ as.data.frame.list=function(x, row.names=NULL, optional=FALSE, ...) {
 
 app_locations_csv = function(locations) {
 
-  data_dir = '/home/dougt/wc/wc/data'
+  data_dir = '/home/dougt/wc/wc/data/'
   eventid <- '2000000163'
 
   if (nrow(locations)) {
@@ -76,7 +77,7 @@ app_locations_csv = function(locations) {
        ,lc = location_class
        ,decimal_day = (date/seconds_per_day) + julian_unix_day_0) -> filtered_output
 
-    csv = paste0(data_dir, '/', eventid, '.csv')
+    csv = paste0(data_dir, eventid, '.csv')
     write.table(file=csv, filtered_output, row.names=F, quote=F,sep='\t')
 
     return(filtered_output)
@@ -85,12 +86,12 @@ app_locations_csv = function(locations) {
 
 app_locations_ssm_csv = function(locations) {
 
-      data_dir = '/home/dougt/wc/wc/data'
+      data_dir = '/home/dougt/wc/wc/data/'
       eventid <- '2000000163'
-      csv = paste0(data_dir, '/', eventid, '.csv')
+      csv = paste0(data_dir, eventid, '.csv')
 
       filtered_output <- locations
-      location_filename = paste0(data_dir, '/', eventid, 'SSM.txt')
+      location_filename = paste0(data_dir, eventid, 'SSM.txt')
 
       fread(paste('ssh argos@mola "nosql repair | bin/tab2tabFilter filterLand" <',csv)) %>% filter(passed==1) -> filtered_output
 

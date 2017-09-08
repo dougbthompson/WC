@@ -1,0 +1,22 @@
+
+> main()
+> main()
+[1] "5769e63befec720f24e15416"
+[1] "57abc3a9efec720de87c862b"
+[1] "58112217efec720cd46e264e"
+[1] "58112217efec720cd46e2650"
+[1] "58112217efec720cd46e2652"
+[1] "58112218efec720cd46e2656"
+[1] "58112218efec720cd46e2658"
+[1] "5823eeccefec720f2c0a99c8"
+[1] TRUE
+Warning messages:
+1: In postgresqlExecStatement(conn, statement, ...) :
+  RS-DBI driver warning: (unrecognized PostgreSQL field type void (id:2278) in column 0)
+2: In postgresqlExecStatement(conn, statement, ...) :
+  RS-DBI driver warning: (unrecognized PostgreSQL field type void (id:2278) in column 0)
+3: In postgresqlExecStatement(conn, statement, ...) :
+  RS-DBI driver warning: (unrecognized PostgreSQL field type void (id:2278) in column 0)
+> 
+> 
+

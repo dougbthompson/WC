@@ -10,6 +10,9 @@ main = function() {
     source ('wc_init.R')
     source ('app_init.R')
 
+    source ('app_init.R')
+    app_env <- app_env_params()
+
     source ('app_db_init.R')
     db_params <- app_db_params()
 
@@ -17,6 +20,7 @@ main = function() {
     db_connection <- app_db_connection_open(db_params)
 
     source ('wc_functions.R')
+    source ('wc_spreadsheet.R')
     source ('app_functions.R')
 
     source ('app_db_functions.R')
@@ -33,10 +37,10 @@ main = function() {
         pg_all_locations <- sqldf(paste0("select '",wc_id,"' as wc_id, z.* from all_locations z"), drv="SQLite")
         dbWriteTable (db_connection, "tmp_all_locations", value=pg_all_locations, append=TRUE, row.names=FALSE);
 
-        data_dir = '/home/dougt/wc/wc/data/'
-        saveRDS (file=paste0(data_dir, wc_id, '.rds'), object=all_locations)
-        write.table (file=paste0(data_dir, wc_id, '.csv'), all_locations, row.names=F, quote=T, sep=',')
+        saveRDS (file=paste0(app_env@data_dir, wc_id, '.rds'), object=all_locations)
+        write.table (file=paste0(app_env@data_dir, wc_id, '.csv'), all_locations, row.names=F, quote=T, sep=',')
       }
+      # wc_spreadsheet (wc_id, db_connection)
     }
 
     all_deployment_profiles <- fetch_all_deployment_profiles()
@@ -44,7 +48,7 @@ main = function() {
     dbWriteTable (db_connection, "tmp_all_deployment_profiles", value=pg_all_deployment_profiles, append=TRUE, row.names=FALSE);
 
     for (wc_id in all_deployment_profiles$wc_id) {
-      print (wc_id)
+      # print (wc_id)
       all_profiles <- fetch_all_profiles (id=wc_id)
       if (nrow(all_profiles) > 0) {
         pg_all_profiles <- sqldf(paste0("select '",wc_id,"' as wc_id, z.* from all_profiles z"), drv="SQLite")

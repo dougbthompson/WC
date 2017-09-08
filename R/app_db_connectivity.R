@@ -1,3 +1,4 @@
+#!/usr/bin/R
 
 ###
 ### Copyright 2017 (c) Stanford University, Hopkins Marine Station

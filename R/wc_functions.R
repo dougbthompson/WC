@@ -1,3 +1,4 @@
+#!/usr/bin/R
 
 ###
 ### Copyright 2017 (c) Stanford University, Hopkins Marine Station
@@ -12,33 +13,35 @@
 ### secret_key='+Hbl8FjYE= ...'
 ### 
 
+fetch_wc_raw = function(request) {
+  key_file='~/wc_keys.R'
+  url='http://my.wildlifecomputers.com/services/'
+
+  source(key_file, local=T)
+  hash = digest::hmac(key=secret_key, object=request, algo="sha256")
+
+  x = POST(url=url,config=add_headers('X-Access'=access_key, 'X-Hash'=hash),encode='form',body=request)
+  if (http_error(x)) {
+    warning(paste('request =', request, "\n",' key_file =', key_file, "\n"
+                 ,' url =', url, "\n",' message =', http_status(x)$message, "\n"))
+    return(NULL)
+  }
+  return(x)
+}
+
 fetch_wc = function(request) {
   key_file='~/wc_keys.R'
   url='http://my.wildlifecomputers.com/services/'
 
-  if (!file.exists(key_file)) {
-    stop(paste('key_file=',key_file,'does not exist.'))
-  }
-
   source(key_file, local=T)
-  ### source('check_keys.R',local=T)
   hash = digest::hmac(key=secret_key, object=request, algo="sha256")
 
-  x = POST(
-      url=url
-     ,config=add_headers('X-Access'=access_key, 'X-Hash'=hash)
-     ,encode='form'
-     ,body=request)
-
+  x = POST(url=url,config=add_headers('X-Access'=access_key,'X-Hash'=hash),encode='form',body=request)
   if (http_error(x)) {
-    warning(paste(
-           'request =', request, "\n"
-          ,' key_file =', key_file, "\n"
-          ,' url =', url, "\n"
-          ,' message =', http_status(x)$message, "\n"))
+    warning(paste('request =', request, "\n",' key_file =', key_file, "\n"
+                 ,' url =', url, "\n",' message =', http_status(x)$message, "\n"))
     return(NULL)
   }
-
   xmlToList(content(type='text', x=x, encoding='UTF-8'))
 }
 
@@ -103,6 +106,11 @@ fetch_profiles_atn_dac=function(id) {
     request <- paste0('action=get_profiles_atn_dac&id=', id)
     fetch_wc(request=request)
 }
+fetch_zip=function(id) {
+    request <- paste0("action=download_deployment&id=", id)
+    fetch_wc_raw(request=request)
+}
+
 
 # -----
 # morph functions, to suit atndac purposes
