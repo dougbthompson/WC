@@ -2,6 +2,7 @@
 ## September 25
 
 ### Biologging Conference, Germany
+#### Conference - Core II Slides
 
 ### Core II
 #### Schema
