@@ -3,7 +3,7 @@ RETURNS integer AS $$
 
 DECLARE
     curs1 CURSOR FOR 
-        SELECT wc_id, date FROM tmp_all_profiles;
+        SELECT wc_id, date FROM biologging.tmp_all_profiles;
 
     v_bin            text[];
     v_date           integer;
@@ -31,7 +31,7 @@ BEGIN
                          "bin.depth.7"::text, "bin.depth.8"::text, "bin.depth.9"::text,
                          "bin.depth.10"::text]
               into v_bin
-              from tmp_all_profiles
+              from biologging.tmp_all_profiles
              where wc_id  = v_row.wc_id
                and date   = v_row.date
              limit 1;
@@ -42,7 +42,7 @@ BEGIN
                          "bin.temperature.7"::text, "bin.temperature.8"::text, "bin.temperature.9"::text,
                          "bin.temperature.10"::text]
               into v_temperature
-              from tmp_all_profiles
+              from biologging.tmp_all_profiles
              where wc_id  = v_row.wc_id
                and date   = v_row.date
              limit 1;
@@ -53,7 +53,7 @@ BEGIN
                          "bin.discontinuity.7"::text, "bin.discontinuity.8"::text, "bin.discontinuity.9"::text,
                          "bin.discontinuity.10"::text]
               into v_discontinuity
-              from tmp_all_profiles
+              from biologging.tmp_all_profiles
              where wc_id  = v_row.wc_id
                and date   = v_row.date
              limit 1;
@@ -66,7 +66,7 @@ BEGIN
                    "gps_snapshot.latitude", "gps_snapshot.longitude", "gps_snapshot.residual",
                    "gps_snapshot.time_error", "gps_snapshot.satellites", "gps_snapshot.bad_satellites",
                    v_bin, v_temperature, v_discontinuity
-              from tmp_all_profiles
+              from biologging.tmp_all_profiles
              where wc_id     = v_row.wc_id
                and date      = v_row.date
              limit 1;

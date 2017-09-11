@@ -4,7 +4,7 @@ RETURNS integer AS $$
 DECLARE
     curs1 CURSOR FOR 
         SELECT wc_id, date, latitude, longitude
-          FROM tmp_all_locations;
+          FROM biologging.tmp_all_locations;
 
     v_date       integer;
     v_latitude   double precision;
@@ -28,7 +28,7 @@ BEGIN
         then
             insert into wc_all_locations
             select *
-              from tmp_all_locations
+              from biologging.tmp_all_locations
              where wc_id     = v_wc_id
                and date      = v_date
                and latitude  = v_latitude

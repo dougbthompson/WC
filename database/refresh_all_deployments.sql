@@ -2,7 +2,7 @@ CREATE OR REPLACE FUNCTION refresh_wc_all_deployments()
 RETURNS integer AS $$
 
 DECLARE
-    curs1 CURSOR FOR SELECT wc_id, last_update_date FROM tmp_all_deployments;
+    curs1 CURSOR FOR SELECT wc_id, last_update_date FROM biologging.tmp_all_deployments;
 
     v_last_update_date integer;
     v_wc_id            text;
@@ -22,7 +22,7 @@ BEGIN
         then
             insert into wc_all_deployments
             select *
-              from tmp_all_deployments
+              from biologging.tmp_all_deployments
              where wc_id            = v_wc_id
                and last_update_date = v_last_update_date
              limit 1;
