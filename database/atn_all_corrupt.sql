@@ -1,6 +1,6 @@
 
-drop table if exists atn_all_corrupt;
-create table atn_all_corrupt (
+drop table if exists biologging.atn_all_corrupt;
+create table biologging.atn_all_corrupt (
     id                  serial         primary key,
     deployid            integer              null,
     ptt                 integer              null,

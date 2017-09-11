@@ -1,6 +1,6 @@
 
-drop table if exists atn_all_argos;
-create table atn_all_argos (
+drop table if exists biologging.atn_all_argos;
+create table biologging.atn_all_argos (
     id               serial               primary key,
     deployid         integer              null,
     ptt              integer              null,
