@@ -1,6 +1,6 @@
 
 drop table if exists biologging.atn_all_histos;
-create table biologging.histos (
+create table biologging.atn_all_histos (
     id                serial         primary key,
     deployid          integer              null,
     ptt               integer              null,
