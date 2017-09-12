@@ -1,7 +1,7 @@
 
-drop table if exists biologging.atn_all_minmaxdepth;
-create table biologging.atn_all_minmaxdepth (
-    id                     serial         primary key,
+drop table if exists biologging.atn_all_rawargos;
+create table biologging.atn_all_rawargos (
+    id                     serial               primary key,
     program                integer              null,
     ptt                    integer              null,
     length                 integer              null,
@@ -10,8 +10,8 @@ create table biologging.atn_all_minmaxdepth (
     pass                   integer              null,
     pass_date              varchar(32)          null,
     pass_time              varchar(32)          null,
-    latitude               double precision     null,
-    longitude              double precision     null,
+    latitude1              double precision     null,
+    longitude1             double precision     null,
     comment                text                 null,
     frequency              integer              null,
     power                  double precision     null,

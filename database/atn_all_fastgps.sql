@@ -1,7 +1,7 @@
 
 drop table if exists biologging.atn_all_fastgps;
 create table biologging.atn_all_fastgps (
-    id             serial          primary key,
+    id             serial               primary key,
     name           varchar(32)          null,
     day            varchar(16)          null,
     time           varchar(16)          null,

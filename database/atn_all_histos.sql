@@ -1,12 +1,12 @@
 
 drop table if exists biologging.atn_all_histos;
 create table biologging.atn_all_histos (
-    id                serial         primary key,
+    id                serial               primary key,
     deployid          integer              null,
     ptt               integer              null,
-    depthsensor       varchar(32)          null,
+    depth_sensor      varchar(32)          null,
     source            varchar(32)          null,
-    instr             varchar(16)          null,
+    instrument        varchar(16)          null,
     histtype          varchar(16)          null,
     data_date         varchar(32)          null,
     time_offset       double precision     null,

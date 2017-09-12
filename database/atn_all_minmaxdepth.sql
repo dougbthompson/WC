@@ -1,11 +1,11 @@
 
 drop table if exists biologging.atn_all_minmaxdepth;
 create table biologging.atn_all_minmaxdepth (
-    id                serial         primary key,
+    id                serial               primary key,
     deployid          integer              null,
     ptt               integer              null,
     depthsensor       varchar(32)          null,
-    instr             varchar(16)          null,
+    instrument        varchar(16)          null,
     data_date         varchar(32)          null,
     location_quality  varchar(4)           null,
     latitude          double precision     null,

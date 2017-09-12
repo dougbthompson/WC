@@ -1,7 +1,7 @@
 
 drop table if exists biologging.atn_all_locations;
 create table biologging.atn_all_locations (
-    id                     serial         primary key,
+    id                     serial               primary key,
     deployid               integer              null,
     ptt                    integer              null,
     instr                  varchar(16)          null,
