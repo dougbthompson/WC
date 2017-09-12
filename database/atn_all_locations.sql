@@ -4,7 +4,7 @@ create table biologging.atn_all_locations (
     id                     serial               primary key,
     deployid               integer              null,
     ptt                    integer              null,
-    instr                  varchar(16)          null,
+    instrument             varchar(16)          null,
     data_date              varchar(32)          null,
     data_type              varchar(16)          null,
     date_quality           varchar(4)           null,

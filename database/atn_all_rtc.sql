@@ -4,7 +4,7 @@ create table biologging.atn_all_rtc (
     id               serial           primary key,
     deployid         integer          null,
     ptt              integer          null,
-    instr            varchar(16)      null,
+    instrument       varchar(16)      null,
     correction_type  varchar(16)      null,
     tag_date         varchar(32)      null,
     tag_time         varchar(32)      null,

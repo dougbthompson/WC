@@ -4,7 +4,7 @@ create table biologging.atn_all_haulout (
     id                serial               primary key,
     deployid          integer              null,
     ptt               integer              null,
-    instr             varchar(16)          null,
+    instrument        varchar(16)          null,
     data_id           integer              null,
     date_start        varchar(32)          null,
     date_end          varchar(32)          null,
