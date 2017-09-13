@@ -11,7 +11,9 @@ do
     echo "${DIR}"
     # for FILES in `ls ${DIR}/*.csv`
 
-    # deal with (potential) multiple FastGPS and Locations files
+    # deal with (potential) multiple FastGPS and Locations files, could be two, but only
+    # use the ##-######-#-FileType.csv instance
+
     for FILE_TYPE in `echo "FastGPS Locations"`
     do
         export RES="${FILES//[^-]}"
@@ -21,40 +23,63 @@ do
     # for FILE_TYPE in `echo "All Argos Corrupt HaulOut Histos Labels MinMaxDepth RawArgos RTC SST Status Summary"`
     for FILE_TYPE in `echo "RTC"`
     do
+        # there will be only 0 or 1 of each of these csv files
         for FILES in `ls ${DIR}/*${FILE_TYPE}.csv 2> /dev/null`
         do
             export LINES=`wc -l ${FILES} | cut -d' ' -f1 `
             export LINEX=`echo ${LINES} - 1 | bc -l`
 
-            tail -${LINEX} ${FILES} | sed -f get.sed > tmp_${FILE_TYPE}.bcp
+            tail -${LINEX} ${FILES} | sed -f get.sed > /tmp/data.bcp
 
             case ${FILE_TYPE} in 
             "All")
+                # copy atn_all (deployid, platform_id, program_id, latitude, longitude, location_quality, location_date, location_type, altitude, data_pass, satellite, mote_id, frequency, message_date, comp, message, greater_120db, best_level, delta_frequency, longitude1, latitude_sol1, longitude2, latitude_sol2, location_index, nopc, error_radius, error_semi_major_axis, error_semi_minor_axis, error_ellipse_orient, gdop, data_sensor) \
+                #      from '/tmp/data.bcp' with (delimiter '|');
                 ;;
             "Argos")
+                # copy atn_all_argos (deployid, ptt, instrument, record_type, message_count, duplicates, corrupt, interval_avg, interval_min, date, satellite, location_quality, latitude1, longitude1, latitude2, longitude2, iq, duration, frequency, power) \
+                #      from '/tmp/data.bcp' with (delimiter '|');
                 ;;
             "Corrupt")
+                # copy atn_all_corrupt (deployid, ptt, instrument, date, duplicates, satellite, location_quality, latitude, longitude, reason, possible_timestamp, possible_type, bytes) \
+                #      from '/tmp/data.bcp' with (delimiter '|');
                 ;;
             "Haulout")
+                # copy atn_all_haulout (deployid, ptt, instrument, data_id, date_start, date_end, duration, location_quality, latitude, longitude) \
+                #      from '/tmp/data.bcp' with (delimiter '|');
                 ;;
             "Histos")
+                # copy atn_all_histos (deployid, ptt, depth_sensor, source, instrument, histtype, data_date, time_offset, data_count, bad_therm, location_quality, latitude, longitude, numbins, data_sum, data_bin) \
+                #      from '/tmp/data.bcp' with (delimiter '|');
                 ;;
             "Labels")
+                # copy atn_all_labels (key, values) \
+                #      from '/tmp/data.bcp' with (delimiter '|');
                 ;;
             "MinMaxDepth")
+                # copy atn_all_minmaxdepth (deployid, ptt, depthsensor, instrument, data_date, location_quality, latitude, longitude, min_depth, min_accuracy, min_source, max_depth, max_accuracy, max_source) \
+                #      from '/tmp/data.bcp' with (delimiter '|');
                 ;;
             "RawArgos")
+                # copy atn_all_rawargos (program, ptt, length, satellite, data_class, pass, pass_date, pass_time, latitude1, longitude1, comment, frequency, power, iq, duplicates, message_date, message_time, latitude2, longitude2, duration, error_radius, error_semi_major_axis, error_semi_minor_axis, error_ellipse_orient, data_offset, offset_orient, data_sensor) \
+                #      from '/tmp/data.bcp' with (delimiter '|');
                 ;;
             "RTC")
                 echo "I am here in rtc..."
-                # copy atn_all_rtc (deployid,ptt,instr,correction_type,tag_date,tag_time,real_date,real_time) \
-                #      from '/home/dougt/wc/wc/data.all/tmp_RTC.bcp' with (delimiter '|');
+                # copy atn_all_rtc (deployid,ptt,instrument,correction_type,tag_date,tag_time,real_date,real_time) \
+                #      from '/tmp/data.bcp' with (delimiter '|');
                 ;;
             "SST")
+                # copy atn_all_sst (deployid, ptt, depth_sensor, instrument, data_date, location_quality, latitude, longitude, depth, temperature, data_source) \
+                #      from '/tmp/data.bcp' with (delimiter '|');
                 ;;
             "Status")
+                # copy atn_all_status (deployid, ptt, depth_sensor, instrument, sw, rtc, received, time_offset, location_quality, latitude, longitude, data_type, hauled_out, broken_thermistor, broken_link, transmits, battery_voltage, transmit_voltage, transmit_current, temperature, depth, max_depth, zero_depth_offset, light_level, no_dawn_dusk, release_type, release_time, initially_broken, burn_minutes, release_depth, fast_gps_power, twic_power, power_limit, wet_dry, wet_dry_min, wet_dry_max, wet_dry_threshold, status_word, transmit_power, resets, pre_rel_tilt, pre_rel_tilt_sd, pre_rel_tilt_count, xmit_queue, fast_gps_loc_number, fast_gps_failures, battery_disconnect) \
+                #      from '/tmp/data.bcp' with (delimiter '|');
                 ;;
             "Summarty")
+                # copy atn_all_summary (deployid, ptt, instrument, sw, percent_decoded, passes, percent_argos_loc, message_per_pass, ds, di, power_min, power_avg, power_max, min_interval, xmit_time_earliest, xmit_time_latest, xmit_days, data_time_earliest, data_time_latest, data_days, release_date, release_type, deploy_date) \
+                #      from '/tmp/data.bcp' with (delimiter '|');
                 ;;
             *)
                 echo "I am here in others..."
@@ -62,6 +87,7 @@ do
             esac
 
             echo "... ${FILES} "
+            # rm /tmp/data.bcp
         done
     done
 done
