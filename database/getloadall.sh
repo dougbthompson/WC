@@ -28,13 +28,45 @@ do
 
             tail -${LINEX} ${FILES} | sed -f get.sed > tmp_${FILE_TYPE}.bcp
 
+            case ${FILE_TYPE} in 
+            "All")
+                ;;
+            "Argos")
+                ;;
+            "Corrupt")
+                ;;
+            "Haulout")
+                ;;
+            "Histos")
+                ;;
+            "Labels")
+                ;;
+            "MinMaxDepth")
+                ;;
+            "RawArgos")
+                ;;
+            "RTC")
+                echo "I am here in rtc..."
+                # copy atn_all_rtc (deployid,ptt,instr,correction_type,tag_date,tag_time,real_date,real_time) \
+                #      from '/home/dougt/wc/wc/data.all/tmp_RTC.bcp' with (delimiter '|');
+                ;;
+            "SST")
+                ;;
+            "Status")
+                ;;
+            "Summarty")
+                ;;
+            *)
+                echo "I am here in others..."
+                ;;
+            esac
+
             echo "... ${FILES} "
         done
     done
 done
 exit
 
-copy atn_all_rtc (deployid,ptt,instr,correction_type,tag_date,tag_time,real_date,real_time) from '/home/dougt/wc/wc/data.all/tmp_RTC.bcp' with (delimiter '|');
 
 for FILES in `find . -name "*.csv" -print`
 do
