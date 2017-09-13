@@ -8,6 +8,8 @@
 ### The WC api retrieves all current data from the WC portal,
 ### data is loaded into tmp_* tables, which are then copied into
 ### the final destination tables.
+### All tables:
+#### atn_all_argos.sql
 
 ### refresh_all_deployment_profiles.sql
 ### refresh_all_deployments.sql
