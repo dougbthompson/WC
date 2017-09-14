@@ -2,6 +2,11 @@
 
 # ... 59735eb3efec720e0442affc/23-171376-1-FastGPS.csv - --- - 3 
 # ... 59735eb3efec720e0442affc/23-171376-1-Locations.csv - --- - 3 
+# psql -p 5433 -U dougt -w atndb -c "select 1;"
+#
+# select table_catalog,table_schema,table_name,column_name,ordinal_position,data_type
+#   from information_schema.columns
+#  where table_catalog = 'atndb' and table_schema = 'biologging' and table_name = 'atn_all';
 
 # cd /home/dougt/wc/wc/data.all
 
@@ -33,6 +38,7 @@ do
 
             case ${FILE_TYPE} in 
             "All")
+                # parse last xx values into ,"{1,2,3,4}" format into bcp file used for copy into
                 # copy atn_all (deployid, platform_id, program_id, latitude, longitude, location_quality, location_date, location_type, altitude, data_pass, satellite, mote_id, frequency, message_date, comp, message, greater_120db, best_level, delta_frequency, longitude1, latitude_sol1, longitude2, latitude_sol2, location_index, nopc, error_radius, error_semi_major_axis, error_semi_minor_axis, error_ellipse_orient, gdop, data_sensor) \
                 #      from '/tmp/data.bcp' with (delimiter '|', null '');
                 ;;
