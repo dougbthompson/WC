@@ -7,6 +7,8 @@
 # select table_catalog,table_schema,table_name,column_name,ordinal_position,data_type
 #   from information_schema.columns
 #  where table_catalog = 'atndb' and table_schema = 'biologging' and table_name = 'atn_all';
+#
+# psql -p 5433 -U dougt -w -A -q atndb -c "select column_name,ordinal_position,data_type from information_schema.columns where table_catalog = 'atndb' and table_schema = 'biologging' and table_name = 'atn_all';"
 
 # cd /home/dougt/wc/wc/data.all
 
