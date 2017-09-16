@@ -43,7 +43,9 @@ do
 # 28.57637,-80.65329,28.57637,50,3,143,358,57,90,269,121,156,117,231,68,240,24,185,124,133,56,42,50,27,25,166,248,209,202,39,57,138,197,52,149,96,33,,,,,
 #
 # FIRST = echo ${LINE} | cut -d',' -f1-30
+# echo ,"{
 # ARRAY = echo ${LINE} | cut -d',' -f31-
+# echo }"
 
             # before or after we need to create the array[] type value fields
             tail -${LINEX} ${FILES} | sed -f get.sed > /tmp/data_${FILE_TYPE}.bcp
