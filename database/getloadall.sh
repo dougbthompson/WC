@@ -18,6 +18,9 @@
 
 for DIR in `echo "596fcbcfefec720e04424f61"`
 do
+    export START_BRACKET=',"{'
+    export END_BRACKET='}"'
+
     echo "${DIR}"
     # for FILES in `ls ${DIR}/*.csv`
 
@@ -30,8 +33,8 @@ do
         export NUM=${#RES}
     done
 
-    for FILE_TYPE in `echo "All Argos Corrupt HaulOut Histos Labels MinMaxDepth RawArgos RTC SST Status Summary"`
-    # for FILE_TYPE in `echo "RTC"`
+    # for FILE_TYPE in `echo "All Argos Corrupt HaulOut Histos Labels MinMaxDepth RawArgos RTC SST Status Summary"`
+    for FILE_TYPE in `echo "All"`
     do
         # there will be only 0 or 1 of each of these csv files
         for FILES in `ls ${DIR}/*-${FILE_TYPE}.csv 2> /dev/null`
@@ -46,9 +49,24 @@ do
 # echo ,"{
 # ARRAY = echo ${LINE} | cut -d',' -f31-
 # echo }"
+            rm /tmp/data_${FILE_TYPE}.bcp
+            tail -${LINEX} ${FILES} | head | sed -f get1.sed > /tmp/data
+            while read LINE
+            do
+                export START=`echo ${LINE} | cut -d',' -f1-30`
+                export XARRAY=`echo ${LINE} | cut -d',' -f31- | sed -f get2.sed`
+
+                # echo "<${START_BRACKET}>"
+                # echo "<${START}>"
+                # echo "<${XARRAY}>"
+                # echo "<${END_BRACKET}>"
+                # echo "${START}${START_BRACKET}${XARRAY}${END_BRACKET}"
+
+                echo "${START}${START_BRACKET}${XARRAY}${END_BRACKET}" >> /tmp/data_${FILE_TYPE}.bcp
+            done < /tmp/data
 
             # before or after we need to create the array[] type value fields
-            tail -${LINEX} ${FILES} | sed -f get.sed > /tmp/data_${FILE_TYPE}.bcp
+            # tail -${LINEX} ${FILES} | sed -f get.sed > /tmp/data_${FILE_TYPE}.bcp
 
             case ${FILE_TYPE} in 
             "All")
