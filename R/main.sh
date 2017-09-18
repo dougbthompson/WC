@@ -23,6 +23,7 @@ ls -alR    >> /tmp/wc.dat
         BEGIN {
                 print "From: ray@stanford.edu"
                 print "To: dbt@stanford.edu"
+                print "Cc: doug.askaar@gmail.com"
                 print "Subject: WC '${DT}'"
                 print "MIME-Version: 1.0"
                 print "Content-Type: text/html; charset=us-ascii"

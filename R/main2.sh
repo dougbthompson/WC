@@ -12,8 +12,8 @@ do
     typeset -i INEW=${FNEW}
     typeset -i IOLD=${FOLD}
     if [ ${FNEW} != ${FOLD} ]; then
-        export FLAG="***"
-    elseif
+        export FLAG="---"
+    else
         export FLAG=""
     fi
 
