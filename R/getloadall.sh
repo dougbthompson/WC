@@ -1,9 +1,5 @@
 #!/bin/bash
 
-
-
-
-
 # ... 59735eb3efec720e0442affc/23-171376-1-FastGPS.csv - --- - 3 
 # ... 59735eb3efec720e0442affc/23-171376-1-Locations.csv - --- - 3 
 # psql -p 5433 -U dougt -w atndb -c "select 1;"
