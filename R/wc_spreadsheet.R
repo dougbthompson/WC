@@ -13,7 +13,7 @@ wc_spreadsheet = function(id, db_connection) {
   zip_contents  <- response$content
 
   # zip_temp_dir <- tempdir()
-  zip_temp_dir = paste0('/home/dougt/wc/wc/data.all/')
+  zip_temp_dir = paste0('/home/dougt/wc/wc/data.all.20170920/')
   ## system (paste0('cd ', zip_temp_dir))
   system (paste0('cd ', zip_temp_dir, '; mkdir ', id, '; cd ', id))
 
