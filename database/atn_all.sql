@@ -1,0 +1,40 @@
+
+drop table if exists biologging.atn_all;
+create table biologging.atn_all(
+    id                     serial         primary key,
+    deployid               integer              null,
+    platform_id            integer              null,
+    program_id             integer              null,
+    latitude               double precision     null,
+    longitude              double precision     null,
+    location_quality       varchar(4)           null,
+    location_date          varchar(32)          null,
+    location_type          varchar(16)          null,
+    altitude               integer              null,
+    data_pass              integer              null,
+    satellite              varchar(8)           null,
+    mote_id                varchar(32)          null,
+    frequency              double precision     null,
+    message_date           varchar(32)          null,
+    comp                   integer              null,
+    message                varchar(32)          null,
+    greater_120db          varchar(32)          null,
+    best_level             double precision     null,
+    delta_frequency        double precision     null,
+    longitude1             double precision     null,
+    latitude_sol1          double precision     null,
+    longitude2             double precision     null,
+    latitude_sol2          double precision     null,
+    location_index         integer              null,
+    nopc                   integer              null,
+    error_radius           integer              null,
+    error_semi_major_axis  integer              null,
+    error_semi_minor_axis  integer              null,
+    error_ellipse_orient   integer              null,
+    gdop                   integer              null,
+    data_sensor            integer[]            null
+);
+
+"DeployID","Platform ID No.","Prg No.","Latitude","Longitude","Loc. quality","Loc. date"        ,"Loc. type","Altitude","Pass","Sat.","Mote Id","Frequency" ,"Msg Date"         ,"Comp.","Msg","> - 120 DB","Best level","Delta freq.","Long. 1","Lat. sol. 1","Long. 2","Lat. sol. 2","Loc. idx","Nopc","Error radius","Semi-major axis","Semi-minor axis","Ellipse orientation","GDOP","SENSOR #01",
+
+8         ,171361           ,6305     ,28.57637  ,-80.65329  ,3             ,07/19/2017 20:45:34,Argos      ,0         ,540   ,NP    ,         ,401677374.77,07/19/2017 20:46:42,1      ,5    ,0           ,-122        ,401677374.77 ,-80.65329,28.57637     ,-80.65329,28.57637     ,50        ,3     ,143           ,358              ,57               ,90                   ,269   ,121         ,156,117,231,68,240,24,185,124,133,56,42,50,27,25,166,248,209,202,39,57,138,197,52,149,96,33,,,,,

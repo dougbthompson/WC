@@ -10,8 +10,8 @@ create table biologging.atn_all_haulout (
     date_end          varchar(32)          null,
     duration          varchar(32)          null,
     location_quality  varchar(4)           null,
-    latitude          double precision     null,
-    longitude         double precision     null
+    latitude          double precision     null default 0.0,
+    longitude         double precision     null default 0.0
 );
 
 DeployID,Ptt   ,Instr,Id,Start               ,End,Duration,LocationQuality,Latitude,Longitude
