@@ -16,12 +16,11 @@ wc_spreadsheet = function(wc_id, db_connection) {
 
   # zip_temp_dir <- tempdir()
   zip_temp_dir = paste0('/home/dougt/wc/wc/data.all.20170920/')
-  ## system (paste0('cd ', zip_temp_dir))
   system (paste0('cd ', zip_temp_dir, '; mkdir ', wc_id, '; cd ', wc_id))
 
   # new lower nested temp directory (the wc_id)
-  zip_temp_dir <- paste0(zip_temp_dir, wc_id, '/')
-  zip_file_name <- paste0(zip_temp_dir, wc_id, '.zip')
+  zip_temp_dir <- paste0(zip_temp_dir, wc_id)
+  zip_file_name <- paste0(zip_temp_dir, '/', wc_id, '.zip')
 
   zip_fd <- file(zip_file_name, 'wb')
   writeBin (zip_contents, zip_fd)
@@ -33,15 +32,15 @@ wc_spreadsheet = function(wc_id, db_connection) {
   # do something with *.kmz and .prv files
 
   # check for multiple *FastGPS.csv and *Locations.csv files
-  # fastgps has blank lines at the top, eliminate them (hmmm or use them to generate (v1, v2, v3, ..., v98)
+  # fastgps has blank lines at the top, eliminate them
   fas <- dir(zip_temp_dir, '*FastGPS.csv', full.names=T)
   if (length(fas) == 2) {
     idx <- match(fas[1], csv_filename) 
     system (paste0('rm -f ',csv_filename[idx]))
     csv_filename[idx]=NA
 
-    # duplicate column names!
-    # so, let R generate table column names (v1, v2, ..., v98)
+    # duplicate column names! so, strip off the first three ",,,"
+    # down below we strip off the column names line...
 
     cmd <- paste0('mv ',fas[2],' tmp ; cat tmp | awk \'{if(NR>3)print}\' > ',fas[2])
   } else {
@@ -59,6 +58,7 @@ wc_spreadsheet = function(wc_id, db_connection) {
   # clear out any duplicates, if there are any
   csv_filename <- csv_filename[!is.na(csv_filename)]
 
+  # remove the first line, the column names line, let R generate (v1, v2, v3, ..., v99)
   for (name in csv_filename) {
     cmd <- paste0('mv ',name,' tmp ; cat tmp | awk \'{if(NR>1)print}\' > ',name)
     system (cmd)
