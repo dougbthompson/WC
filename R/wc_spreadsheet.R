@@ -8,6 +8,8 @@ source ('wc_functions.R')
 
 wc_spreadsheet = function(wc_id, db_connection) {
 
+  res <- dbGetQuery(db_connection, "set search_path = biologging, public, aatams, postgis")
+
   request <- paste0('action=download_deployment&id=', wc_id)
   response <- fetch_wc_raw(request)
   zip_contents  <- response$content
@@ -38,6 +40,10 @@ wc_spreadsheet = function(wc_id, db_connection) {
   if (length(loc) == 2) { idx <- match(loc[1], csv_filename) }
   csv_filename[idx]=NA
 
+  # fastgps has blank lines at the top, eliminate them
+  # fas <- dir(zip_temp_dir, '*FastGPS.csv', full.names=T)
+  # system (paste0(''))
+
   csv_filename <- csv_filename[!is.na(csv_filename)]
 
   table_names <- tolower(sub('.csv','',sub('.*-','',csv_filename)))
@@ -55,7 +61,7 @@ wc_spreadsheet = function(wc_id, db_connection) {
   for (name in table_names)  {
     print (paste(wc_id, name))
     df <- df_list[[name]]
-    dbWriteTable (conn=db_connection, name=paste0('wc_test_', name), append=F, row.names=F, value=df)
+    dbWriteTable (conn=db_connection, name=paste0('wc_zip_', name), append=F, row.names=F, value=df)
   }
 }
 
