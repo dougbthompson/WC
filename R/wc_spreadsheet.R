@@ -29,7 +29,6 @@ wc_spreadsheet = function(wc_id, db_connection) {
 
   system (paste0('cd ', zip_temp_dir, '; unzip -o ', zip_file_name))
   csv_filename <- dir(zip_temp_dir, '*.csv', full.names=T)
-  csv_files    <- dir(zip_temp_dir, '*.csv', full.names=F)
 
   # do something with *.kmz and .prv files
 
@@ -38,25 +37,32 @@ wc_spreadsheet = function(wc_id, db_connection) {
   fas <- dir(zip_temp_dir, '*FastGPS.csv', full.names=T)
   if (length(fas) == 2) {
     idx <- match(fas[1], csv_filename) 
+    system (paste0('rm -f ',csv_filename[idx]))
     csv_filename[idx]=NA
 
     # duplicate column names!
     # so, let R generate table column names (v1, v2, ..., v98)
 
-    cmd <- paste0('mv ',fas[2],' tmp ; cat tmp | awk \'{if(NR>4)print}\' > ',fas[2])
+    cmd <- paste0('mv ',fas[2],' tmp ; cat tmp | awk \'{if(NR>3)print}\' > ',fas[2])
   } else {
-    cmd <- paste0('mv ',fas[1],' tmp ; cat tmp | awk \'{if(NR>4)print}\' > ',fas[1])
+    cmd <- paste0('mv ',fas[1],' tmp ; cat tmp | awk \'{if(NR>3)print}\' > ',fas[1])
   }
   system (cmd) # tail -n +4
 
   loc <- dir(zip_temp_dir, '*Locations.csv', full.names=T)
   if (length(loc) == 2) {
     idx <- match(loc[1], csv_filename)
+    system (paste0('rm -f ',csv_filename[idx]))
     csv_filename[idx]=NA
   }
 
   # clear out any duplicates, if there are any
   csv_filename <- csv_filename[!is.na(csv_filename)]
+
+  for (name in csv_filename) {
+    cmd <- paste0('mv ',name,' tmp ; cat tmp | awk \'{if(NR>1)print}\' > ',name)
+    system (cmd)
+  }
 
   table_names <- tolower(sub('.csv','',sub('.*-','',csv_filename)))
   df_list <- alply(.data=as.array(csv_filename), .margins=1, .fun=function(csv_filename) {
