@@ -46,7 +46,7 @@ wc_spreadsheet = function(wc_id, db_connection) {
   } else {
     cmd <- paste0('mv ',fas[1],' tmp ; cat tmp | awk \'{if(NR>3)print}\' > ',fas[1])
   }
-  system (cmd) # tail -n +4
+  system (cmd)
 
   loc <- dir(zip_temp_dir, '*Locations.csv', full.names=T)
   if (length(loc) == 2) {
