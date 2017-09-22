@@ -14,6 +14,7 @@ app_db_connection_open = function(app_db) {
                         user      = app_db@user_name,
                         password  = app_db@password)
 
+  res <- dbGetQuery(app_db_connection, "set search_path = biologging, public, aatams, postgis")
   return (app_db_connection)
 }
 

@@ -15,7 +15,7 @@ wc_spreadsheet = function(wc_id, db_connection) {
   zip_contents  <- response$content
 
   # zip_temp_dir <- tempdir()
-  zip_temp_dir = paste0('/home/dougt/wc/wc/data.all.20170920/')
+  zip_temp_dir = paste0('/home/dougt/wc/wc/data.all/')
   system (paste0('cd ', zip_temp_dir, '; mkdir ', wc_id, '; cd ', wc_id))
 
   # new lower nested temp directory (the wc_id)

@@ -24,7 +24,7 @@ main = function() {
     source ('app_functions.R')
 
     source ('app_db_functions.R')
-    app_db_truncate (db_connection)
+    # app_db_truncate (db_connection)
 
     all_deployments <- fetch_all_deployments()
     pg_all_deployments <- sqldf("select * from all_deployments", drv="SQLite")

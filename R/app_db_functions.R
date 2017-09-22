@@ -7,10 +7,10 @@
 
 app_db_truncate = function(db_connection) {
 
-    dbSendQuery(db_connection, "truncate biologging.tmp_all_deployments;")
-    dbSendQuery(db_connection, "truncate biologging.tmp_all_locations;")
-    dbSendQuery(db_connection, "truncate biologging.tmp_all_deployment_profiles;")
-    dbSendQuery(db_connection, "truncate biologging.tmp_all_profiles;")
+    dbSendQuery(db_connection, "truncate tmp_all_deployments;")
+    dbSendQuery(db_connection, "truncate tmp_all_locations;")
+    dbSendQuery(db_connection, "truncate tmp_all_deployment_profiles;")
+    dbSendQuery(db_connection, "truncate tmp_all_profiles;")
 }
 
 app_db_refresh = function(db_connection) {
