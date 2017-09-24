@@ -1,7 +1,7 @@
 
 CREATE OR REPLACE FUNCTION refresh_wc_atn_all_fastgps()
 RETURNS integer AS $$
-
+  
 DECLARE
     curs1 CURSOR FOR
     SELECT wc_id, v1, v2, v3, v12 FROM biologging.wc_zip_fastgps;
