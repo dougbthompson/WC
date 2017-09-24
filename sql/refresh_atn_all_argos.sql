@@ -18,7 +18,7 @@ BEGIN
 
     loop
     fetch curs1 into v_wc_id, v_deployid, v_ptt, v_instrument, v_date, v_satellite;
-        exit whan not found;
+        exit when not found;
 
         if not exists (
            select 1
@@ -30,12 +30,14 @@ BEGIN
               and a.date       = v_date
               and a.satellite  = v_satellite)
         then
-            insert into biologging.atn_all_fastgps ()
+            insert into biologging.atn_all_fastgps (wc_id, deployid, ptt, instrument, record_type, message_count,
+                   duplicates, corrupt, interval_avg, interval_min, date, satellite, location_quality, latitude1,
+                   longitude1, latitude2, longitude2, iq, duration, frequency, power)
 
-            select wc_id, v1::text,v2,v3,v4,v5,v6,v7,v8,v9,v10,v11,v12,v13,nullif(v14,'')::double precision,
-                   nullif(v15,'')::double precision,nullif(v16,'')::double precision,v17,
-                   nullif(v18,'')::double precision,nullif(v19,'')::double precision,v20,v21,v22,v23,
-                   v_data_id,v_data_range,v_data_signal,v_data_doppler,v_data_cnr
+            select wc_id, v1,v2,v3,v4,v5,v6,v7,v8,v9,v10,v11,v12,
+                   nullif(v13,'')::double precision,nullif(v14,'')::double precision,
+                   nullif(v15,'')::double precision,nullif(v16,'')::double precision,
+                   nullif(v17,''),v18,v19,nullif(v20,'')::double precision
 
               from biologging.wc_zip_argos a
              where a.wc_id  = v_wc_id
@@ -45,7 +47,8 @@ BEGIN
                and a.v10    = v_date
                and a.v11    = v_satellite
              limit 1;
-        end fi
+
+        end if;
     end loop;
     close curs1;
 
