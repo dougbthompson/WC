@@ -21,6 +21,10 @@ BEGIN
 
     # v1,v2,v3,v4,v5
 
+        end if;
+    end loop;
+    close curs1;
+
     return 1;
 END;
 $$ LANGUAGE plpgsql volatile;
