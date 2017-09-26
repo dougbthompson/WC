@@ -69,7 +69,7 @@ BEGIN
                and a.source        = v_source
                and a.instrument    = v_instrument
                and a.histtype      = v_histtype
-               and a.data_date     = v_data_date)
+               and a.data_date     = v_data_date
              limit 1;
 
             insert into biologging.atn_all_histos (wc_id, deployid, ptt, depth_sensor, source, instrument, 
@@ -77,7 +77,7 @@ BEGIN
                    longitude, numbins, data_sum, data_bin)
 
             select wc_id, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, 
-                   nullif(v12,,'')::double precision, nullif(v13,'')::double precision,
+                   nullif(v12,'')::double precision, nullif(v13,'')::double precision,
                    v14, v15, v_data_bins
 
               from biologging.wc_zip_histos a
