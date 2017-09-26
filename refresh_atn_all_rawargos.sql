@@ -32,7 +32,14 @@ BEGIN
               and a.message_time = v_message_time)
         then
             select array[
-                   ]
+                   nullif(v27,'')::integer, nullif(v28,'')::integer, nullif(v29,'')::integer, nullif(v30,'')::integer,
+                   nullif(v31,'')::integer, nullif(v32,'')::integer, nullif(v33,'')::integer, nullif(v34,'')::integer,
+                   nullif(v35,'')::integer, nullif(v36,'')::integer, nullif(v37,'')::integer, nullif(v38,'')::integer,
+                   nullif(v39,'')::integer, nullif(v40,'')::integer, nullif(v41,'')::integer, nullif(v42,'')::integer,
+                   nullif(v43,'')::integer, nullif(v44,'')::integer, nullif(v45,'')::integer, nullif(v46,'')::integer,
+                   nullif(v47,'')::integer, nullif(v48,'')::integer, nullif(v49,'')::integer, nullif(v50,'')::integer,
+                   nullif(v51,'')::integer, nullif(v52,'')::integer, nullif(v53,'')::integer, nullif(v54,'')::integer,
+                   nullif(v55,'')::integer, nullif(v56,'')::integer, nullif(v57,'')::integer, nullif(v58,'')::integer ]
               into v_data_sensor
               from biologging.wc_zip_rawargos a
              where a.wc_id  = v_wc_id
