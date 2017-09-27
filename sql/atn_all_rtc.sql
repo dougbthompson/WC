@@ -16,5 +16,5 @@ create table biologging.atn_all_rtc (
 alter table biologging.atn_all_rtc owner to postgres;
 
 create unique index ix01_atn_all_rtc on biologging.atn_all_rtc
-       ();
+       (wc_id, deployid, ptt, instrument, correction_type, tag_date, tag_time);
 

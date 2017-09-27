@@ -55,5 +55,5 @@ create table biologging.atn_all_status (
 alter table biologging.atn_all_status owner to postgres;
 
 create unique index ix01_atn_all_status on biologging.atn_all_status
-       ();
+       (wc_id, deployid, ptt, instrument, received, time_offset);
 
