@@ -3,7 +3,7 @@ drop table if exists biologging.atn_all_histos;
 create table biologging.atn_all_histos (
     idx               serial               primary key,
     wc_id             varchar(64)          null,
-    deployid          integer              null,
+    deployid          text                 null,
     ptt               integer              null,
     depth_sensor      varchar(32)          null,
     source            varchar(32)          null,
@@ -17,7 +17,7 @@ create table biologging.atn_all_histos (
     latitude          double precision     null,
     longitude         double precision     null,
     numbins           integer              null,
-    data_sum          integer              null,
+    data_sum          double precision     null,
 
     data_bin          double precision[]   null
 );

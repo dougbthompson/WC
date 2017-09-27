@@ -3,7 +3,7 @@ drop table if exists biologging.atn_all_rawargos;
 create table biologging.atn_all_rawargos (
     idx                    serial               primary key,
     wc_id                  varchar(64)          null,
-    program                integer              null,
+    program                text                 null,
     ptt                    integer              null,
     length                 integer              null,
     satellite              varchar(16)          null,

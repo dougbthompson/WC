@@ -3,7 +3,7 @@ drop table if exists biologging.atn_all_corrupt;
 create table biologging.atn_all_corrupt (
     idx                 serial               primary key,
     wc_id               varchar(64)          null,
-    deployid            integer              null,
+    deployid            text                 null,
     ptt                 integer              null,
     instrument          varchar(8)           null,
     date                varchar(32)          null,

@@ -3,7 +3,7 @@ drop table if exists biologging.atn_all_sst;
 create table biologging.atn_all_sst (
     idx               serial               primary key,
     wc_id             varchar(64)          null,
-    deployid          integer              null,
+    deployid          text                 null,
     ptt               integer              null,
     depth_sensor      varchar(32)          null,
     instrument        varchar(16)          null,
