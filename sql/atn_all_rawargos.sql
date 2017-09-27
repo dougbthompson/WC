@@ -35,3 +35,6 @@ create table biologging.atn_all_rawargos (
 
 alter table biologging.atn_all_rawargos owner to postgres;
 
+create unique index ix01_atn_all_rawargos on biologging.atn_all_rawargos
+       (wc_id, program, ptt, satellite, message_date, message_time);
+

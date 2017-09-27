@@ -38,3 +38,6 @@ create table biologging.atn_all(
 
 alter table biologging.atn_all owner to postgres;
 
+create unique index ix01_atn_all on biologging.atn_all
+       (wc_id, deployid, platform_id, program_id, location_date, satellite, message_date);
+

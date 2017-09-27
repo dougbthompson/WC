@@ -25,3 +25,6 @@ create table biologging.atn_all_locations (
 
 alter table biologging.atn_all_locations owner to postgres;
 
+create unique index ix01_atn_all_locations on biologging.atn_all_locations
+       (wc_id, deployid, ptt, instrument, data_date, data_type, data_quality);
+

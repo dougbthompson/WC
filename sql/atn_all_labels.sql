@@ -9,3 +9,5 @@ create table biologging.atn_all_labels (
 
 alter table biologging.atn_all_labels owner to postgres;
 
+create unique index ix01_atn_all_labels on biologging.atn_all_labels (wc_id, key);
+

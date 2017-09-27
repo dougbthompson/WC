@@ -30,3 +30,6 @@ create table biologging.atn_all_summary (
 
 alter table biologging.atn_all_summary owner to postgres;
 
+create unique index ix01_atn_all_summary on biologging.atn_all_summary
+       ();
+

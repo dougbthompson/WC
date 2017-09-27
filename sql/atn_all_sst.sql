@@ -18,3 +18,6 @@ create table biologging.atn_all_sst (
 
 alter table biologging.atn_all_sst owner to postgres;
 
+create unique index ix01_atn_all_sst on biologging.atn_all_sst
+       ();
+

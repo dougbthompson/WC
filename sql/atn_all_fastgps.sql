@@ -36,3 +36,6 @@ create table biologging.atn_all_fastgps (
 
 alter table biologging.atn_all_fastgps owner to postgres;
 
+create unique index ix01_atn_all_fastgps on biologging.atn_all_fastgps
+       (wc_id, name, day, time, inittime);
+

@@ -24,3 +24,6 @@ create table biologging.atn_all_histos (
 
 alter table biologging.atn_all_histos owner to postgres;
 
+create unique index ix01_atn_all_histos on biologging.atn_all_histos
+       (wc_id, deployid, ptt, depth_sensor, source, instrument, histtype, data_date);
+

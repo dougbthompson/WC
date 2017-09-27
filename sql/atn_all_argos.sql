@@ -27,3 +27,6 @@ create table biologging.atn_all_argos (
 
 alter table biologging.atn_all_argos owner to postgres;
 
+create unique index ix01_atn_all_argos on biologging.atn_all_argos
+       (wc_id, deployid, ptt, instrument, date, satellite);
+

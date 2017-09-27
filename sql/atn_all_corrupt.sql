@@ -20,3 +20,6 @@ create table biologging.atn_all_corrupt (
 
 alter table biologging.atn_all_corrupt owner to postgres;
 
+create unique index ix01_atn_all_corrupt on biologging.atn_all_corrupt
+       (wc_id, deployid, ptt, instrument, date, satellite, reason);
+

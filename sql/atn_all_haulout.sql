@@ -17,3 +17,6 @@ create table biologging.atn_all_haulout (
 
 alter table biologging.atn_all_haulout owner to postgres;
 
+create unique index ix01_atn_all_haulout on biologging.atn_all_haulout
+       (wc_id, deployid, ptt, instrument, data_id, date_start);
+

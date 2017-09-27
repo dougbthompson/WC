@@ -21,3 +21,6 @@ create table biologging.atn_all_minmaxdepth (
 
 alter table biologging.atn_all_minmaxdepth owner to postgres;
 
+create unique index ix01_atn_all_minmaxdepth on biologging.atn_all_minmaxdepth
+       (wc_id, deployid, ptt, depth_sensor, instrument, data_date);
+
