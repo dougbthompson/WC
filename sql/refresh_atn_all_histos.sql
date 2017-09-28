@@ -100,3 +100,12 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql volatile;
 
+
+atndb=# alter table wc_zip_histos alter v8 set data type text;
+atndb=# alter table wc_zip_histos alter v9 set data type text;
+atndb=# alter table wc_zip_histos alter v10 set data type text;
+atndb=# alter table wc_zip_histos alter v14 set data type text;
+atndb=# alter table wc_zip_histos alter v15 set data type text;
+atndb=# alter table wc_zip_histos alter v26 set data type text;
+atndb=# alter table wc_zip_histos alter v27 set data type text;
+
