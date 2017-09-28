@@ -1,5 +1,5 @@
 
-CREATE OR REPLACE FUNCTION refresh_wc_atn_all_sst()
+CREATE OR REPLACE FUNCTION refresh_atn_all_sst()
 RETURNS integer AS $$
   
 DECLARE

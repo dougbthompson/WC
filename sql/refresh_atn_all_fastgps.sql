@@ -1,5 +1,5 @@
 
-CREATE OR REPLACE FUNCTION refresh_wc_atn_all_fastgps()
+CREATE OR REPLACE FUNCTION refresh_atn_all_fastgps()
 RETURNS integer AS $$
   
 DECLARE

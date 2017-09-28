@@ -1,5 +1,5 @@
 
-CREATE OR REPLACE FUNCTION refresh_wc_atn_all_minmaxdepth()
+CREATE OR REPLACE FUNCTION refresh_atn_all_minmaxdepth()
 RETURNS integer AS $$
   
 DECLARE

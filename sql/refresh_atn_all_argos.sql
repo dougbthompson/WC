@@ -1,5 +1,5 @@
 
-CREATE OR REPLACE FUNCTION refresh_wc_atn_all_argos()
+CREATE OR REPLACE FUNCTION refresh_atn_all_argos()
 RETURNS integer AS $$
   
 DECLARE

@@ -1,5 +1,5 @@
 
-CREATE OR REPLACE FUNCTION refresh_wc_atn_all_histos()
+CREATE OR REPLACE FUNCTION refresh_atn_all_histos()
 RETURNS integer AS $$
   
 DECLARE
