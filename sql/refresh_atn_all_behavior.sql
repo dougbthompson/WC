@@ -11,12 +11,12 @@ DECLARE
     v_ptt           integer;
     v_instrument    text;
     v_date_start    text;
-    v_date_ends     text;
+    v_date_end      text;
 
 BEGIN
     open curs1;
     loop
-    fetch curs1 into v_wc_id, v_deployid, v_ptt, v_instrument, v_date_start, v_date_ends;
+    fetch curs1 into v_wc_id, v_deployid, v_ptt, v_instrument, v_date_start, v_date_end;
         exit when not found;
 
         if not exists (
@@ -44,7 +44,7 @@ BEGIN
                and a.v2     = v_ptt
                and a.v5     = v_instrument
                and a.v7     = v_date_start
-               and a.v8     = v_date_ends
+               and a.v8     = v_date_end
              limit 1;
 
         end if;

@@ -26,7 +26,7 @@ BEGIN
             select 1
               from biologging.atn_all a
              where a.wc_id            = v_wc_id
-               and a.deployid         = v_deployid::integer
+               and a.deployid         = v_deployid
                and a.platform_id      = v_platform_id
                and a.program_id       = v_program_id
                and a.location_date    = v_location_date
@@ -63,7 +63,7 @@ BEGIN
                    best_level, delta_frequency, longitude1, latitude_sol1, longitude2, latitude_sol2, location_index, nopc, 
                    error_radius, error_semi_major_axis, error_semi_minor_axis, error_ellipse_orient, gdop, data_sensor, wc_id)
 
-            select nullif(v1,'')::integer,v2,v3,nullif(v4,'')::double precision,nullif(v5,'')::double precision,nullif(v6,''),
+            select nullif(v1,''),v2,v3,nullif(v4,'')::double precision,nullif(v5,'')::double precision,nullif(v6,''),
                    v7,nullif(v8,''),nullif(v9,'')::integer,v10,nullif(v11,''),nullif(v12,''),v13,nullif(v14,''),v15,
                    v16,nullif(v17,''),nullif(v18,'')::double precision,v19,nullif(v20,'')::double precision,nullif(v21,'')::double precision,
                    nullif(v22,'')::double precision,nullif(v23,'')::double precision,nullif(v24,'')::integer,nullif(v25,'')::integer,
