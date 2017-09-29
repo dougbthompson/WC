@@ -11,29 +11,29 @@ wc_db_truncate = function(db_connection) {
 
     dbExecute(db_connection, "set search_path = biologging, public, aatams, postgis")
 
+  # ok, so why doesn't this work?
   # for (table_name in zip_table_names) {
   #     truncate_sql <- paste0('delete from biologging.',table_name,';');
-  #     print (truncate_sql)
   #     dbExecute(db_connection, truncate_sql)
   # }
 
-    dbExecute (db_connection, "delete from wc_zip_all;")
-    dbExecute (db_connection, "delete from wc_zip_argos;")
-    dbExecute (db_connection, "delete from wc_zip_behavior;")
-    dbExecute (db_connection, "delete from wc_zip_corrupt;")
-    dbExecute (db_connection, "delete from wc_zip_fastgps;")
-    dbExecute (db_connection, "delete from wc_zip_haulout;")
-    dbExecute (db_connection, "delete from wc_zip_histos;")
-    dbExecute (db_connection, "delete from wc_zip_labels;")
-    dbExecute (db_connection, "delete from wc_zip_locations;")
-    dbExecute (db_connection, "delete from wc_zip_minmaxdepth;")
-    dbExecute (db_connection, "delete from wc_zip_rawargos;")
-    dbExecute (db_connection, "delete from wc_zip_rtc;")
-    dbExecute (db_connection, "delete from wc_zip_series;")
-    dbExecute (db_connection, "delete from wc_zip_seriesrange;")
-    dbExecute (db_connection, "delete from wc_zip_sst;")
-    dbExecute (db_connection, "delete from wc_zip_status;")
-    dbExecute (db_connection, "delete from wc_zip_summary;")
+    dbExecute (db_connection, "truncate table wc_zip_all;")
+    dbExecute (db_connection, "truncate table wc_zip_argos;")
+    dbExecute (db_connection, "truncate table wc_zip_behavior;")
+    dbExecute (db_connection, "truncate table wc_zip_corrupt;")
+    dbExecute (db_connection, "truncate table wc_zip_fastgps;")
+    dbExecute (db_connection, "truncate table wc_zip_haulout;")
+    dbExecute (db_connection, "truncate table wc_zip_histos;")
+    dbExecute (db_connection, "truncate table wc_zip_labels;")
+    dbExecute (db_connection, "truncate table wc_zip_locations;")
+    dbExecute (db_connection, "truncate table wc_zip_minmaxdepth;")
+    dbExecute (db_connection, "truncate table wc_zip_rawargos;")
+    dbExecute (db_connection, "truncate table wc_zip_rtc;")
+    dbExecute (db_connection, "truncate table wc_zip_series;")
+    dbExecute (db_connection, "truncate table wc_zip_seriesrange;")
+    dbExecute (db_connection, "truncate table wc_zip_sst;")
+    dbExecute (db_connection, "truncate table wc_zip_status;")
+    dbExecute (db_connection, "truncate table wc_zip_summary;")
 }
 
 wc_db_refresh = function(db_connection) {

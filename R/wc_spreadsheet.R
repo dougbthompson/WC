@@ -5,9 +5,11 @@ library(plyr)
 library(RPostgreSQL)
 
 source ('wc_functions.R')
+source ('wc_db_functions.R')
 
 wc_spreadsheet = function(wc_id, db_connection) {
 
+  wc_db_truncate(db_connection)
   res <- dbGetQuery(db_connection, "set search_path = biologging, public, aatams, postgis")
 
   request <- paste0('action=download_deployment&id=', wc_id)
@@ -31,22 +33,56 @@ wc_spreadsheet = function(wc_id, db_connection) {
 
   # do something with *.kmz and .prv files
 
+  # RawArgos may have junk for the last 4 lines?
+  raw <- dir(zip_temp_dir, '*RawArgos.csv', full.names=T)
+  if (length(raw) > 0) {
+    cmd1 <- paste0('mv ',raw[1],' tmp')
+    system (cmd1)
+    numlines <- length(readLines('tmp')) - 4
+    cmd2 <- paste0('head -',numlines,' tmp > ',raw[1],'; rm tmp')
+    system (cmd2)
+  }
+
+  # behavior csv can have multiple groups of columns ... leave for the time being
+  beh <- dir(zip_temp_dir, '*Behavior.csv', full.names=T)
+  if (length(beh) > 0) {
+    idx <- match(beh[1], csv_filename)
+    csv_filename[idx]=NA
+  }
+
   # check for multiple *FastGPS.csv and *Locations.csv files
   # fastgps has blank lines at the top, eliminate them
   fas <- dir(zip_temp_dir, '*FastGPS.csv', full.names=T)
+  # print (fas)
   if (length(fas) == 2) {
-    idx <- match(fas[1], csv_filename) 
+    cnt1 <- lengths(regmatches(fas[1], gregexpr("-", fas[1])))
+    cnt2 <- lengths(regmatches(fas[2], gregexpr("-", fas[2])))
+
+    if (cnt1 == 3) {
+      which_fas <- fas[1]
+      which_to_delete <- fas[2]
+    } else {
+      which_fas <- fas[2]
+      which_to_delete <- fas[1]
+    }
+
+    idx <- match(which_to_delete, csv_filename) 
     system (paste0('rm -f ',csv_filename[idx]))
     csv_filename[idx]=NA
 
     # duplicate column names! so, strip off the first three ",,,"
     # down below we strip off the column names line...
 
-    cmd <- paste0('mv ',fas[2],' tmp ; cat tmp | awk \'{if(NR>3)print}\' > ',fas[2])
-  } else {
+    cmd <- paste0('mv ',which_fas,' tmp ; cat tmp | awk \'{if(NR>3)print}\' > ',which_fas)
+    system (cmd)
+  } 
+
+  if (length(fas) == 0) {
+    abc <- 'abc'
+  } else { # length(fas) = 1
     cmd <- paste0('mv ',fas[1],' tmp ; cat tmp | awk \'{if(NR>3)print}\' > ',fas[1])
+    system (cmd)
   }
-  system (cmd)
 
   loc <- dir(zip_temp_dir, '*Locations.csv', full.names=T)
   if (length(loc) == 2) {
@@ -79,7 +115,8 @@ wc_spreadsheet = function(wc_id, db_connection) {
   for (name in table_names)  {
     print (paste(wc_id, name))
     df <- df_list[[name]]
-    dbWriteTable (conn=db_connection, name=paste0('wc_zip_', name), append=F, row.names=F, value=df)
+    dbWriteTable (conn=db_connection, name=paste0('wc_zip_', name), append=T, row.names=F, value=df)
+    dbGetQuery(db_connection, paste0('select refresh_atn_all_',name,'();'))
   }
 }
 
