@@ -4,7 +4,7 @@
 ### Copyright 2017 (c) Stanford University, Hopkins Marine Station
 ### Licensed under the Apache License, Version 2.0
 ### 
-
+ 
 wc_db_truncate = function(db_connection) {
     zip_table_names <- dbGetQuery(db_connection,
       "select table_name from information_schema.tables where table_schema = 'biologging' and table_name like 'wc_zip%';");
