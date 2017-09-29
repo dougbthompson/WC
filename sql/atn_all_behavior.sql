@@ -12,14 +12,16 @@ create table biologging.atn_all_behavior (
     date_start        varchar(32)          null,
     date_end          varchar(32)          null,
     what              varchar(32)          null,
-    number            integer              null,
-    shape             varchar(64)          null,
-    depth_min         integer              null,
-    depth_max         integer              null,
-    duration_min      double precision     null,
-    duration_max      double precision     null,
+
     shallow           double precision     null,
-    deep              double precision     null
+    deep              double precision     null,
+
+    number            integer[]            null,
+    shape             varchar(64)[]        null,
+    depth_min         integer[]            null,
+    depth_max         integer[]            null,
+    duration_min      double precision[]   null,
+    duration_max      double precision[]   null
 );
 
 alter table biologging.atn_all_behavior owner to postgres;

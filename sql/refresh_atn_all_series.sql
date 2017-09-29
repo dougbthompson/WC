@@ -35,7 +35,7 @@ BEGIN
                    source, instrument, date_start, date_end, location_quality, latitude,
                    longitude, depth, depth_range, temperature, temperature_range)
 
-            select wc_id, v1, v2, nullif(v3,'')::double precision, v4, v5, v6, v7, v8, 
+            select wc_id, v1, v2, v3, v4, v5, v6, v7, v8, 
                    nullif(v9,'')::double precision, nullif(v10,'')::double precision,
                    v11, v12, v13, v14
 
@@ -45,7 +45,7 @@ BEGIN
                and a.v2     = v_ptt
                and a.v5     = v_instrument
                and a.v6     = v_date_start
-               and a.v7     = v_date_ends
+               and a.v7     = v_date_end
              limit 1;
 
         end if;

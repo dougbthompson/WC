@@ -35,8 +35,8 @@ BEGIN
                    min_interval, xmit_time_earliest, xmit_time_latest, xmit_days, data_time_earliest,
                    data_time_latest, data_days, release_date, release_type, deploy_date)
 
-            select wc_id,v1,v2,v3,v4,v5,v6,v7,v8,v9,nullif(v10,'')::integer,v11,v12,v13,v14,v15,v16,
-                   v17,v18,v19,v20,v21,v22,v23,v24
+            select wc_id,v1,v2,v3,v4,v5,v6,v7,v8,v9,nullif(v10,'')::integer,v11,v12,v13,nullif(v14,'')::integer,
+                   v15,v16,nullif(v17,'')::integer,v18,v19,nullif(v20,'')::integer,v21,v22,v23
 
               from biologging.wc_zip_summary a
              where a.wc_id  = v_wc_id

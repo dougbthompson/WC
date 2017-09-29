@@ -7,7 +7,7 @@ DECLARE
     SELECT wc_id, v1, v2, v3, v4, v5 FROM biologging.wc_zip_haulout;
 
     v_wc_id       text;
-    v_deployid    integer;
+    v_deployid    text;
     v_ptt         integer;
     v_instrument  text;
     v_data_id     integer;

@@ -29,16 +29,16 @@ BEGIN
               and a.data_date   = v_data_date)
         then
             insert into biologging.atn_all_sst (wc_id, deployid, ptt, depth_sensor, instrument,
-                   data_date, location_quality, latitude, longitude, depth, temperature)
+                   data_date, location_quality, latitude, longitude, depth, temperature, data_source)
 
-            select wc_id,v1,v2,v3,v4,v5,v6,nullif(v7,'')::double precision,nullif(v8,'')::double precision
+            select wc_id,v1,v2,v3,v4,v5,v6,nullif(v7,'')::double precision,nullif(v8,'')::double precision,
                    v9,v10,v11
               from biologging.wc_zip_sst a
              where a.wc_id  = v_wc_id
                and a.v1     = v_deployid
                and a.v2     = v_ptt
-               and a.v3     = v_instrument
-               and a.v4     = v_data_date
+               and a.v4     = v_instrument
+               and a.v5     = v_data_date
              limit 1;
 
         end if;

@@ -10,7 +10,7 @@ create table biologging.atn_all_status (
     sw                   varchar(32)          null,
     rtc                  varchar(32)          null,
     received             varchar(32)          null,
-    time_offset          integer              null,
+    time_offset          varchar(32)          null,
     location_quality     varchar(4)           null,
     latitude             double precision     null,
     longitude            double precision     null,

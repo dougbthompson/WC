@@ -4,7 +4,7 @@ RETURNS integer AS $$
   
 DECLARE
     curs1 CURSOR FOR
-    SELECT wc_id, v1, v2, v5, v6, v7 FROM biologging.wc_zip_seriesrange;
+    SELECT wc_id, v1, v2, v5, v7, v8 FROM biologging.wc_zip_seriesrange;
 
     v_wc_id         text;
     v_deployid      text;
@@ -46,8 +46,8 @@ BEGIN
                and a.v1     = v_deployid
                and a.v2     = v_ptt
                and a.v5     = v_instrument
-               and a.v6     = v_date_start
-               and a.v7     = v_date_ends
+               and a.v7     = v_date_start
+               and a.v8     = v_date_end
              limit 1;
 
         end if;

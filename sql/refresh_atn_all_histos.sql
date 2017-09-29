@@ -7,7 +7,7 @@ DECLARE
     SELECT wc_id, v1, v2, v3, v4, v5, v6, v7 FROM biologging.wc_zip_histos;
 
     v_wc_id         text;
-    v_deployid      integer;
+    v_deployid      text;
     v_ptt           integer;
     v_depth_sensor  text;
     v_source        text;
@@ -36,10 +36,10 @@ BEGIN
         then
 
             select array[
-                   v16::double precision, v17::double precision, v18::double precision, v19::double precision,
-                   v20::double precision, v21::double precision, v22::double precision, v23::double precision,
-                   v24::double precision, v25::double precision, v26::double precision, v27::double precision,
-
+                   nullif(v16,'')::double precision, nullif(v17,'')::double precision, nullif(v18,'')::double precision,
+                   nullif(v19,'')::double precision, nullif(v20,'')::double precision, nullif(v21,'')::double precision,
+                   nullif(v22,'')::double precision, nullif(v23,'')::double precision, nullif(v24,'')::double precision,
+                   nullif(v25,'')::double precision, nullif(v26,'')::double precision, nullif(v27,'')::double precision,
                    nullif(v28,'')::double precision, nullif(v29,'')::double precision, nullif(v30,'')::double precision,
                    nullif(v31,'')::double precision, nullif(v32,'')::double precision, nullif(v33,'')::double precision,
                    nullif(v34,'')::double precision, nullif(v35,'')::double precision, nullif(v36,'')::double precision,
@@ -61,24 +61,24 @@ BEGIN
                    nullif(v82,'')::double precision, nullif(v83,'')::double precision, nullif(v84,'')::double precision,
                    nullif(v85,'')::double precision, nullif(v86,'')::double precision, nullif(v87,'')::double precision ]
               into v_data_bins
-              from biologging.atn_all_histos a
+              from biologging.wc_zip_histos a
              where a.wc_id         = v_wc_id
-               and a.deployid      = v_deployid
-               and a.ptt           = v_ptt
-               and a.depth_sensor  = v_depth_sensor
-               and a.source        = v_source
-               and a.instrument    = v_instrument
-               and a.histtype      = v_histtype
-               and a.data_date     = v_data_date
+               and a.v1            = v_deployid
+               and a.v2            = v_ptt
+               and a.v3            = v_depth_sensor
+               and a.v4            = v_source
+               and a.v5            = v_instrument
+               and a.v6            = v_histtype
+               and a.v7            = v_data_date
              limit 1;
 
             insert into biologging.atn_all_histos (wc_id, deployid, ptt, depth_sensor, source, instrument, 
                    histtype, data_date, time_offset, data_count, bad_therm, location_quality, latitude,
                    longitude, numbins, data_sum, data_bin)
 
-            select wc_id, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, 
-                   nullif(v12,'')::double precision, nullif(v13,'')::double precision,
-                   v14, v15, v_data_bins
+            select wc_id, v1, v2, v3, v4, v5, v6, v7, nullif(v8,'')::double precision, nullif(v9,'')::integer,
+                   nullif(v10,'')::integer, v11, nullif(v12,'')::double precision, nullif(v13,'')::double precision,
+                   nullif(v14,'')::integer, nullif(v15,'')::double precision, v_data_bins
 
               from biologging.wc_zip_histos a
              where a.wc_id  = v_wc_id
@@ -99,13 +99,4 @@ BEGIN
     return 1;
 END;
 $$ LANGUAGE plpgsql volatile;
-
-
-atndb=# alter table wc_zip_histos alter v8 set data type text;
-atndb=# alter table wc_zip_histos alter v9 set data type text;
-atndb=# alter table wc_zip_histos alter v10 set data type text;
-atndb=# alter table wc_zip_histos alter v14 set data type text;
-atndb=# alter table wc_zip_histos alter v15 set data type text;
-atndb=# alter table wc_zip_histos alter v26 set data type text;
-atndb=# alter table wc_zip_histos alter v27 set data type text;
 

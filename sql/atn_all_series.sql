@@ -5,7 +5,7 @@ create table biologging.atn_all_series (
     wc_id              varchar(64)          null,
     deployid           text                 null,
     ptt                integer              null,
-    depth_sensor       varchar(32)          null,
+    depth_sensor       double precision     null,
     source             varchar(32)          null,
     instrument         varchar(16)          null,
     date_start         varchar(32)          null,

@@ -7,7 +7,7 @@ DECLARE
     SELECT wc_id, v1, v2, v3, v12 FROM biologging.wc_zip_fastgps;
 
     v_wc_id         text;
-    v_name          integer;
+    v_name          text;
     v_day           text;
     v_time          text;
     v_inittime      text;
@@ -35,7 +35,7 @@ BEGIN
                and a.inittime  = v_inittime)
         then
             select array[
-                   v24, v29, v34, v39,
+                   nullif(v24,'')::integer, nullif(v29,'')::integer, nullif(v34,'')::integer, nullif(v39,'')::integer,
                    nullif(v44,'')::integer, nullif(v49,'')::integer, nullif(v54,'')::integer, nullif(v59,'')::integer,
                    nullif(v64,'')::integer, nullif(v69,'')::integer, nullif(v74,'')::integer, nullif(v79,'')::integer,
                    nullif(v84,'')::integer, nullif(v89,'')::integer, nullif(v94,'')::integer ]
@@ -49,7 +49,7 @@ BEGIN
              limit 1;
 
             select array[
-                   v25, v30, v35, v40,
+                   nullif(v25,'')::integer, nullif(v30,'')::integer, nullif(v35,'')::integer, nullif(v40,'')::integer,
                    nullif(v45,'')::integer, nullif(v50,'')::integer, nullif(v55,'')::integer, nullif(v60,'')::integer,
                    nullif(v65,'')::integer, nullif(v70,'')::integer, nullif(v75,'')::integer, nullif(v80,'')::integer,
                    nullif(v85,'')::integer, nullif(v90,'')::integer, nullif(v95,'')::integer ]
@@ -112,9 +112,11 @@ BEGIN
                    satellites, initlat, initlon, inittime, inittype, latitude, longitude, height, bad_sats, residual, time_error,
                    twic_power, fastloc_power, noise, range_bits, data_id, data_range, data_signal, data_doppler, data_cnr)
 
-            select wc_id, v1::text,v2,v3,v4,v5,v6,v7,v8,v9,v10,v11,v12,v13,nullif(v14,'')::double precision,
+            select wc_id, v1,v2,v3,nullif(v4,'')::integer,nullif(v5,'')::double precision,nullif(v6,'')::integer,
+                   nullif(v7,'')::integer,nullif(v8,'')::integer,nullif(v9,'')::integer,nullif(v10,'')::double precision,
+                   nullif(v11,'')::double precision,v12,v13,nullif(v14,'')::double precision,
                    nullif(v15,'')::double precision,nullif(v16,'')::double precision,v17,
-                   nullif(v18,'')::double precision,nullif(v19,'')::double precision,v20,v21,v22,v23,
+                   nullif(v18,'')::double precision,nullif(v19,'')::double precision,v20,v21,v22,nullif(v23,'')::integer,
                    v_data_id,v_data_range,v_data_signal,v_data_doppler,v_data_cnr
               from biologging.wc_zip_fastgps a
              where a.wc_id  = v_wc_id

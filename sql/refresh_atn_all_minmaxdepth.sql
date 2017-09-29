@@ -7,7 +7,7 @@ DECLARE
     SELECT wc_id, v1, v2, v3, v4, v5 FROM biologging.wc_zip_minmaxdepth;
 
     v_wc_id          text;
-    v_deployid       integer;
+    v_deployid       text;
     v_ptt            integer;
     v_depth_sensor   text;
     v_instrument     text;
@@ -28,9 +28,9 @@ BEGIN
               and a.ptt          = v_ptt
               and a.depth_sensor = v_depth_sensor
               and a.instrument   = v_instrument
-              and a.data_date    = v_date_date)
+              and a.data_date    = v_data_date)
         then
-            insert into biologging.atn_all_minmaxdepth (wc_id, deployid, ptt, depthsensor, instrument, data_date,
+            insert into biologging.atn_all_minmaxdepth (wc_id, deployid, ptt, depth_sensor, instrument, data_date,
                    location_quality, latitude, longitude, min_depth, min_accuracy, min_source, max_depth,
                    max_accuracy, max_source)
 
@@ -43,7 +43,7 @@ BEGIN
                and a.v2     = v_ptt
                and a.v3     = v_depth_sensor
                and a.v4     = v_instrument
-               and a.v5     = v_data_type
+               and a.v5     = v_data_date
              limit 1;
 
         end if;

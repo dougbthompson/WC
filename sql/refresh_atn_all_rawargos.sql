@@ -7,8 +7,8 @@ DECLARE
     SELECT wc_id, v1, v2, v4, v16, v17 FROM biologging.wc_zip_rawargos;
 
     v_wc_id          text;
-    v_program        integer;
-    v_ptt            integer;
+    v_program        text;
+    v_ptt            text;
     v_satellite      text;
     v_message_date   text;
     v_message_time   text;
@@ -26,7 +26,7 @@ BEGIN
              from biologging.atn_all_rawargos a
             where a.wc_id        = v_wc_id
               and a.program      = v_program
-              and a.ptt          = v_ptt
+              and a.ptt          = nullif(v_ptt,'')::integer
               and a.satellite    = v_satellite
               and a.message_date = v_message_date
               and a.message_time = v_message_time)
@@ -55,8 +55,8 @@ BEGIN
                    message_date, message_time, latitude2, longitude2, duration, error_radius, error_semi_major_axis,
                    error_semi_minor_axis, error_ellipse_orient, data_offset, offset_orient, data_sensor)
 
-            select wc_id, nullif(v1,'')::integer, nullif(v2,'')::integer, nullif(v3,'')::integer, v4,
-                   nullif(v5,'')::integer, nullif(v6,'')::integer, v7, v8, nullif(v9,'')::double precision,
+            select wc_id, v1, nullif(v2,'')::integer, nullif(v3,'')::integer, v4,
+                   v5, nullif(v6,'')::integer, v7, v8, nullif(v9,'')::double precision,
                    nullif(v10,'')::double precision, v11, nullif(v12,'')::integer, nullif(v13,'')::double precision,
                    nullif(v14,'')::integer, nullif(v15,'')::integer, v16, v17, nullif(v18,'')::double precision,
                    nullif(v19,'')::double precision, nullif(v20,'')::integer, nullif(v21,'')::integer, nullif(v22,'')::integer,

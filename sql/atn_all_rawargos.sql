@@ -7,7 +7,7 @@ create table biologging.atn_all_rawargos (
     ptt                    integer              null,
     length                 integer              null,
     satellite              varchar(16)          null,
-    data_class             integer              null,
+    data_class             varchar(4)           null,
     pass                   integer              null,
     pass_date              varchar(32)          null,
     pass_time              varchar(32)          null,
