@@ -7,6 +7,17 @@ library(RPostgreSQL)
 source ('wc_functions.R')
 source ('wc_db_functions.R')
 
+# two types 9+(6*1)+2=17 and 9+(6*3)+2=29 
+behavior_type = function(filename) {
+    con <- file(filename, 'r')
+    first_line <- readLines(con, n=1)
+    close (con)
+    comma <- ','
+    shrunk <- gsub(comma, '', first_line)
+    number_columns <- (nchar(first_line) - nchar(shrunk)) + 1
+    number_columns 
+}
+
 wc_spreadsheet = function(wc_id, db_connection) {
 
   wc_db_truncate(db_connection)
@@ -44,10 +55,12 @@ wc_spreadsheet = function(wc_id, db_connection) {
   }
 
   # behavior csv can have multiple groups of columns ... leave for the time being
+  beh_type <- 0
   beh <- dir(zip_temp_dir, '*Behavior.csv', full.names=T)
   if (length(beh) > 0) {
-    idx <- match(beh[1], csv_filename)
-    csv_filename[idx]=NA
+    beh_type <- behavior_type(beh)
+    # beh_idx <- match(beh[1], csv_filename)
+    # csv_filename[beh_idx]=NA
   }
 
   # check for multiple *FastGPS.csv and *Locations.csv files
@@ -109,6 +122,12 @@ wc_spreadsheet = function(wc_id, db_connection) {
     cbind(data, wc_id)
   })
 
+  # two different behavior types
+  # if (beh_type > 0) {
+  #     beh_idx <- match('behavior', table_names)    
+  #     if (beh_type == 17) table_names[beh_idx] <- 'behavior1'
+  #     if (beh_type == 29) table_names[beh_idx] <- 'behavior2'
+  # }
   names(df_list) <- c(table_names)
 
   # if the table already exists, insert into it, otherwise write a new table
@@ -116,7 +135,14 @@ wc_spreadsheet = function(wc_id, db_connection) {
     print (paste(wc_id, name))
     df <- df_list[[name]]
     dbWriteTable (conn=db_connection, name=paste0('wc_zip_', name), append=T, row.names=F, value=df)
-    dbGetQuery(db_connection, paste0('select refresh_atn_all_',name,'();'))
+
+    if (name == 'behavior') {
+    #  if (beh_type == 17) dbGetQuery(db_connection, 'select refresh_atn_all_behavior1();')
+    #  if (beh_type == 29) dbGetQuery(db_connection, 'select refresh_atn_all_behavior2();')
+      dbGetQuery(db_connection, paste0('select refresh_atn_all_behavior (',beh_type,');'))
+    } else {
+      dbGetQuery(db_connection, paste0('select refresh_atn_all_',name,'();'))
+    }
   }
 }
 
