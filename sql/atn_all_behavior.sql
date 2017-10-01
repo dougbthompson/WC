@@ -18,8 +18,8 @@ create table biologging.atn_all_behavior (
 
     number            integer[]            null,
     shape             varchar(64)[]        null,
-    depth_min         integer[]            null,
-    depth_max         integer[]            null,
+    depth_min         double precision[]   null,
+    depth_max         double precision[]   null,
     duration_min      double precision[]   null,
     duration_max      double precision[]   null
 );
