@@ -134,14 +134,20 @@ wc_spreadsheet = function(wc_id, db_connection) {
   for (name in table_names)  {
     print (paste(wc_id, name))
     df <- df_list[[name]]
+
+    if (name == 'behavior') {
+      res <- dbSendQuery(db_connection, paste0('select wz_behavior (',beh_type,');'))
+      dbClearResult(res)
+    }
+
     dbWriteTable (conn=db_connection, name=paste0('wc_zip_', name), append=T, row.names=F, value=df)
 
     if (name == 'behavior') {
-    #  if (beh_type == 17) dbGetQuery(db_connection, 'select refresh_atn_all_behavior1();')
-    #  if (beh_type == 29) dbGetQuery(db_connection, 'select refresh_atn_all_behavior2();')
-      dbGetQuery(db_connection, paste0('select refresh_atn_all_behavior (',beh_type,');'))
+      res <- dbSendQuery(db_connection, paste0('select refresh_atn_all_behavior (',beh_type,');'))
+      dbClearResult(res)
     } else {
-      dbGetQuery(db_connection, paste0('select refresh_atn_all_',name,'();'))
+      res <- dbSendQuery(db_connection, paste0('select refresh_atn_all_',name,'();'))
+      dbClearResult(res)
     }
   }
 }
