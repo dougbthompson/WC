@@ -91,9 +91,7 @@ wc_spreadsheet = function(wc_id, db_connection) {
     system (cmd)
   } 
 
-  if (length(fas) == 0) {
-    abc <- 'abc'
-  } else { # length(fas) = 1
+  if (length(fas) == 1) {
     cmd <- paste0('mv ',fas[1],' tmp ; cat tmp | awk \'{if(NR>3)print}\' > ',fas[1])
     system (cmd)
   }
