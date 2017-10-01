@@ -1,4 +1,32 @@
 
+CREATE OR REPLACE FUNCTION wz_behavior(v_which integer)
+RETURNS integer AS $$
+BEGIN
+
+    if v_which = 17
+    then
+        drop table if exists biologging.wc_zip_behavior;
+
+        create table biologging.wc_zip_behavior (
+           v1 text,  v2 integer,  v3 text,  v4 text,  v5 text, v6 text,   v7 text,  v8 text,    v9 text,
+          v10 text, v11 text,    v12 text, v13 text, v14 text, v15 text, v16 text, v17 text, wc_id text
+        );
+    else
+        drop table if exists biologging.wc_zip_behavior;
+
+        create table biologging.wc_zip_behavior (
+           v1 text,  v2 integer,  v3 text,  v4 text,  v5 text, v6 text,   v7 text,  v8 text,  v9 text,
+          v10 text, v11 text,    v12 text, v13 text, v14 text, v15 text, v16 text, v17 text, v18 text,
+          v19 text, v20 text,    v21 text, v22 text, v23 text, v24 text, v25 text, v26 text, v27 text,
+          v28 text, v29 text,  wc_id text
+        );
+    end if;
+
+    return 1;
+END;
+$$ LANGUAGE plpgsql volatile;
+
+
 CREATE OR REPLACE FUNCTION refresh_atn_all_behavior(v_which integer)
 RETURNS integer AS $$
   
@@ -40,7 +68,7 @@ BEGIN
                and a.date_start    = v_date_start
                and a.date_end      = v_date_end)
         then
-            if v_which == 17
+            if v_which = 17
             then
               select array[ nullif(v10,'')::integer ], nullif(v16,'')::double precision, nullif(v17,'')::double precision
                 into v_number, v_shallow, v_deep
@@ -49,7 +77,7 @@ BEGIN
                  and a.v7 = v_date_start and a.v8 = v_date_end
                limit 1;
 
-              select array[ nullif(v11,'')::integer ] into v_shape
+              select array[ v11 ] into v_shape
                 from biologging.wc_zip_behavior a
                where a.wc_id = v_wc_id and a.v1 = v_deployid and a.v2 = v_ptt and a.v5 = v_instrument
                  and a.v7 = v_date_start and a.v8 = v_date_end
@@ -87,7 +115,7 @@ BEGIN
                  and a.v7 = v_date_start and a.v8 = v_date_end
                limit 1;
 
-              select array[ nullif(v11,'')::integer, nullif(v17,'')::integer, nullif(v23,'')::integer ] into v_shape
+              select array[ v11, v17, v23 ] into v_shape
                 from biologging.wc_zip_behavior a
                where a.wc_id = v_wc_id and a.v1 = v_deployid and a.v2 = v_ptt and a.v5 = v_instrument
                  and a.v7 = v_date_start and a.v8 = v_date_end
@@ -124,7 +152,7 @@ BEGIN
                    instrument, count, date_start, date_end, what, shallow, deep,
                    number, shape, depth_min, depth_max, duration_min, duration_max)
 
-            select wc_id, v1, v2, v3, v4, v5, v6, v7, v8, v9, v_shallow, v_deep,
+            select wc_id, v1, v2, v3, v4, v5, nullif(v6,'')::integer, v7, v8, v9, v_shallow, v_deep,
                    v_number, v_shape, v_depth_min, v_depth_max, v_duration_min, v_duration_max
 
               from biologging.wc_zip_behavior a
