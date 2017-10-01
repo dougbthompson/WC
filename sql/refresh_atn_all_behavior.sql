@@ -46,8 +46,8 @@ DECLARE
 
     v_number        integer[];
     v_shape         text[];
-    v_depth_min     integer[];
-    v_depth_max     integer[];
+    v_depth_min     double precision[];
+    v_depth_max     double precision[];
     v_duration_min  double precision[];
     v_duration_max  double precision[];
 
@@ -83,13 +83,13 @@ BEGIN
                  and a.v7 = v_date_start and a.v8 = v_date_end
                limit 1;
 
-              select array[ nullif(v12,'')::integer ] into v_depth_min
+              select array[ nullif(v12,'')::double precision ] into v_depth_min
                 from biologging.wc_zip_behavior a
                where a.wc_id = v_wc_id and a.v1 = v_deployid and a.v2 = v_ptt and a.v5 = v_instrument
                  and a.v7 = v_date_start and a.v8 = v_date_end
                limit 1;
 
-              select array[ nullif(v13,'')::integer ] into v_depth_max
+              select array[ nullif(v13,'')::double precision ] into v_depth_max
                 from biologging.wc_zip_behavior a
                where a.wc_id = v_wc_id and a.v1 = v_deployid and a.v2 = v_ptt and a.v5 = v_instrument
                  and a.v7 = v_date_start and a.v8 = v_date_end
@@ -121,13 +121,15 @@ BEGIN
                  and a.v7 = v_date_start and a.v8 = v_date_end
                limit 1;
 
-              select array[ nullif(v12,'')::integer, nullif(v18,'')::integer, nullif(v24,'')::integer ] into v_depth_min
+              select array[ nullif(v12,'')::double precision, nullif(v18,'')::double precision,
+                            nullif(v24,'')::double precision ] into v_depth_min
                 from biologging.wc_zip_behavior a
                where a.wc_id = v_wc_id and a.v1 = v_deployid and a.v2 = v_ptt and a.v5 = v_instrument
                  and a.v7 = v_date_start and a.v8 = v_date_end
                limit 1;
 
-              select array[ nullif(v13,'')::integer, nullif(v19,'')::integer, nullif(v25,'')::integer ] into v_depth_max
+              select array[ nullif(v13,'')::double precision, nullif(v19,'')::double precision,
+                            nullif(v25,'')::double precision ] into v_depth_max
                 from biologging.wc_zip_behavior a
                where a.wc_id = v_wc_id and a.v1 = v_deployid and a.v2 = v_ptt and a.v5 = v_instrument
                  and a.v7 = v_date_start and a.v8 = v_date_end
