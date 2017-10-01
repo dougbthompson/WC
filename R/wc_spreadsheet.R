@@ -71,7 +71,7 @@ wc_spreadsheet = function(wc_id, db_connection) {
     cnt1 <- lengths(regmatches(fas[1], gregexpr("-", fas[1])))
     cnt2 <- lengths(regmatches(fas[2], gregexpr("-", fas[2])))
 
-    if (cnt1 == 3) {
+    if (cnt1 > 1) {
       which_fas <- fas[1]
       which_to_delete <- fas[2]
     } else {
@@ -80,6 +80,7 @@ wc_spreadsheet = function(wc_id, db_connection) {
     }
 
     idx <- match(which_to_delete, csv_filename) 
+    # print (idx)
     system (paste0('rm -f ',csv_filename[idx]))
     csv_filename[idx]=NA
 
