@@ -77,3 +77,42 @@ values2list(newTS$data_sensor[3])
 [253] 117 231  68 240  24 185 124 133  56  42  50  27  25 166 248 209 202  39
 [271]  57 138 197  52 149  96  33
 
+
+select count(1) from wc_zip_all;
+select count(1) from wc_zip_argos;
+select count(1) from wc_zip_behavior;
+select count(1) from wc_zip_corrupt;
+select count(1) from wc_zip_fastgps;
+select count(1) from wc_zip_haulout;
+select count(1) from wc_zip_histos;
+select count(1) from wc_zip_labels;
+select count(1) from wc_zip_locations;
+select count(1) from wc_zip_minmaxdepth;
+select count(1) from wc_zip_rawargos;
+select count(1) from wc_zip_rtc;
+select count(1) from wc_zip_series;
+select count(1) from wc_zip_seriesrange;
+select count(1) from wc_zip_sst;
+select count(1) from wc_zip_status;
+select count(1) from wc_zip_summary;
+
+select count(1) from atn_all_all;
+select count(1) from atn_all_argos;
+select count(1) from atn_all_behavior;
+select count(1) from atn_all_corrupt;
+select count(1) from atn_all_fastgps;
+select count(1) from atn_all_haulout;
+select count(1) from atn_all_histos;
+select count(1) from atn_all_labels;
+select count(1) from atn_all_locations;
+select count(1) from atn_all_minmaxdepth;
+select count(1) from atn_all_rawargos;
+select count(1) from atn_all_rtc;
+select count(1) from atn_all_series;
+select count(1) from atn_all_seriesrange;
+select count(1) from atn_all_sst;
+select count(1) from atn_all_status;
+select count(1) from atn_all_summary;
+
+select n_live_tup, relname FROM pg_stat_user_tables where schemaname = 'biologging' and relname like 'atn%' ORDER BY 2;
+
