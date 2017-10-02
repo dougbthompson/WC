@@ -1,5 +1,7 @@
 
 -rw-rw-r-- 1 dougt dougt 3280 Sep 26 11:35 readme.txt
+
+# the table definitions for the new user registration system
 -rw-rw-r-- 1 dougt dougt 2625 Sep 22 10:32 atn.registration.sql
 
 -rw-rw-r-- 1 dougt dougt 1361 Sep 27 10:13 atn_all_argos.sql
