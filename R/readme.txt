@@ -4,6 +4,7 @@
 # the table definitions for the new user registration system
 -rw-rw-r-- 1 dougt dougt 2625 Sep 22 10:32 atn.registration.sql
 
+# atn_all* are the individual table definitions for the wc-zip-all subsystem
 -rw-rw-r-- 1 dougt dougt 1361 Sep 27 10:13 atn_all_argos.sql
 -rw-rw-r-- 1 dougt dougt 1236 Sep 30 18:11 atn_all_behavior.sql
 -rw-rw-r-- 1 dougt dougt 1066 Sep 28 16:58 atn_all_corrupt.sql
