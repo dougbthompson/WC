@@ -27,7 +27,7 @@
 
 # the original wc implementation only supported these four operations,
 # the tables and refresh procedures still remain, but probably never
-# used again
+# used again since the zip download is now conplete 10/01/17
 
 -rw-rw-r-- 1 dougt dougt 1236 Sep 22 10:30 refresh_all_deployment_profiles.sql
 -rw-rw-r-- 1 dougt dougt  908 Sep 22 10:30 refresh_all_deployments.sql
