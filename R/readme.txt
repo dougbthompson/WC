@@ -2,9 +2,11 @@
 -rw-rw-r-- 1 dougt dougt 3280 Sep 26 11:35 readme.txt
 
 # the table definitions for the new user registration system
+
 -rw-rw-r-- 1 dougt dougt 2625 Sep 22 10:32 atn.registration.sql
 
 # atn_all* are the individual table definitions for the wc-zip-all subsystem
+
 -rw-rw-r-- 1 dougt dougt 1361 Sep 27 10:13 atn_all_argos.sql
 -rw-rw-r-- 1 dougt dougt 1236 Sep 30 18:11 atn_all_behavior.sql
 -rw-rw-r-- 1 dougt dougt 1066 Sep 28 16:58 atn_all_corrupt.sql
@@ -23,10 +25,17 @@
 -rw-rw-r-- 1 dougt dougt 2843 Sep 28 15:15 atn_all_status.sql
 -rw-rw-r-- 1 dougt dougt 1615 Sep 27 12:14 atn_all_summary.sql
 
+# the original wc implementation only supported these four operations,
+# the tables and refresh procedures still remain, but probably never
+# used again
+
 -rw-rw-r-- 1 dougt dougt 1236 Sep 22 10:30 refresh_all_deployment_profiles.sql
 -rw-rw-r-- 1 dougt dougt  908 Sep 22 10:30 refresh_all_deployments.sql
 -rw-rw-r-- 1 dougt dougt 1115 Sep 22 10:30 refresh_all_locations.sql
 -rw-rw-r-- 1 dougt dougt 3368 Sep 22 10:30 refresh_all_profiles.sql
+
+# the new wc refresh functions use dto transfer data from:
+# wc_zip_CSVFILE to atn_all_CSVFILE
 
 -rw-rw-r-- 1 dougt dougt 4325 Sep 28 16:57 refresh_atn_all_all.sql
 -rw-rw-r-- 1 dougt dougt 1879 Sep 28 10:24 refresh_atn_all_argos.sql
