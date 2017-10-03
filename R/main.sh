@@ -15,6 +15,12 @@ export DT=`date "+%Y-%m-%d"`
 cd /home/dougt/wc/wc
 echo ""     > /tmp/wc.dat
 ./main2.sh >> /tmp/wc.dat
+
+echo "" >> /tmp/wc.dat
+psql -p 5433 -U dougt atndb -c "select n_live_tup, relname FROM pg_stat_user_tables where schemaname = 'biologging' and relname like 'atn%' ORDER BY 2;" >> /tmp/wc.dat
+
+psql -p 5433 -U dougt atndb -c "select n_live_tup, relname FROM pg_stat_user_tables where schemaname = 'biologging' and relname like 'atn%' ORDER BY 2;" | egrep "\|" | egrep -v "relname" | cut -c1-11 > xls/cnt.${DT}.txt
+
 echo ""    >> /tmp/wc.dat
 ls -alR    >> /tmp/wc.dat
 
