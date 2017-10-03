@@ -1,0 +1,45 @@
+
+Archive:  /home/dougt/wc/wc/data.all/59a2de1fc820f7193462a5fb/59a2de1fc820f7193462a5fb.zip
+  inflating: 171944-All.csv          
+  inflating: 171944-Argos.csv        
+  inflating: 171944-Behavior.csv     
+  inflating: 171944-Corrupt.csv      
+  inflating: 171944-Histos.csv       
+  inflating: 171944-Locations.csv    
+  inflating: 171944-MinMaxDepth.csv  
+  inflating: 171944-RawArgos.csv     
+  inflating: 171944-RTC.csv          
+  inflating: 171944-SST.csv          
+  inflating: 171944-Status.csv       
+  inflating: 171944-Summary.csv      
+  inflating: 171944.kmz              
+  inflating: 171944.prv              
+  inflating: 171944.pxp              
+  inflating: ZcTag064-171944-17A0345.wch  
+  inflating: sources.txt             
+  inflating: 171944-Labels.csv       
+[1] "59a2de1fc820f7193462a5fb all"
+[1] "59a2de1fc820f7193462a5fb argos"
+[1] "59a2de1fc820f7193462a5fb corrupt"
+[1] "59a2de1fc820f7193462a5fb histos"
+[1] "59a2de1fc820f7193462a5fb labels"
+[1] "59a2de1fc820f7193462a5fb locations"
+[1] "59a2de1fc820f7193462a5fb minmaxdepth"
+[1] "59a2de1fc820f7193462a5fb rawargos"
+[1] "59a2de1fc820f7193462a5fb rtc"
+[1] "59a2de1fc820f7193462a5fb sst"
+[1] "59a2de1fc820f7193462a5fb status"
+[1] "59a2de1fc820f7193462a5fb summary"
+
+Warning messages:
+1: In fread(command) :
+  Bumped column 11 to type character on data row 945, field contains 'Lat > 4 deviations from mean'. Coercing previously read values in this column from logical, integer or numeric back to character which may not be lossless; e.g., if '00' and '000' occurred before they will now be just '0', and there may be inconsistencies with treatment of ',,' and ',NA,' too (if they occurred in this column before the bump). If this matters please rerun and set 'colClasses' to 'character' for this column. Please note that column type detection uses a sample of 1,000 rows (100 rows at 10 points) so hopefully this message should be very rare. If reporting to datatable-help, please rerun and include the output from verbose=TRUE.
+2: In fread(command) :
+  Bumped column 11 to type character on data row 111, field contains 'Lat > 4 deviations from mean'. Coercing previously read values in this column from logical, integer or numeric back to character which may not be lossless; e.g., if '00' and '000' occurred before they will now be just '0', and there may be inconsistencies with treatment of ',,' and ',NA,' too (if they occurred in this column before the bump). If this matters please rerun and set 'colClasses' to 'character' for this column. Please note that column type detection uses a sample of 1,000 rows (100 rows at 10 points) so hopefully this message should be very rare. If reporting to datatable-help, please rerun and include the output from verbose=TRUE.
+3: In fread(command) :
+  Bumped column 11 to type character on data row 1827, field contains 'Lon > 4 deviations from mean'. Coercing previously read values in this column from logical, integer or numeric back to character which may not be lossless; e.g., if '00' and '000' occurred before they will now be just '0', and there may be inconsistencies with treatment of ',,' and ',NA,' too (if they occurred in this column before the bump). If this matters please rerun and set 'colClasses' to 'character' for this column. Please note that column type detection uses a sample of 1,000 rows (100 rows at 10 points) so hopefully this message should be very rare. If reporting to datatable-help, please rerun and include the output from verbose=TRUE.
+4: In fread(command) :
+  Bumped column 11 to type character on data row 464, field contains 'Lon > 4 deviations from mean'. Coercing previously read values in this column from logical, integer or numeric back to character which may not be lossless; e.g., if '00' and '000' occurred before they will now be just '0', and there may be inconsistencies with treatment of ',,' and ',NA,' too (if they occurred in this column before the bump). If this matters please rerun and set 'colClasses' to 'character' for this column. Please note that column type detection uses a sample of 1,000 rows (100 rows at 10 points) so hopefully this message should be very rare. If reporting to datatable-help, please rerun and include the output from verbose=TRUE.
+> 
+> 
+

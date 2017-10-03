@@ -116,3 +116,46 @@ select count(1) from atn_all_summary;
 
 select n_live_tup, relname FROM pg_stat_user_tables where schemaname = 'biologging' and relname like 'atn%' ORDER BY 2;
 
+
+
+select n_live_tup, relname FROM pg_stat_user_tables where schemaname = 'biologging' and relname like 'atn%' ORDER BY 2;
+
+      78731 | atn_all 
+      22759 | atn_all_argos 
+       9977 | atn_all_behavior 
+      14139 | atn_all_corrupt 
+      13721 | atn_all_fastgps 
+        446 | atn_all_haulout 
+       1679 | atn_all_histos 
+         88 | atn_all_labels 
+      29878 | atn_all_locations 
+       1808 | atn_all_minmaxdepth 
+      72555 | atn_all_rawargos 
+         87 | atn_all_rtc 
+        177 | atn_all_series 
+          4 | atn_all_seriesrange 
+        707 | atn_all_sst 
+       1924 | atn_all_status 
+         78 | atn_all_summary 
+          0 | atn_contact 
+          0 | atn_organisation 
+          0 | atn_organisation_project 
+          0 | atn_pat_cl_raw 
+          0 | atn_pat_gl4_raw 
+        466 | atn_pat_histo_raw 
+          0 | atn_pat_light_location_raw 
+          0 | atn_pat_locations_raw 
+          0 | atn_pat_minmax_depth_raw 
+          0 | atn_pat_mix_layer_raw 
+          0 | atn_pat_pdt_raw 
+          0 | atn_pat_sst_raw 
+          0 | atn_pat_summary_raw 
+       1144 | atn_pat_tag_raw 
+          0 | atn_project 
+          0 | atn_project_user_role 
+        272 | atn_splash10_fast_gps_raw 
+       6468 | atn_splash10_locations_raw 
+       1124 | atn_spot5_tag_raw 
+         12 | atn_test 
+          0 | atn_user 
+          6 | atn_user_role 
