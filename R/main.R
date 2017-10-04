@@ -40,6 +40,7 @@ main = function() {
         saveRDS (file=paste0(app_env@data_dir, wc_id, '.rds'), object=all_locations)
         write.table (file=paste0(app_env@data_dir, wc_id, '.csv'), all_locations, row.names=F, quote=T, sep=',')
       }
+      wc_gen_ssm_track (wc_id, db_connection)
       wc_spreadsheet (wc_id, db_connection)
     }
 

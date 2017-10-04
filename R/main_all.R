@@ -25,12 +25,14 @@ main_all = function() {
 
     source ('app_db_functions.R')
     app_db_truncate (db_connection)
+    source ('wc_ssm_functions.R')
 
     all_deployments <- fetch_all_deployments()
 
     for (wc_id in all_deployments$wc_id) {
       print (wc_id)
-      wc_spreadsheet (wc_id, db_connection)
+      # wc_spreadsheet (wc_id, db_connection)
+      wc_gen_ssm_track (wc_id, db_connection)
     }
 }
 
