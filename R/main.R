@@ -25,6 +25,7 @@ main = function() {
 
     source ('app_db_functions.R')
     # app_db_truncate (db_connection)
+    source ('wc_ssm_functions.R')
 
     all_deployments <- fetch_all_deployments()
     pg_all_deployments <- sqldf("select * from all_deployments", drv="SQLite")
