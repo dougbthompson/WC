@@ -2,13 +2,15 @@
 # 596e891eefec720e04422e7d
 wc_gen_ssm_track = function(wc_id, db_connection) {
 
-  embargountil = 'Embargo'
+  embargountil = NA
 
-  query = paste0("select e.event_id,e.ptt from biologging.event e, atn_all_locations l where l.wc_id = '",
-                 wc_id,"' and e.ptt = l.ptt limit 1;")
+  query = paste0("select e.event_id,e.ptt,t.embargountil from biologging.event e, atn_all_locations l, atn_track t where l.wc_id = '",
+                 wc_id,"' and e.ptt = l.ptt and e.event_id = t.eventid limit 1;")
   event_data <- dbGetQuery (db_connection, query)
 
   if (nrow(event_data) > 0) {
+
+  embargountil <- event_data$embargountil
 
   query <- paste0("select data_date,longitude,latitude from atn_all_locations where wc_id = '",wc_id,"' and ptt = ",event_data$ptt,";")
   location_data <- dbGetQuery (db_connection, query)
