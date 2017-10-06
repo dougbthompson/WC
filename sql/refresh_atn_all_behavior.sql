@@ -8,18 +8,44 @@ BEGIN
         drop table if exists biologging.wc_zip_behavior;
 
         create table biologging.wc_zip_behavior (
-           v1 text,  v2 integer,  v3 text,  v4 text,  v5 text, v6 text,   v7 text,  v8 text,    v9 text,
-          v10 text, v11 text,    v12 text, v13 text, v14 text, v15 text, v16 text, v17 text, wc_id text
-        );
-    else
+           v1 text,  v2 integer,  v3 text,  v4 text,  v5 text, v6 text,   v7 text,  v8 text, v9 text,
+          v10 text, v11 text,    v12 text, v13 text, v14 text, v15 text, v16 text, v17 text,
+        wc_id text);
+    end if;
+
+    if v_which = 23
+    then
+        drop table if exists biologging.wc_zip_behavior;
+
+        create table biologging.wc_zip_behavior (
+           v1 text,  v2 integer,  v3 text,  v4 text,  v5 text,   v6 text,   v7 text,  v8 text,  v9 text,
+          v10 text, v11 text,    v12 text, v13 text, v14 text,   v15 text, v16 text, v17 text, v18 text,
+          v19 text, v20 text,    v21 text, v22 text, v23 text,
+        wc_id text);
+    end if;
+
+    if v_which = 29
+    then
         drop table if exists biologging.wc_zip_behavior;
 
         create table biologging.wc_zip_behavior (
            v1 text,  v2 integer,  v3 text,  v4 text,  v5 text, v6 text,   v7 text,  v8 text,  v9 text,
           v10 text, v11 text,    v12 text, v13 text, v14 text, v15 text, v16 text, v17 text, v18 text,
           v19 text, v20 text,    v21 text, v22 text, v23 text, v24 text, v25 text, v26 text, v27 text,
-          v28 text, v29 text,  wc_id text
-        );
+          v28 text, v29 text,
+        wc_id text);
+    end if;
+
+    if v_which = 35
+    then
+        drop table if exists biologging.wc_zip_behavior;
+
+        create table biologging.wc_zip_behavior (
+           v1 text,  v2 integer,  v3 text,  v4 text,  v5 text, v6 text,   v7 text,  v8 text,  v9 text,
+          v10 text, v11 text,    v12 text, v13 text, v14 text, v15 text, v16 text, v17 text, v18 text,
+          v19 text, v20 text,    v21 text, v22 text, v23 text, v24 text, v25 text, v26 text, v27 text,
+          v28 text, v29 text,    v30 text, v31 text, v32 text, v33 text, v34 text, v35 text,
+        wc_id text);
     end if;
 
     return 1;
@@ -106,7 +132,14 @@ BEGIN
                where a.wc_id = v_wc_id and a.v1 = v_deployid and a.v2 = v_ptt and a.v5 = v_instrument
                  and a.v7 = v_date_start and a.v8 = v_date_end
                limit 1;
-            else
+            end if;
+
+            if v_which = 23
+            then
+            end if;
+
+            if v_which = 29
+            then
               select array[ nullif(v10,'')::integer, nullif(v16,'')::integer, nullif(v22,'')::integer ],
                      nullif(v28,'')::double precision, nullif(v29,'')::double precision
                 into v_number, v_shallow, v_deep
@@ -148,6 +181,10 @@ BEGIN
                where a.wc_id = v_wc_id and a.v1 = v_deployid and a.v2 = v_ptt and a.v5 = v_instrument
                  and a.v7 = v_date_start and a.v8 = v_date_end
                limit 1;
+            end if;
+
+            if v_which = 35
+            then
             end if;
 
             insert into biologging.atn_all_behavior (wc_id, deployid, ptt, depth_sensor, source,
