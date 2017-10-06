@@ -159,3 +159,10 @@ select n_live_tup, relname FROM pg_stat_user_tables where schemaname = 'biologgi
          12 | atn_test 
           0 | atn_user 
           6 | atn_user_role 
+
+Error in bcp - in!
+
+ERROR:  extra data after last expected column
+CONTEXT:  COPY atn_track, line 1: "3446,180600301,1806003,52120,0,0,0,0,0,,Dr. Heidi Dewar<br>Southwest Fisheries Science Center<br>hei..."
+
+
