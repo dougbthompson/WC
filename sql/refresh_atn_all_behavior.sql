@@ -3,7 +3,7 @@ CREATE OR REPLACE FUNCTION wz_behavior(v_which integer)
 RETURNS integer AS $$
 BEGIN
 
-    if v_which = 17   
+    if v_which = 17
     then
         drop table if exists biologging.wc_zip_behavior;
 
