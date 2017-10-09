@@ -20,3 +20,148 @@ Warning messages:
 > 
 > 
 
+
+-----------------------------------------------------------------------------------------------------
+Postgres array columns
+
+https://code.google.com/archive/p/rpostgresql/issues/5
+
+suppressWarnings(rs <- dbSendQuery(conn,"select yourarray::float8[] from dual")) 
+newTS<-fetch(rs,n=-1)
+
+> newTS
+                                                                                                data_sensor
+1                                                                                                       {1}
+2                                                                                                     {1,2}
+3         {121,156,117,231,68,240,24,185,124,133,56,42,50,27,25,166,248,209,202,39,57,138,197,52,149,96,33}
+4                {118,67,213,231,69,0,20,186,230,69,24,114,45,195,25,163,178,111,198,236,83,73,86,4,16,0,0}
+5                {118,67,213,231,69,0,20,186,230,69,24,115,45,195,25,163,178,111,198,236,83,73,86,4,16,0,0}
+6                {118,67,213,231,69,0,20,186,230,69,24,114,45,195,25,163,178,111,198,236,83,73,86,4,16,0,0}
+7         {121,156,117,231,68,240,24,185,124,133,56,42,50,27,25,166,248,209,202,39,57,138,197,52,149,96,33}
+8                     {6,5,231,116,232,114,138,49,247,228,192,5,0,83,255,252,0,0,2,128,5,128,4,127,192,0,0}
+9                {118,67,213,231,69,0,20,186,230,69,24,114,45,195,25,163,178,111,198,236,83,73,86,4,16,0,0}
+10        {121,156,117,231,68,240,24,185,124,133,56,42,50,27,25,166,248,209,202,39,57,138,197,52,149,96,33}
+11 {124,111,181,231,101,0,28,95,73,11,92,86,144,159,89,219,0,221,196,50,31,170,123,241,236,83,73,86,6,16,0}
+12        {121,156,117,231,68,240,24,185,124,133,56,42,50,27,25,166,248,209,202,39,57,138,197,52,149,96,33}
+
+# does not work
+df<-data.frame(arr=as.array(strapply(newTS$yourarray,"(([0-9]+)(\.[0-9]+)*)",as.numeric)),)
+
+or
+
+# also does not work
+df<-data.frame(as.array(lapply(strsplit(substr(newTS$vals,2,nchar(newTS$vals)-1),",",fixed=TRUE),as.numeric)))
+
+
+> values2list = function (v) { as.numeric(unlist(strsplit(substring(v, 2, nchar(v)-1), ","))) }
+
+values2list(newTS$data_sensor[3])
+ [1] 121 156 117 231  68 240  24 185 124 133  56  42  50  27  25 166 248 209 202
+[20]  39  57 138 197  52 149  96  33
+
+> values2list(newTS$data_sensor)
+  [1]   1   1   2 121 156 117 231  68 240  24 185 124 133  56  42  50  27  25
+ [19] 166 248 209 202  39  57 138 197  52 149  96  33 118  67 213 231  69   0
+ [37]  20 186 230  69  24 114  45 195  25 163 178 111 198 236  83  73  86   4
+ [55]  16   0   0 118  67 213 231  69   0  20 186 230  69  24 115  45 195  25
+ [73] 163 178 111 198 236  83  73  86   4  16   0   0 118  67 213 231  69   0
+ [91]  20 186 230  69  24 114  45 195  25 163 178 111 198 236  83  73  86   4
+[109]  16   0   0 121 156 117 231  68 240  24 185 124 133  56  42  50  27  25
+[127] 166 248 209 202  39  57 138 197  52 149  96  33   6   5 231 116 232 114
+[145] 138  49 247 228 192   5   0  83 255 252   0   0   2 128   5 128   4 127
+[163] 192   0   0 118  67 213 231  69   0  20 186 230  69  24 114  45 195  25
+[181] 163 178 111 198 236  83  73  86   4  16   0   0 121 156 117 231  68 240
+[199]  24 185 124 133  56  42  50  27  25 166 248 209 202  39  57 138 197  52
+[217] 149  96  33 124 111 181 231 101   0  28  95  73  11  92  86 144 159  89
+[235] 219   0 221 196  50  31 170 123 241 236  83  73  86   6  16   0 121 156
+[253] 117 231  68 240  24 185 124 133  56  42  50  27  25 166 248 209 202  39
+[271]  57 138 197  52 149  96  33
+
+
+select count(1) from wc_zip_all;
+select count(1) from wc_zip_argos;
+select count(1) from wc_zip_behavior;
+select count(1) from wc_zip_corrupt;
+select count(1) from wc_zip_fastgps;
+select count(1) from wc_zip_haulout;
+select count(1) from wc_zip_histos;
+select count(1) from wc_zip_labels;
+select count(1) from wc_zip_locations;
+select count(1) from wc_zip_minmaxdepth;
+select count(1) from wc_zip_rawargos;
+select count(1) from wc_zip_rtc;
+select count(1) from wc_zip_series;
+select count(1) from wc_zip_seriesrange;
+select count(1) from wc_zip_sst;
+select count(1) from wc_zip_status;
+select count(1) from wc_zip_summary;
+
+select count(1) from atn_all_all;
+select count(1) from atn_all_argos;
+select count(1) from atn_all_behavior;
+select count(1) from atn_all_corrupt;
+select count(1) from atn_all_fastgps;
+select count(1) from atn_all_haulout;
+select count(1) from atn_all_histos;
+select count(1) from atn_all_labels;
+select count(1) from atn_all_locations;
+select count(1) from atn_all_minmaxdepth;
+select count(1) from atn_all_rawargos;
+select count(1) from atn_all_rtc;
+select count(1) from atn_all_series;
+select count(1) from atn_all_seriesrange;
+select count(1) from atn_all_sst;
+select count(1) from atn_all_status;
+select count(1) from atn_all_summary;
+
+select n_live_tup, relname FROM pg_stat_user_tables where schemaname = 'biologging' and relname like 'atn%' ORDER BY 2;
+
+
+select n_live_tup, relname FROM pg_stat_user_tables where schemaname = 'biologging' and relname like 'atn%' ORDER BY 2;
+
+      78731 | atn_all 
+      22759 | atn_all_argos 
+       9977 | atn_all_behavior 
+      14139 | atn_all_corrupt 
+      13721 | atn_all_fastgps 
+        446 | atn_all_haulout 
+       1679 | atn_all_histos 
+         88 | atn_all_labels 
+      29878 | atn_all_locations 
+       1808 | atn_all_minmaxdepth 
+      72555 | atn_all_rawargos 
+         87 | atn_all_rtc 
+        177 | atn_all_series 
+          4 | atn_all_seriesrange 
+        707 | atn_all_sst 
+       1924 | atn_all_status 
+         78 | atn_all_summary 
+          0 | atn_contact 
+          0 | atn_organisation 
+          0 | atn_organisation_project 
+          0 | atn_pat_cl_raw 
+          0 | atn_pat_gl4_raw 
+        466 | atn_pat_histo_raw 
+          0 | atn_pat_light_location_raw 
+          0 | atn_pat_locations_raw 
+          0 | atn_pat_minmax_depth_raw 
+          0 | atn_pat_mix_layer_raw 
+          0 | atn_pat_pdt_raw 
+          0 | atn_pat_sst_raw 
+          0 | atn_pat_summary_raw 
+       1144 | atn_pat_tag_raw 
+          0 | atn_project 
+          0 | atn_project_user_role 
+        272 | atn_splash10_fast_gps_raw 
+       6468 | atn_splash10_locations_raw 
+       1124 | atn_spot5_tag_raw 
+         12 | atn_test 
+          0 | atn_user 
+          6 | atn_user_role 
+
+Error in bcp - in!
+
+ERROR:  extra data after last expected column
+CONTEXT:  COPY atn_track, line 1: "3446,180600301,1806003,52120,0,0,0,0,0,,Dr. Heidi Dewar<br>Southwest Fisheries Science Center<br>hei..."
+
+
