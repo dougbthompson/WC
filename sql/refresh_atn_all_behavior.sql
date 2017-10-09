@@ -1,7 +1,7 @@
 
 CREATE OR REPLACE FUNCTION wz_behavior(v_which integer)
 RETURNS integer AS $$
-BEGIN
+BEGIN 
 
     if v_which = 17
     then
