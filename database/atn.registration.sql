@@ -31,8 +31,8 @@ create table biologging.atn_contact (
     contact_desc     varchar(255)      null
 );
 
-drop table if exists biologging.atn_organisation;
-create table biologging.atn_organisation (
+drop table if exists biologging.atn_organization;
+create table biologging.atn_organization (
     id               serial        primary key,
     org_name         varchar(255)  not null,
     fax              varchar(255)      null,
@@ -51,8 +51,8 @@ create table biologging.atn_project (
     project_desc     text              null
 );
 
-drop table if exists biologging.atn_organisation_project;
-create table biologging.atn_organisation_project (
+drop table if exists biologging.atn_organization_project;
+create table biologging.atn_organization_project (
     id               serial       primary key,
     org_id           bigint           null,
     project_id       bigint           null
