@@ -1,0 +1,13 @@
+# Define the menu links for this module
+
+entity.entity_atn_organization_organization.collection:
+  title: 'Maintain Organizations: Organization Listing'
+  route_name: entity.entity_atn_organization_organization.collection
+  description: 'List Organizations'
+  weight: 10
+entity_atn_organization_organization.admin.structure.settings:
+  title: Organization Settings
+  description: 'Configure Organization entity'
+  route_name:  entity_atn_organization_organization.organization_settings
+  parent: system.admin_structure
+

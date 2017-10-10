@@ -1,0 +1,58 @@
+# This file brings everything together. Very nifty!
+
+# Route name can be used in several places; e.g. links, redirects, and local
+# actions.
+entity.entity_atn_organization_organization.canonical:
+  path: '/entity_atn_organization_organization/{entity_atn_organization_organization}'
+  defaults:
+  # Calls the view controller, defined in the annotation of the organization entity
+    _entity_view: 'entity_atn_organization_organization'
+    _title: 'Organization Content'
+  requirements:
+  # Calls the access controller of the entity, $operation 'view'
+    _entity_access: 'entity_atn_organization_organization.view'
+
+entity.entity_atn_organization_organization.collection:
+  path: '/entity_atn_organization_organization/list'
+  defaults:
+  # Calls the list controller, defined in the annotation of the organization entity.
+    _entity_list: 'entity_atn_organization_organization'
+    _title: 'Organization List'
+  requirements:
+  # Checks for permission directly.
+    _permission: 'view organization entity'
+
+content_entity_example.organization_add:
+  path: '/entity_atn_organization_organization/add'
+  defaults:
+  # Calls the form.add controller, defined in the organization entity.
+    _entity_form: entity_atn_organization_organization.add
+    _title: 'Add Organization'
+  requirements:
+    _entity_create_access: 'entity_atn_organization_organization'
+
+entity.entity_atn_organization_organization.edit_form:
+  path: '/entity_atn_organization_organization/{entity_atn_organization_organization}/edit'
+  defaults:
+  # Calls the form.edit controller, defined in the organization entity.
+    _entity_form: entity_atn_organization_organization.edit
+    _title: 'Edit Organization'
+  requirements:
+    _entity_access: 'entity_atn_organization_organization.edit'
+
+entity.entity_atn_organization_organization.delete_form:
+  path: '/organization/{entity_atn_organization_organization}/delete'
+  defaults:
+    # Calls the form.delete controller, defined in the organization entity.
+    _entity_form: entity_atn_organization_organization.delete
+    _title: 'Delete Organization'
+  requirements:
+    _entity_access: 'entity_atn_organization_organization.delete'
+
+entity_atn_organization.organization_settings:
+  path: 'admin/structure/entity_atn_organization_organization_settings'
+  defaults:
+    _form: '\Drupal\entity_atn_organization\Form\OrganizationSettingsForm'
+    _title: 'Organization Settings'
+  requirements:
+    _permission: 'administer organization entity'
