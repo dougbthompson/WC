@@ -1,0 +1,10 @@
+'delete user role entity':
+  title: Delete entity user role.
+'add user role entity':
+  title: Add entity user role
+'view user role entity':
+  title: View entity user role
+'edit user role entity':
+  title: Edit entity user role
+'administer user role entity':
+  title: Administer settings

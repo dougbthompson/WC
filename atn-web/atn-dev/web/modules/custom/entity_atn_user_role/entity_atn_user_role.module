@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains Drupal\entity_atn_user_role\entity_atn_user_role.module.
+ */
+
+/**
+ * @defgroup entity_atn_user_role Example: User Role Entity
+ * @{
+ * Implement a User Role entity.
+ *
+ * We define a content entity named 'User Role'. With it, we implement
+ * the main tasks for an entity:
+ * - define
+ * - save
+ * - load
+ * - view
+ * - edit
+ * - delete
+ * - control access
+ *
+ * }
+ */

@@ -1,0 +1,23 @@
+# Define the menu links for this module
+
+entity.entity_atn_user_role_user_role.collection:
+  title: 'Maintain User Roles: User Role Listing'
+  route_name: entity.entity_atn_user_role_user_role.collection
+  description: 'List User Roles'
+  weight: 10
+entity_atn_user_role_user_role.admin.structure.settings:
+  title: User Role Settings
+  description: 'Configure User Role entity'
+  route_name:  entity_atn_user_role_user_role.user_role_settings
+  parent: system.admin_structure
+
+# entity.content_entity_example_contact.collection:
+#   title: 'Content Entity Example: Contacts Listing'
+#   route_name: entity.content_entity_example_contact.collection
+#   description: 'List Contacts'
+#   weight: 10
+# content_entity_example_contact.admin.structure.settings:
+#   title: Contact Settings
+#   description: 'Configure Contact entity'
+#   route_name:  content_entity_example.contact_settings
+#   parent: system.admin_structure
