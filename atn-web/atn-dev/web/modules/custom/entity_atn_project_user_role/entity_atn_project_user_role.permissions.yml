@@ -1,0 +1,10 @@
+'delete project_user_role entity':
+  title: Delete entity project_user_role.
+'add project_user_role entity':
+  title: Add entity project_user_role
+'view project_user_role entity':
+  title: View entity project_user_role
+'edit project_user_role entity':
+  title: Edit entity project_user_role
+'administer project_user_role entity':
+  title: Administer settings

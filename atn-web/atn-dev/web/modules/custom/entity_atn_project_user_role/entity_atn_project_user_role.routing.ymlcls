@@ -1,0 +1,58 @@
+# This file brings everything together. Very nifty!
+
+# Route name can be used in several places; e.g. links, redirects, and local
+# actions.
+entity.entity_atn_project_user_role_project_user_role.canonical:
+  path: '/entity_atn_project_user_role_project_user_role/{entity_atn_project_user_role_project_user_role}'
+  defaults:
+  # Calls the view controller, defined in the annotation of the project_user_role entity
+    _entity_view: 'entity_atn_project_user_role_project_user_role'
+    _title: 'ProjectUserRole Content'
+  requirements:
+  # Calls the access controller of the entity, $operation 'view'
+    _entity_access: 'entity_atn_project_user_role_project_user_role.view'
+
+entity.entity_atn_project_user_role_project_user_role.collection:
+  path: '/entity_atn_project_user_role_project_user_role/list'
+  defaults:
+  # Calls the list controller, defined in the annotation of the project_user_role entity.
+    _entity_list: 'entity_atn_project_user_role_project_user_role'
+    _title: 'ProjectUserRole List'
+  requirements:
+  # Checks for permission directly.
+    _permission: 'view project_user_role entity'
+
+content_entity_example.project_user_role_add:
+  path: '/entity_atn_project_user_role_project_user_role/add'
+  defaults:
+  # Calls the form.add controller, defined in the project_user_role entity.
+    _entity_form: entity_atn_project_user_role_project_user_role.add
+    _title: 'Add ProjectUserRole'
+  requirements:
+    _entity_create_access: 'entity_atn_project_user_role_project_user_role'
+
+entity.entity_atn_project_user_role_project_user_role.edit_form:
+  path: '/entity_atn_project_user_role_project_user_role/{entity_atn_project_user_role_project_user_role}/edit'
+  defaults:
+  # Calls the form.edit controller, defined in the project_user_role entity.
+    _entity_form: entity_atn_project_user_role_project_user_role.edit
+    _title: 'Edit ProjectUserRole'
+  requirements:
+    _entity_access: 'entity_atn_project_user_role_project_user_role.edit'
+
+entity.entity_atn_project_user_role_project_user_role.delete_form:
+  path: '/project_user_role/{entity_atn_project_user_role_project_user_role}/delete'
+  defaults:
+    # Calls the form.delete controller, defined in the project_user_role entity.
+    _entity_form: entity_atn_project_user_role_project_user_role.delete
+    _title: 'Delete ProjectUserRole'
+  requirements:
+    _entity_access: 'entity_atn_project_user_role_project_user_role.delete'
+
+entity_atn_project_user_role.project_user_role_settings:
+  path: 'admin/structure/entity_atn_project_user_role_project_user_role_settings'
+  defaults:
+    _form: '\Drupal\entity_atn_project_user_role\Form\ProjectUserRoleSettingsForm'
+    _title: 'ProjectUserRole Settings'
+  requirements:
+    _permission: 'administer project_user_role entity'

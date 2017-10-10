@@ -1,0 +1,13 @@
+# Define the menu links for this module
+
+entity.entity_atn_project_user_role_project_user_role.collection:
+  title: 'Maintain ProjectUserRoles: ProjectUserRole Listing'
+  route_name: entity.entity_atn_project_user_role_project_user_role.collection
+  description: 'List ProjectUserRoles'
+  weight: 10
+entity_atn_project_user_role_project_user_role.admin.structure.settings:
+  title: ProjectUserRole Settings
+  description: 'Configure ProjectUserRole entity'
+  route_name:  entity_atn_project_user_role_project_user_role.project_user_role_settings
+  parent: system.admin_structure
+

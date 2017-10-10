@@ -1,0 +1,23 @@
+# Define the 'local' links for the module
+
+project_user_role.settings_tab:
+  route_name: entity_atn_project_user_role.project_user_role_settings
+  title: Settings
+  base_route: entity_atn_project_user_role.project_user_role_settings
+
+project_user_role.view:
+  route_name: entity.entity_atn_project_user_role_project_user_role.canonical
+  base_route: entity.entity_atn_project_user_role_project_user_role.canonical
+  title: View
+
+project_user_role.page_edit:
+  route_name: entity.entity_atn_project_user_role_project_user_role.edit_form
+  base_route: entity.entity_atn_project_user_role_project_user_role.canonical
+  title: Edit
+
+project_user_role.delete_confirm:
+  route_name:  entity.entity_atn_project_user_role_project_user_role.delete_form
+  base_route:  entity.entity_atn_project_user_role_project_user_role.canonical
+  title: Delete
+  weight: 10
+

@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains Drupal\entity_atn_project_user_role\entity_atn_project_user_role.module.
+ */
+
+/**
+ * @defgroup entity_atn_project_user_role Example: ProjectUserRole Entity
+ * @{
+ * Implement a ProjectUserRole entity.
+ *
+ * We define a content entity named 'ProjectUserRole'. With it, we implement
+ * the main tasks for an entity:
+ * - define
+ * - save
+ * - load
+ * - view
+ * - edit
+ * - delete
+ * - control access
+ *
+ * }
+ */
