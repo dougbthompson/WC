@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains Drupal\entity_atn_contact\entity_atn_contact.module.
+ */
+
+/**
+ * @defgroup entity_atn_contact Example: Contact Entity
+ * @{
+ * Implement a Contact entity.
+ *
+ * We define a content entity named 'Contact'. With it, we implement
+ * the main tasks for an entity:
+ * - define
+ * - save
+ * - load
+ * - view
+ * - edit
+ * - delete
+ * - control access
+ *
+ * }
+ */
