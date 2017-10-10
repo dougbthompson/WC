@@ -1,0 +1,13 @@
+# Define the menu links for this module
+
+entity.entity_atn_project_project.collection:
+  title: 'Maintain Projects: Project Listing'
+  route_name: entity.entity_atn_project_project.collection
+  description: 'List Projects'
+  weight: 10
+entity_atn_project_project.admin.structure.settings:
+  title: Project Settings
+  description: 'Configure Project entity'
+  route_name:  entity_atn_project_project.project_settings
+  parent: system.admin_structure
+

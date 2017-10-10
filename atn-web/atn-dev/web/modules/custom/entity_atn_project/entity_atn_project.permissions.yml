@@ -1,0 +1,10 @@
+'delete project entity':
+  title: Delete entity project.
+'add project entity':
+  title: Add entity project
+'view project entity':
+  title: View entity project
+'edit project entity':
+  title: Edit entity project
+'administer project entity':
+  title: Administer settings

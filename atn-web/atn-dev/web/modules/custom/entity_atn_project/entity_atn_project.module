@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains Drupal\entity_atn_project\entity_atn_project.module.
+ */
+
+/**
+ * @defgroup entity_atn_project Example: Project Entity
+ * @{
+ * Implement a Project entity.
+ *
+ * We define a content entity named 'Project'. With it, we implement
+ * the main tasks for an entity:
+ * - define
+ * - save
+ * - load
+ * - view
+ * - edit
+ * - delete
+ * - control access
+ *
+ * }
+ */

@@ -1,0 +1,58 @@
+# This file brings everything together. Very nifty!
+
+# Route name can be used in several places; e.g. links, redirects, and local
+# actions.
+entity.entity_atn_project_project.canonical:
+  path: '/entity_atn_project_project/{entity_atn_project_project}'
+  defaults:
+  # Calls the view controller, defined in the annotation of the project entity
+    _entity_view: 'entity_atn_project_project'
+    _title: 'Project Content'
+  requirements:
+  # Calls the access controller of the entity, $operation 'view'
+    _entity_access: 'entity_atn_project_project.view'
+
+entity.entity_atn_project_project.collection:
+  path: '/entity_atn_project_project/list'
+  defaults:
+  # Calls the list controller, defined in the annotation of the project entity.
+    _entity_list: 'entity_atn_project_project'
+    _title: 'Project List'
+  requirements:
+  # Checks for permission directly.
+    _permission: 'view project entity'
+
+content_entity_example.project_add:
+  path: '/entity_atn_project_project/add'
+  defaults:
+  # Calls the form.add controller, defined in the project entity.
+    _entity_form: entity_atn_project_project.add
+    _title: 'Add Project'
+  requirements:
+    _entity_create_access: 'entity_atn_project_project'
+
+entity.entity_atn_project_project.edit_form:
+  path: '/entity_atn_project_project/{entity_atn_project_project}/edit'
+  defaults:
+  # Calls the form.edit controller, defined in the project entity.
+    _entity_form: entity_atn_project_project.edit
+    _title: 'Edit Project'
+  requirements:
+    _entity_access: 'entity_atn_project_project.edit'
+
+entity.entity_atn_project_project.delete_form:
+  path: '/project/{entity_atn_project_project}/delete'
+  defaults:
+    # Calls the form.delete controller, defined in the project entity.
+    _entity_form: entity_atn_project_project.delete
+    _title: 'Delete Project'
+  requirements:
+    _entity_access: 'entity_atn_project_project.delete'
+
+entity_atn_project.project_settings:
+  path: 'admin/structure/entity_atn_project_project_settings'
+  defaults:
+    _form: '\Drupal\entity_atn_project\Form\ProjectSettingsForm'
+    _title: 'Project Settings'
+  requirements:
+    _permission: 'administer project entity'
