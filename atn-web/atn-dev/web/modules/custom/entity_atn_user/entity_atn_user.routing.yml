@@ -1,0 +1,58 @@
+# This file brings everything together. Very nifty!
+
+# Route name can be used in several places; e.g. links, redirects, and local
+# actions.
+entity.entity_atn_user_user.canonical:
+  path: '/entity_atn_user_user/{entity_atn_user_user}'
+  defaults:
+  # Calls the view controller, defined in the annotation of the user entity
+    _entity_view: 'entity_atn_user_user'
+    _title: 'User Content'
+  requirements:
+  # Calls the access controller of the entity, $operation 'view'
+    _entity_access: 'entity_atn_user_user.view'
+
+entity.entity_atn_user_user.collection:
+  path: '/entity_atn_user_user/list'
+  defaults:
+  # Calls the list controller, defined in the annotation of the user entity.
+    _entity_list: 'entity_atn_user_user'
+    _title: 'User List'
+  requirements:
+  # Checks for permission directly.
+    _permission: 'view user entity'
+
+content_entity_example.user_add:
+  path: '/entity_atn_user_user/add'
+  defaults:
+  # Calls the form.add controller, defined in the user entity.
+    _entity_form: entity_atn_user_user.add
+    _title: 'Add User'
+  requirements:
+    _entity_create_access: 'entity_atn_user_user'
+
+entity.entity_atn_user_user.edit_form:
+  path: '/entity_atn_user_user/{entity_atn_user_user}/edit'
+  defaults:
+  # Calls the form.edit controller, defined in the user entity.
+    _entity_form: entity_atn_user_user.edit
+    _title: 'Edit User'
+  requirements:
+    _entity_access: 'entity_atn_user_user.edit'
+
+entity.entity_atn_user_user.delete_form:
+  path: '/user/{entity_atn_user_user}/delete'
+  defaults:
+    # Calls the form.delete controller, defined in the user entity.
+    _entity_form: entity_atn_user_user.delete
+    _title: 'Delete User'
+  requirements:
+    _entity_access: 'entity_atn_user_user.delete'
+
+entity_atn_user.user_settings:
+  path: 'admin/structure/entity_atn_user_user_settings'
+  defaults:
+    _form: '\Drupal\entity_atn_user\Form\UserSettingsForm'
+    _title: 'User Settings'
+  requirements:
+    _permission: 'administer user entity'

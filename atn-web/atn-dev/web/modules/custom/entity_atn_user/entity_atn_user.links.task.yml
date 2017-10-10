@@ -1,0 +1,23 @@
+# Define the 'local' links for the module
+
+user.settings_tab:
+  route_name: entity_atn_user.user_settings
+  title: Settings
+  base_route: entity_atn_user.user_settings
+
+user.view:
+  route_name: entity.entity_atn_user_user.canonical
+  base_route: entity.entity_atn_user_user.canonical
+  title: View
+
+user.page_edit:
+  route_name: entity.entity_atn_user_user.edit_form
+  base_route: entity.entity_atn_user_user.canonical
+  title: Edit
+
+user.delete_confirm:
+  route_name:  entity.entity_atn_user_user.delete_form
+  base_route:  entity.entity_atn_user_user.canonical
+  title: Delete
+  weight: 10
+
