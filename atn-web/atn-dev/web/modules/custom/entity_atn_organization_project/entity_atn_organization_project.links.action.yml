@@ -1,0 +1,11 @@
+# All action links for this module
+
+entity_atn_organization_project.organization_project_add:
+  # Which route will be called by the link
+  route_name: entity_atn_organization_project.organization_project_add
+  title: 'Add OrganizationProject'
+
+  # Where will the link appear, defined by route name.
+  appears_on:
+    - entity.entity_atn_organization_project_organization_project.collection
+    - entity.entity_atn_organization_project_organization_project.canonical

@@ -1,0 +1,23 @@
+# Define the 'local' links for the module
+
+organization_project.settings_tab:
+  route_name: entity_atn_organization_project.organization_project_settings
+  title: Settings
+  base_route: entity_atn_organization_project.organization_project_settings
+
+organization_project.view:
+  route_name: entity.entity_atn_organization_project_organization_project.canonical
+  base_route: entity.entity_atn_organization_project_organization_project.canonical
+  title: View
+
+organization_project.page_edit:
+  route_name: entity.entity_atn_organization_project_organization_project.edit_form
+  base_route: entity.entity_atn_organization_project_organization_project.canonical
+  title: Edit
+
+organization_project.delete_confirm:
+  route_name:  entity.entity_atn_organization_project_organization_project.delete_form
+  base_route:  entity.entity_atn_organization_project_organization_project.canonical
+  title: Delete
+  weight: 10
+

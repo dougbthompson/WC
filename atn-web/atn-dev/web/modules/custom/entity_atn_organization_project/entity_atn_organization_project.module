@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains Drupal\entity_atn_organization_project\entity_atn_organization_project.module.
+ */
+
+/**
+ * @defgroup entity_atn_organization_project Example: OrganizationProject Entity
+ * @{
+ * Implement a OrganizationProject entity.
+ *
+ * We define a content entity named 'OrganizationProject'. With it, we implement
+ * the main tasks for an entity:
+ * - define
+ * - save
+ * - load
+ * - view
+ * - edit
+ * - delete
+ * - control access
+ *
+ * }
+ */

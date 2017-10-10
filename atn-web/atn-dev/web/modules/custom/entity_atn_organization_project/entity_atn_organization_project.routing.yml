@@ -1,0 +1,58 @@
+# This file brings everything together. Very nifty!
+
+# Route name can be used in several places; e.g. links, redirects, and local
+# actions.
+entity.entity_atn_organization_project_organization_project.canonical:
+  path: '/entity_atn_organization_project_organization_project/{entity_atn_organization_project_organization_project}'
+  defaults:
+  # Calls the view controller, defined in the annotation of the organization_project entity
+    _entity_view: 'entity_atn_organization_project_organization_project'
+    _title: 'OrganizationProject Content'
+  requirements:
+  # Calls the access controller of the entity, $operation 'view'
+    _entity_access: 'entity_atn_organization_project_organization_project.view'
+
+entity.entity_atn_organization_project_organization_project.collection:
+  path: '/entity_atn_organization_project_organization_project/list'
+  defaults:
+  # Calls the list controller, defined in the annotation of the organization_project entity.
+    _entity_list: 'entity_atn_organization_project_organization_project'
+    _title: 'OrganizationProject List'
+  requirements:
+  # Checks for permission directly.
+    _permission: 'view organization_project entity'
+
+content_entity_example.organization_project_add:
+  path: '/entity_atn_organization_project_organization_project/add'
+  defaults:
+  # Calls the form.add controller, defined in the organization_project entity.
+    _entity_form: entity_atn_organization_project_organization_project.add
+    _title: 'Add OrganizationProject'
+  requirements:
+    _entity_create_access: 'entity_atn_organization_project_organization_project'
+
+entity.entity_atn_organization_project_organization_project.edit_form:
+  path: '/entity_atn_organization_project_organization_project/{entity_atn_organization_project_organization_project}/edit'
+  defaults:
+  # Calls the form.edit controller, defined in the organization_project entity.
+    _entity_form: entity_atn_organization_project_organization_project.edit
+    _title: 'Edit OrganizationProject'
+  requirements:
+    _entity_access: 'entity_atn_organization_project_organization_project.edit'
+
+entity.entity_atn_organization_project_organization_project.delete_form:
+  path: '/organization_project/{entity_atn_organization_project_organization_project}/delete'
+  defaults:
+    # Calls the form.delete controller, defined in the organization_project entity.
+    _entity_form: entity_atn_organization_project_organization_project.delete
+    _title: 'Delete OrganizationProject'
+  requirements:
+    _entity_access: 'entity_atn_organization_project_organization_project.delete'
+
+entity_atn_organization_project.organization_project_settings:
+  path: 'admin/structure/entity_atn_organization_project_organization_project_settings'
+  defaults:
+    _form: '\Drupal\entity_atn_organization_project\Form\OrganizationProjectSettingsForm'
+    _title: 'OrganizationProject Settings'
+  requirements:
+    _permission: 'administer organization_project entity'

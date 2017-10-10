@@ -1,0 +1,13 @@
+# Define the menu links for this module
+
+entity.entity_atn_organization_project_organization_project.collection:
+  title: 'Maintain OrganizationProjects: OrganizationProject Listing'
+  route_name: entity.entity_atn_organization_project_organization_project.collection
+  description: 'List OrganizationProjects'
+  weight: 10
+entity_atn_organization_project_organization_project.admin.structure.settings:
+  title: OrganizationProject Settings
+  description: 'Configure OrganizationProject entity'
+  route_name:  entity_atn_organization_project_organization_project.organization_project_settings
+  parent: system.admin_structure
+
