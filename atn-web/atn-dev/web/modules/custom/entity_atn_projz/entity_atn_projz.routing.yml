@@ -1,0 +1,56 @@
+
+entity.entity_atn_projz_projz.canonical:
+  path: '/entity_atn_projz_projz/{entity_atn_projz_projz}'
+  defaults:
+  # Calls the view controller, defined in the annotation of the project entity
+    _entity_view: 'entity_atn_projz_projz'
+    _title: 'Project Content'
+  requirements:
+  # Calls the access controller of the entity, $operation 'view'
+    _entity_access: 'entity_atn_projz_projz.view'
+
+entity.entity_atn_projz_projz.collection:
+  path: '/entity_atn_projz_projz/list'
+  defaults:
+  # Calls the list controller, defined in the annotation of the project entity.
+    _entity_list: 'entity_atn_projz_projz'
+    _title: 'Project List'
+  requirements:
+  # Checks for permission directly.
+    _permission: 'view project entity'
+
+content_entity_example.projz_add:
+  path: '/entity_atn_projz_projz/add'
+  defaults:
+  # Calls the form.add controller, defined in the project entity.
+    _entity_form: entity_atn_projz_projz.add
+    _title: 'Add Project'
+  requirements:
+    _entity_create_access: 'entity_atn_projz_projz'
+
+entity.entity_atn_projz_projz.edit_form:
+  path: '/entity_atn_projz_projz/{entity_atn_projz_projz}/edit'
+  defaults:
+  # Calls the form.edit controller, defined in the project entity.
+    _entity_form: entity_atn_projz_projz.edit
+    _title: 'Edit Project'
+  requirements:
+    _entity_access: 'entity_atn_projz_projz.edit'
+
+entity.entity_atn_projz_projz.delete_form:
+  path: '/projz/{entity_atn_projz_projz}/delete'
+  defaults:
+    # Calls the form.delete controller, defined in the project entity.
+    _entity_form: entity_atn_projz_projz.delete
+    _title: 'Delete Project'
+  requirements:
+    _entity_access: 'entity_atn_projz_projz.delete'
+
+entity_atn_projz.projz_settings:
+  path: 'admin/structure/entity_atn_settings'
+  defaults:
+    _form: '\Drupal\entity_atn_projz\Form\ProjzSettingsForm'
+    _title: 'Project Settings'
+  requirements:
+    _permission: 'administer project entity'
+

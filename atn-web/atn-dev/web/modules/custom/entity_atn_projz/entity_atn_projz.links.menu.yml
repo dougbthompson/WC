@@ -1,0 +1,13 @@
+
+entity.entity_atn_projz_projz.collection:
+  title: 'Maintain Projects: Projects Listing'
+  route_name: entity.entity_atn_projz_projz.collection
+  description: 'List Projects'
+  weight: 10
+
+entity_atn_projz_projz.admin.structure.settings:
+  title: 'Project Settings'
+  description: 'Configure Project entity'
+  route_name: entity_atn_projz.projz_settings
+  parent: system.admin_structure
+
