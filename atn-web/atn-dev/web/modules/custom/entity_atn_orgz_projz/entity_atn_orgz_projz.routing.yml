@@ -1,0 +1,56 @@
+
+entity.entity_atn_orgz_projz_orgz_projz.canonical:
+  path: '/entity_atn_orgz_projz_orgz_projz/{entity_atn_orgz_projz_orgz_projz}'
+  defaults:
+  # Calls the view controller, defined in the annotation of the organization project entity
+    _entity_view: 'entity_atn_orgz_projz_orgz_projz'
+    _title: 'Organization Project Content'
+  requirements:
+  # Calls the access controller of the entity, $operation 'view'
+    _entity_access: 'entity_atn_orgz_projz_orgz_projz.view'
+
+entity.entity_atn_orgz_projz_orgz_projz.collection:
+  path: '/entity_atn_orgz_projz_orgz_projz/list'
+  defaults:
+  # Calls the list controller, defined in the annotation of the organization project entity.
+    _entity_list: 'entity_atn_orgz_projz_orgz_projz'
+    _title: 'Organization Project List'
+  requirements:
+  # Checks for permission directly.
+    _permission: 'view organization project entity'
+
+content_entity_example.orgz_projz_add:
+  path: '/entity_atn_orgz_projz_orgz_projz/add'
+  defaults:
+  # Calls the form.add controller, defined in the organization project entity.
+    _entity_form: entity_atn_orgz_projz_orgz_projz.add
+    _title: 'Add Organization Project'
+  requirements:
+    _entity_create_access: 'entity_atn_orgz_projz_orgz_projz'
+
+entity.entity_atn_orgz_projz_orgz_projz.edit_form:
+  path: '/entity_atn_orgz_projz_orgz_projz/{entity_atn_orgz_projz_orgz_projz}/edit'
+  defaults:
+  # Calls the form.edit controller, defined in the organization project entity.
+    _entity_form: entity_atn_orgz_projz_orgz_projz.edit
+    _title: 'Edit Organization Project'
+  requirements:
+    _entity_access: 'entity_atn_orgz_projz_orgz_projz.edit'
+
+entity.entity_atn_orgz_projz_orgz_projz.delete_form:
+  path: '/orgz_projz/{entity_atn_orgz_projz_orgz_projz}/delete'
+  defaults:
+    # Calls the form.delete controller, defined in the organization project entity.
+    _entity_form: entity_atn_orgz_projz_orgz_projz.delete
+    _title: 'Delete Organization Project'
+  requirements:
+    _entity_access: 'entity_atn_orgz_projz_orgz_projz.delete'
+
+entity_atn_orgz_projz.orgz_projz_settings:
+  path: 'admin/structure/entity_atn_orgz_settings'
+  defaults:
+    _form: '\Drupal\entity_atn_orgz_projz\Form\OrgzProjzSettingsForm'
+    _title: 'Organization Project Settings'
+  requirements:
+    _permission: 'administer organization project entity'
+

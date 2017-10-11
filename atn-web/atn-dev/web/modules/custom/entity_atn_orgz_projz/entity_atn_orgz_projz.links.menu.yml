@@ -1,0 +1,13 @@
+
+entity.entity_atn_orgz_projz_orgz_projz.collection:
+  title: 'Maintain Organization - Projects: Organization Projects Listing'
+  route_name: entity.entity_atn_orgz_projz_orgz_projz.collection
+  description: 'List Organization Projects'
+  weight: 10
+
+entity_atn_orgz_projz_orgz_projz.admin.structure.settings:
+  title: 'Organization Project Settings'
+  description: 'Configure Organization Project entity'
+  route_name:  entity_atn_orgz_projz.orgz_projz_settings
+  parent: system.admin_structure
+

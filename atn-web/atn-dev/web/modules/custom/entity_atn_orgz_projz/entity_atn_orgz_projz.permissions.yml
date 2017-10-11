@@ -1,0 +1,13 @@
+
+'delete organization project entity':
+  title: 'Delete entity organization project'
+'add organization project entity':
+  title: 'Add entity organization project'
+'view organization project entity':
+  title: 'View entity organization project'
+'edit organization project entity':
+  title: 'Edit entity organization project'
+
+'administer organization project entity':
+  title: 'Administer settings'
+
