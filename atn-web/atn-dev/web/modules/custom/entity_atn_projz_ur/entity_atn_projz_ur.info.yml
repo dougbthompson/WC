@@ -1,0 +1,9 @@
+
+name: 'Project User Role Entity'
+type: module
+description: 'Maintenance of the valid list of project user roles'
+core: 8.x
+# These modules are required by the tests, must be available at bootstrap time
+dependencies:
+  - drupal:options
+

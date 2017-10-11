@@ -1,0 +1,22 @@
+
+projz_ur.settings_tab:
+  route_name: entity_atn_projz_ur.projz_ur_settings
+  base_route: entity_atn_projz_ur.projz_ur_settings
+  title: Settings
+
+projz_ur.view:
+  route_name: entity.entity_atn_projz_ur_projz_ur.canonical
+  base_route: entity.entity_atn_projz_ur_projz_ur.canonical
+  title: View
+
+projz_ur.page_edit:
+  route_name: entity.entity_atn_projz_ur_projz_ur.edit_form
+  base_route: entity.entity_atn_projz_ur_projz_ur.canonical
+  title: Edit
+
+projz_ur.delete_confirm:
+  route_name:  entity.entity_atn_projz_ur_projz_ur.delete_form
+  base_route:  entity.entity_atn_projz_ur_projz_ur.canonical
+  title: Delete
+  weight: 10
+

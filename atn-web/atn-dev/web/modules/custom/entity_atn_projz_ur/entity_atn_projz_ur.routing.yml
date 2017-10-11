@@ -1,0 +1,56 @@
+
+entity.entity_atn_projz_ur_projz_ur.canonical:
+  path: '/entity_atn_projz_ur_projz_ur/{entity_atn_projz_ur_projz_ur}'
+  defaults:
+  # Calls the view controller, defined in the annotation of the project user role entity
+    _entity_view: 'entity_atn_projz_ur_projz_ur'
+    _title: 'Project User Role Content'
+  requirements:
+  # Calls the access controller of the entity, $operation 'view'
+    _entity_access: 'entity_atn_projz_ur_projz_ur.view'
+
+entity.entity_atn_projz_ur_projz_ur.collection:
+  path: '/entity_atn_projz_ur_projz_ur/list'
+  defaults:
+  # Calls the list controller, defined in the annotation of the project user role entity.
+    _entity_list: 'entity_atn_projz_ur_projz_ur'
+    _title: 'Project User Role List'
+  requirements:
+  # Checks for permission directly.
+    _permission: 'view project user role entity'
+
+content_entity_example.projz_ur_add:
+  path: '/entity_atn_projz_ur_projz_ur/add'
+  defaults:
+  # Calls the form.add controller, defined in the project user role entity.
+    _entity_form: entity_atn_projz_ur_projz_ur.add
+    _title: 'Add Project User Role'
+  requirements:
+    _entity_create_access: 'entity_atn_projz_ur_projz_ur'
+
+entity.entity_atn_projz_ur_projz_ur.edit_form:
+  path: '/entity_atn_projz_ur_projz_ur/{entity_atn_projz_ur_projz_ur}/edit'
+  defaults:
+  # Calls the form.edit controller, defined in the project user role entity.
+    _entity_form: entity_atn_projz_ur_projz_ur.edit
+    _title: 'Edit Project User Role'
+  requirements:
+    _entity_access: 'entity_atn_projz_ur_projz_ur.edit'
+
+entity.entity_atn_projz_ur_projz_ur.delete_form:
+  path: '/projz_ur/{entity_atn_projz_ur_projz_ur}/delete'
+  defaults:
+    # Calls the form.delete controller, defined in the project user role entity.
+    _entity_form: entity_atn_projz_ur_projz_ur.delete
+    _title: 'Delete Project User Role'
+  requirements:
+    _entity_access: 'entity_atn_projz_ur_projz_ur.delete'
+
+entity_atn_projz_ur.projz_ur_settings:
+  path: 'admin/structure/entity_atn_settings'
+  defaults:
+    _form: '\Drupal\entity_atn_projz_ur\Form\ProjzURSettingsForm'
+    _title: 'Project User Role Settings'
+  requirements:
+    _permission: 'administer project user role entity'
+

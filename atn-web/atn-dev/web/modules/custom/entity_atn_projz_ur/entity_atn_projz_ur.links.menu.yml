@@ -1,0 +1,13 @@
+
+entity.entity_atn_projz_ur_projz_ur.collection:
+  title: 'Maintain Project User Roles: Project User Roles Listing'
+  route_name: entity.entity_atn_projz_ur_projz_ur.collection
+  description: 'List Project User Roles'
+  weight: 10
+
+entity_atn_projz_ur_projz_ur.admin.structure.settings:
+  title: 'Project User Role Settings'
+  description: 'Configure Project User Role entity'
+  route_name: entity_atn_projz_ur.projz_ur_settings
+  parent: system.admin_structure
+
