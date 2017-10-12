@@ -19,7 +19,7 @@ entity.entity_atn_projz_ur_projz_ur.collection:
   # Checks for permission directly.
     _permission: 'view project user role entity'
 
-content_entity_example.projz_ur_add:
+entity.entity_atn_projz_ur_projz_ur.projz_ur_add:
   path: '/entity_atn_projz_ur_projz_ur/add'
   defaults:
   # Calls the form.add controller, defined in the project user role entity.
@@ -40,7 +40,7 @@ entity.entity_atn_projz_ur_projz_ur.edit_form:
 entity.entity_atn_projz_ur_projz_ur.delete_form:
   path: '/projz_ur/{entity_atn_projz_ur_projz_ur}/delete'
   defaults:
-    # Calls the form.delete controller, defined in the project user role entity.
+  # Calls the form.delete controller, defined in the project user role entity.
     _entity_form: entity_atn_projz_ur_projz_ur.delete
     _title: 'Delete Project User Role'
   requirements:

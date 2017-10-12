@@ -15,8 +15,8 @@ projz_ur.page_edit:
   title: Edit
 
 projz_ur.delete_confirm:
-  route_name:  entity.entity_atn_projz_ur_projz_ur.delete_form
-  base_route:  entity.entity_atn_projz_ur_projz_ur.canonical
+  route_name: entity.entity_atn_projz_ur_projz_ur.delete_form
+  base_route: entity.entity_atn_projz_ur_projz_ur.canonical
   title: Delete
   weight: 10
 
