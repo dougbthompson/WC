@@ -8,6 +8,6 @@ entity.entity_atn_orgz_projz_orgz_projz.collection:
 entity_atn_orgz_projz_orgz_projz.admin.structure.settings:
   title: 'Organization Project Settings'
   description: 'Configure Organization Project entity'
-  route_name:  entity_atn_orgz_projz.orgz_projz_settings
+  route_name: entity_atn_orgz_projz.orgz_projz_settings
   parent: system.admin_structure
 

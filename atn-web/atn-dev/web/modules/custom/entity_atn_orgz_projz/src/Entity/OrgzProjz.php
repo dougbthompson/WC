@@ -207,12 +207,12 @@ class OrgzProjz extends ContentEntityBase implements OrgzProjzInterface {
     $fields['org_id'] = BaseFieldDefinition::create('integer')
       ->setLabel(t('Organization ID'))
       ->setDescription(t('The Organization ID of the Organization Project entity.'))
-      ->setReadOnly(TRUE);
+      ->setReadOnly(FALSE);
 
     $fields['project_id'] = BaseFieldDefinition::create('integer')
       ->setLabel(t('Project ID'))
       ->setDescription(t('The Project ID of the Organization Project entity.'))
-      ->setReadOnly(TRUE);
+      ->setReadOnly(FALSE);
 
     $fields['langcode'] = BaseFieldDefinition::create('language')
       ->setLabel(t('Language code'))

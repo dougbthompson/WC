@@ -1,5 +1,5 @@
 
-entity_atn_prgz_projz.organization_add:
+entity_atn_orgz_projz.orgz_projz_add:
   # Which route will be called by the link
   route_name: entity_atn_orgz_projz.orgz_projz_add
   title: 'Add Organization - Project'
@@ -8,3 +8,4 @@ entity_atn_prgz_projz.organization_add:
   appears_on:
     - entity.entity_atn_orgz_projz_orgz_projz.collection
     - entity.entity_atn_orgz_projz_orgz_projz.canonical
+
