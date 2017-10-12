@@ -8,3 +8,4 @@ entity_atn_projz.projz_add:
   appears_on:
     - entity.entity_atn_projz_projz.collection
     - entity.entity_atn_projz_projz.canonical
+

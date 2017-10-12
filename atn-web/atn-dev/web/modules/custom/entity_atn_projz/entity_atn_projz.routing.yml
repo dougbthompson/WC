@@ -19,7 +19,7 @@ entity.entity_atn_projz_projz.collection:
   # Checks for permission directly.
     _permission: 'view project entity'
 
-content_entity_example.projz_add:
+entity_atn_projz_projz.projz_add:
   path: '/entity_atn_projz_projz/add'
   defaults:
   # Calls the form.add controller, defined in the project entity.
@@ -40,7 +40,7 @@ entity.entity_atn_projz_projz.edit_form:
 entity.entity_atn_projz_projz.delete_form:
   path: '/projz/{entity_atn_projz_projz}/delete'
   defaults:
-    # Calls the form.delete controller, defined in the project entity.
+  # Calls the form.delete controller, defined in the project entity.
     _entity_form: entity_atn_projz_projz.delete
     _title: 'Delete Project'
   requirements:
