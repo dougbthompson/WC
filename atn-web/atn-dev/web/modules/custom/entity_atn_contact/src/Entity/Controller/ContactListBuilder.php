@@ -69,14 +69,14 @@ class ContactListBuilder extends EntityListBuilder {
   /**
    * {@inheritdoc}
    *
-   * Building the header and content lines for the contact list.
+   * Building the header and content lines for the contacts list.
    *
    * Calling the parent::buildHeader() adds a column for the possible actions
    * and inserts the 'edit' and 'delete' links as defined for the entity type.
    */
   public function buildHeader() {
-    $header['id'] = $this->t('ContactID');
-    $header['contact_name'] = $this->t('ContactName');
+    $header['id']           = $this->t('ContactID');
+    $header['contact_desc'] = $this->t('ContactDescription');
     return $header + parent::buildHeader();
   }
 
@@ -85,8 +85,8 @@ class ContactListBuilder extends EntityListBuilder {
    */
   public function buildRow(EntityInterface $entity) {
     /* @var $entity \Drupal\entity_atn_contact\Entity\Contact */
-    $row['id'] = $entity->id();
-    $row['contact_name'] = $entity->contact_name->value;
+    $row['id']           = $entity->id();
+    $row['contact_desc'] = $entity->contact_desc->value;
     return $row + parent::buildRow($entity);
   }
 

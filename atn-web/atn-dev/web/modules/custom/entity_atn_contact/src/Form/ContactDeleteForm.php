@@ -23,7 +23,7 @@ class ContactDeleteForm extends ContentEntityConfirmFormBase {
   /**
    * {@inheritdoc}
    *
-   * If the delete command is canceled, return to the contact list.
+   * If the delete command is canceled, return to the contacts list.
    */
   public function getCancelUrl() {
     return new Url('entity.entity_atn_contact_contact.collection');

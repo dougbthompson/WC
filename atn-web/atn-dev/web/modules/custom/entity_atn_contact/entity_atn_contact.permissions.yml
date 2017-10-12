@@ -1,3 +1,4 @@
+
 'delete contact entity':
   title: Delete entity contact.
 'add contact entity':
@@ -6,5 +7,7 @@
   title: View entity contact
 'edit contact entity':
   title: Edit entity contact
+
 'administer contact entity':
   title: Administer settings
+

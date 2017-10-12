@@ -3,7 +3,7 @@
 namespace Drupal\entity_atn_contact;
 
 use Drupal\Core\Entity\ContentEntityInterface;
-use Drupal\contact\EntityOwnerInterface;
+use Drupal\user\EntityOwnerInterface;
 use Drupal\Core\Entity\EntityChangedInterface;
 
 /**

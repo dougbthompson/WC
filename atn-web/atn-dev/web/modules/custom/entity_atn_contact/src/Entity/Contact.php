@@ -7,7 +7,7 @@ use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\Core\Entity\ContentEntityBase;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\entity_atn_contact\ContactInterface;
-use Drupal\contact\ContactInterface;
+use Drupal\user\UserInterface;
 use Drupal\Core\Entity\EntityChangedTrait;
 
 /**
@@ -181,7 +181,7 @@ class Contact extends ContentEntityBase implements ContactInterface {
   /**
    * {@inheritdoc}
    */
-  public function setOwner(ContactInterface $account) {
+  public function setOwner(UserInterface $account) {
     $this->set('contact_id', $account->id());
     return $this;
   }
@@ -231,6 +231,7 @@ class Contact extends ContentEntityBase implements ContactInterface {
     $fields['langcode'] = BaseFieldDefinition::create('language')
       ->setLabel(t('Language code'))
       ->setDescription(t('The language code of ContentEntityExample entity.'));
+
     $fields['created'] = BaseFieldDefinition::create('created')
       ->setLabel(t('Created'))
       ->setDescription(t('The time that the entity was created.'));

@@ -1,13 +1,13 @@
-# Define the menu links for this module
 
 entity.entity_atn_contact_contact.collection:
   title: 'Maintain Contacts: Contact Listing'
   route_name: entity.entity_atn_contact_contact.collection
   description: 'List Contacts'
   weight: 10
+
 entity_atn_contact_contact.admin.structure.settings:
-  title: Contact Settings
+  title: 'Contact Settings'
   description: 'Configure Contact entity'
-  route_name:  entity_atn_contact_contact.contact_settings
+  route_name:  entity_atn_contact.contact_settings
   parent: system.admin_structure
 

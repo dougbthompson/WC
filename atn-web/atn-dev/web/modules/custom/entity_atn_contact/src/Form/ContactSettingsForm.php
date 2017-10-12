@@ -32,7 +32,7 @@ class ContactSettingsForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $form['contact_settings']['#markup'] = 'Settings form for EntityATNContact. Manage field settings here.';
+    $form['contact_settings']['#markup'] = 'Settings form for Contacts. Manage field settings here.';
     return $form;
   }
 
