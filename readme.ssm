@@ -1,0 +1,92 @@
+
+ssh argos@mola "echo -e 'unix_day_0\n1970-01-01' | /usr/local/nosql/bin/julian unix_day_0"
+
+----- -----
+
+  ### format & filter the deployments that have new locations into SSM style files.
+  ### the deployments that have no new data will already have SSM files.
+  a_ply(new_metadata,1, function(r){
+
+### ### all the stuff to filter locations is not needed because alans just uses the gps
+    location_filename=paste0(data_dir, '/',r$eventid,'SSM.txt')
+    profile_filename=paste0(data_dir, '/',r$eventid,'SSM.profile.txt')
+    readRDS(file=paste0(data_dir, '/',r$wc_id,'.rds')) -> raw_data
+
+    if (nrow(raw_data)) {
+  ### scp the deployments that have changes to the atndac pipeline.
+  ### the way to invalidate the metadata for a deployment is to delete its metadata rows,
+  ### and then when this script reruns, it will reinsert them,
+  ### and they will go into the list of files that need to be scp'ed again.
+  ### scp'ing a file triggers getting it reloaded into the erddap and hence the atn dac site.
+  ### it would be tacky to just "scp *SSM.txt" because lynn turned up her cycles to every half hour,
+### in the context of us only sending incremental changes.
+
+
+### format & filter the deployments that have new locations into SSM style files.
+### the deployments that have no new data will already have SSM files.
+# note that the dates are already in seconds.
+# note that the choice between argos solutions location1 vs location2 has already been made.
+### ssh argos@mola "echo -e 'unix_day_0\n1970-01-01' | julian unix_day_0"
+  julian_unix_day_0 = 2440587.500000
+  seconds_per_day = 24 * 60 * 60
+
+      raw_data %>%
+    transmute(
+      lat1=latitude
+    , lat2=latitude
+    , long1=longitude
+    , long2=longitude
+    , lc = location_class
+### as long as units are days it is OK if we are off by a constant,
+### we only care about intervals,
+### and we will backconvert exactly to seconds.
+    , decimal_day = (date/seconds_per_day) + julian_unix_day_0 
+    ) -> filter_input
+csv= paste0(data_dir,'/',r$eventid,'.csv')
+        write.table(file=csv, filter_input, row.names=F, quote=F,sep='\t')
+  fread(
+    paste('ssh argos@mola "nosql repair | bin/tab2tabFilter filterLand" <',csv)
+  ) %>%
+    filter(passed==1) -> filter_output
+
+      if (nrow(filter_output)) {
+      filter_output %>%
+    transmute(
+### backconvert julian decimal days to unix seconds.
+### exact opposite of above conversion OK even if not perfectly correct julian.
+                         date= (decimal_day - julian_unix_day_0) * seconds_per_day 
+                        ,latitude=lat
+                        ,longitude=long
+                        ,location_class=lc
+  ) -> filtered_argos 
+
+      transmute(
+          filtered_argos 
+          ,datesec=format(
+            anytime(as.numeric(as.character(date))+0)
+           ,'%m/%d/%Y %H:%M'
+          )
+         ,lon= ((as.numeric(as.character(longitude))+180) %% 360) - 180 # ensure lon range -180 to +180 for argos filters
+         ,lat=as.numeric(as.character(latitude))
+         ,lon025=-999
+         ,lat025=-999
+         ,lon5=-999
+         ,lat5=-999
+         ,lon975=-999
+         ,lat975=-999
+         ,mplon=-999
+         ,mplat=-999
+         ,id=r$eventid
+        ) ->.;
+        write.csv(.,file=location_filename,quote=F,row.names=F)
+      system(paste('chmod ugo+rwx', location_filename))
+      system(paste(
+        'scp'
+      , location_filename
+      , 'vmuser@mola:/var/www/html/atnupload/embargos/'
+      ))
+      }
+    }
+  }
+)
+
