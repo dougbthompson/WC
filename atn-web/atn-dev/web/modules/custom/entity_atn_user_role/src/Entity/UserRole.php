@@ -244,3 +244,4 @@ class UserRole extends ContentEntityBase implements UserRoleInterface {
   }
 
 }
+

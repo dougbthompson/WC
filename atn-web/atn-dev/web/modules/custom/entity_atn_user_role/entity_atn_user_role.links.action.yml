@@ -1,11 +1,11 @@
-# All action links for this module
 
 entity_atn_user_role.user_role_add:
   # Which route will be called by the link
   route_name: entity_atn_user_role.user_role_add
   title: 'Add User Role'
 
-  # Where will the link appear, defined by route name.
+  # Where will the link appear, defined by route name
   appears_on:
     - entity.entity_atn_user_role_user_role.collection
     - entity.entity_atn_user_role_user_role.canonical
+
