@@ -40,3 +40,4 @@ class UserForm extends ContentEntityForm {
   }
 
 }
+

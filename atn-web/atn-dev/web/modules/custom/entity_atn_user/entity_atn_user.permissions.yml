@@ -1,3 +1,4 @@
+
 'delete user entity':
   title: Delete entity user.
 'add user entity':
@@ -6,5 +7,7 @@
   title: View entity user
 'edit user entity':
   title: Edit entity user
+
 'administer user entity':
   title: Administer settings
+

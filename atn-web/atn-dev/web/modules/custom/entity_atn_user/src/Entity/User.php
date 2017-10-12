@@ -6,7 +6,7 @@ use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\Core\Entity\ContentEntityBase;
 use Drupal\Core\Entity\EntityTypeInterface;
-use Drupal\entity_atn_user\UserInterface;
+use Drupal\entity_atn_user\UsersInterface;
 use Drupal\user\UserInterface;
 use Drupal\Core\Entity\EntityChangedTrait;
 
@@ -125,7 +125,7 @@ use Drupal\Core\Entity\EntityChangedTrait;
  * The class also uses the EntityChangedTrait trait which allows it to record
  * timestamps of save operations.
  */
-class User extends ContentEntityBase implements UserInterface {
+class User extends ContentEntityBase implements UsersInterface {
 
   use EntityChangedTrait;
 
@@ -438,6 +438,7 @@ class User extends ContentEntityBase implements UserInterface {
     $fields['langcode'] = BaseFieldDefinition::create('language')
       ->setLabel(t('Language code'))
       ->setDescription(t('The language code of ContentEntityExample entity.'));
+
     $fields['created'] = BaseFieldDefinition::create('created')
       ->setLabel(t('Created'))
       ->setDescription(t('The time that the entity was created.'));

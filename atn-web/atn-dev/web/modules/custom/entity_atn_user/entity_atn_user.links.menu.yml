@@ -1,13 +1,13 @@
-# Define the menu links for this module
 
 entity.entity_atn_user_user.collection:
   title: 'Maintain Users: User Listing'
   route_name: entity.entity_atn_user_user.collection
   description: 'List Users'
   weight: 10
+
 entity_atn_user_user.admin.structure.settings:
-  title: User Settings
+  title: 'User Settings'
   description: 'Configure User entity'
-  route_name:  entity_atn_user_user.user_settings
+  route_name:  entity_atn_user.user_settings
   parent: system.admin_structure
 

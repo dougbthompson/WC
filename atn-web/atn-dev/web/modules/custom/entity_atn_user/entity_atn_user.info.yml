@@ -1,6 +1,7 @@
-name: User Entity	
+
+name: 'User Entity'
 type: module
-description: Maintenance of the valid list of user.
+description: 'Maintenance of the valid list of users'
 core: 8.x
 # These modules are required by the tests, must be available at bootstrap time
 dependencies:

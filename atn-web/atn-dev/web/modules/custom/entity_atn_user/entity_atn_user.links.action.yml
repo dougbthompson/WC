@@ -1,4 +1,3 @@
-# All action links for this module
 
 entity_atn_user.user_add:
   # Which route will be called by the link
@@ -9,3 +8,4 @@ entity_atn_user.user_add:
   appears_on:
     - entity.entity_atn_user_user.collection
     - entity.entity_atn_user_user.canonical
+
