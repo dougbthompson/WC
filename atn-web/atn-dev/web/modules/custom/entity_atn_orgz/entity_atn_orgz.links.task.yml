@@ -1,0 +1,22 @@
+
+orgz.settings_tab:
+  route_name: entity_atn_orgz.orgz_settings
+  base_route: entity_atn_orgz.orgz_settings
+  title: Settings
+
+orgz.view:
+  route_name: entity.entity_atn_org_org.canonical
+  base_route: entity.entity_atn_org_org.canonical
+  title: View
+
+orgz.page_edit:
+  route_name: entity.entity_atn_org_org.edit_form
+  base_route: entity.entity_atn_org_org.canonical
+  title: Edit
+
+orgz.delete_confirm:
+  route_name: entity.entity_atn_org_org.delete_form
+  base_route: entity.entity_atn_org_org.canonical
+  title: Delete
+  weight: 10
+

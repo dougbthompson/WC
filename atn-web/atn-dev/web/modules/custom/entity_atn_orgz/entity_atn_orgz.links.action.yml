@@ -1,0 +1,10 @@
+
+entity_atn_orgz.orgz_add:
+  # Which route will be called by the link
+  route_name: entity_atn_orgz.orgz_add
+  title: 'Add Organization'
+
+  # Where will the link appear, defined by route name.
+  appears_on:
+    - entity.entity_atn_orgz_orgz.collection
+    - entity.entity_atn_orgz_orgz.canonical

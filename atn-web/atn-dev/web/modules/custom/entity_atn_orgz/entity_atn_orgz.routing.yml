@@ -1,0 +1,56 @@
+
+entity.entity_atn_orgz_orgz.canonical:
+  path: '/entity_atn_orgz_orgz/{entity_atn_orgz_orgz}'
+  defaults:
+  # Calls the view controller, defined in the annotation of the organization entity
+    _entity_view: 'entity_atn_orgz_orgz'
+    _title: 'Organization Content'
+  requirements:
+  # Calls the access controller of the entity, $operation 'view'
+    _entity_access: 'entity_atn_orgz_orgz.view'
+
+entity.entity_atn_orgz_orgz.collection:
+  path: '/entity_atn_orgz_orgz/list'
+  defaults:
+  # Calls the list controller, defined in the annotation of the organization entity.
+    _entity_list: 'entity_atn_orgz_orgz'
+    _title: 'Organization List'
+  requirements:
+  # Checks for permission directly.
+    _permission: 'view organization entity'
+
+entity.entity_atn_orgz_orgz.orgz_add:
+  path: '/entity_atn_orgz_orgz/add'
+  defaults:
+  # Calls the form.add controller, defined in the organization entity.
+    _entity_form: entity_atn_orgz_orgz.add
+    _title: 'Add Organization'
+  requirements:
+    _entity_create_access: 'entity_atn_orgz_orgz'
+
+entity.entity_atn_orgz_orgz.edit_form:
+  path: '/entity_atn_orgz_orgz/{entity_atn_orgz_orgz}/edit'
+  defaults:
+  # Calls the form.edit controller, defined in the organization entity.
+    _entity_form: entity_atn_orgz_orgz.edit
+    _title: 'Edit Organization'
+  requirements:
+    _entity_access: 'entity_atn_orgz_orgz.edit'
+
+entity.entity_atn_orgz_orgz.delete_form:
+  path: '/orgz/{entity_atn_orgz_orgz}/delete'
+  defaults:
+  # Calls the form.delete controller, defined in the organization entity.
+    _entity_form: entity_atn_orgz_orgz.delete
+    _title: 'Delete Organization'
+  requirements:
+    _entity_access: 'entity_atn_orgz_orgz.delete'
+
+entity_atn_orgz.orgz_settings:
+  path: 'admin/structure/entity_atn_orgz_settings'
+  defaults:
+    _form: '\Drupal\entity_atn_orgz\Form\OrgzSettingsForm'
+    _title: 'Organization Settings'
+  requirements:
+    _permission: 'administer organization entity'
+

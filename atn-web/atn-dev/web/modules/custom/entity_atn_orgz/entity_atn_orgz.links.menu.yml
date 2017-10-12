@@ -1,0 +1,13 @@
+
+entity.entity_atn_orgz_orgz.collection:
+  title: 'Maintain Organizations: Organization Listing'
+  route_name: entity.entity_atn_orgz_orgz.collection
+  description: 'List Organizations'
+  weight: 10
+
+entity_atn_orgz_orgz.admin.structure.settings:
+  title: 'Organization Settings'
+  description: 'Configure Organization entity'
+  route_name: entity_atn_orgz.orgz_settings
+  parent: system.admin_structure
+
