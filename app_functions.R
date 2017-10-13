@@ -59,10 +59,13 @@ as.data.frame.list=function(x, row.names=NULL, optional=FALSE, ...) {
   return(df)
 }
 
-app_locations_csv = function(locations) {
+app_locations_csv = function(wc_id, locations, db_connection) {
 
   data_dir = '/home/dougt/wc/wc/data/'
-  eventid <- '2000000163'
+  query = paste0("select e.event_id,e.ptt,t.embargountil from biologging.event e, atn_all_locations l, atn_track t where l.wc_id = '",
+          wc_id,"' and e.ptt = l.ptt and e.event_id = t.eventid limit 1;")
+  event_data <- dbGetQuery (db_connection, query)
+  eventid <- event_data$event_id
 
   if (nrow(locations)) {
     julian_unix_day_0 = 2440587.500000
@@ -84,10 +87,16 @@ app_locations_csv = function(locations) {
   }
 }
 
-app_locations_ssm_csv = function(locations) {
+app_locations_ssm_csv = function(wc_id, locations, db_connection) {
 
       data_dir = '/home/dougt/wc/wc/data/'
-      eventid <- '2000000163'
+      julian_unix_day_0 = 2440587.500000
+      seconds_per_day = 24 * 60 * 60
+
+      query = paste0("select e.event_id,e.ptt,t.embargountil from biologging.event e, atn_all_locations l, atn_track t where l.wc_id = '",
+              wc_id,"' and e.ptt = l.ptt and e.event_id = t.eventid limit 1;")
+      event_data <- dbGetQuery (db_connection, query)
+      eventid <- event_data$event_id
       csv = paste0(data_dir, eventid, '.csv')
 
       filtered_output <- locations
