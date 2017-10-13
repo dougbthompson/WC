@@ -24,7 +24,8 @@ main = function() {
     source ('app_functions.R')
 
     source ('app_db_functions.R')
-    app_db_truncate (db_connection)
+    # app_db_truncate (db_connection)
+    source ('wc_ssm_functions.R')
 
     all_deployments <- fetch_all_deployments()
     pg_all_deployments <- sqldf("select * from all_deployments", drv="SQLite")
@@ -40,7 +41,12 @@ main = function() {
         saveRDS (file=paste0(app_env@data_dir, wc_id, '.rds'), object=all_locations)
         write.table (file=paste0(app_env@data_dir, wc_id, '.csv'), all_locations, row.names=F, quote=T, sep=',')
       }
-      # wc_spreadsheet (wc_id, db_connection)
+
+      app_locations_csv (wc_id, all_locations, db_connection)
+      app_locations_ssm_csv (wc_id, all_locations, db_connection)
+
+      wc_gen_ssm_track (wc_id, db_connection)
+      wc_spreadsheet (wc_id, db_connection)
     }
 
     all_deployment_profiles <- fetch_all_deployment_profiles()
