@@ -1,0 +1,79 @@
+ firstname |  lastname   |            email             |    username    |                           password                           |        date        |        authcode         | authorized 
+-----------+-------------+------------------------------+----------------+--------------------------------------------------------------+--------------------+-------------------------+------------
+ Kim       | Holland     | kholland@hawaii.edu          | holland        | $2y$10$91BOmkG2rmXeFOxdSDooPeSMw8522xFfOYfDm6NMdinKAeSc.604a | October 09, 2017   | 86810kholland1507577981 |          0
+           |             | jganong@gmail.com            | jganong        |                                                              |                    |                         |          1
+ z         | z           | z@y.x                        | z              | $2y$10$T62B4KwMHyTino.u84XwhOGL0l7TT4DHmth2ObRO9L9MN7gb2fC1W | August 04, 2017    | 14202z1501886062        |          0
+ James     | Sulikowski  | jsulikowski@une.edu          | sulikowski     | $2y$10$TrYQfYZxeF2UH3DKP.afO.D0gnjjI1xLvCoba3fwY9XXQrwmeXLV6 | August 04, 2017    | -4279                   |          1
+ Barbara   | Block       | bblock@stanford.edu          | block          | $2y$10$3sq/22IhmKQK.844kPgSq.YJVK7W71aU2mr02t0P7uYydgbO/G1Te | August 18, 2017    | 74112bblock1503112889   |          0
+ Lynn      | deWitt      | lynn.dewitt@noaa.gov         | dewitt         | $2y$10$6Zx0fvfPtvkSaQNKVr17/e8WclIJUp.S538MHOLbmj1ebgxjHRPou | December 14, 2016  | -4161                   |          1
+ Michael   | Courtney    | mbcourtney@alaska.edu        | courtney       | $2y$10$8P7yN7LpA8LxY/nogTWBjOZ/yQHGcIz7vPhJASIoD0j19Q1RFZ7cW | January 03, 2017   | -732                    |          1
+ Mike      | Castleton   | mrcastle@stanford.edu        | castleton      | $2y$10$DrfsuFCBVOXXP2PNwvd5WO2oQRhcPOQeyqoG2T44DWDIdvUiX/GFu | December 22, 2016  | -2443                   |          1
+ Jonathan  | Blythe      | jonathan.blythe@boem.gov     | blythe         | $2y$10$CO600/4BlSi7O56dGuA3f.MxwjXKDnNJBs0p2KetzkZMQHbFaHKuC | January 25, 2017   | -5564                   |          1
+ Alan      | Swithenbank | alans@mola.stanford.edu      | swithenbank    | $2y$10$9H2KyPADB49P4f4lHAKwWOQv7V6VUzmITSlNJSpFUQphC3dk3uLna | September 12, 2016 | -46357                  |          1
+ Patrick   | Robinson    | patrick.robinson@ucsc.edu    | robinson       | $2y$10$0U4PV6eO/dsVT1WSXb1zGOpwdv63M4.KykvXA0Po22RsDIrN7mF5m | November 06, 2016  | -9439                   |          1
+ Justin    | Crawford    | justin.crawford@alaska.gov   | crawford       | $2y$10$la3bHF3uCv4VTihGZQJs4e0qwIklAwSncaeUokRdZCTT2qtIFb.ny | November 10, 2016  | -3488                   |          1
+ Daniel    | Webster     | daniel_webster@mac.com       | webster        | $2y$10$u0qwDWqI1A4CLdot2tx07e/qfvZg/hhTHfZWiKR1XynwvDtOjfX36 | November 13, 2016  | -6812                   |          1
+ Bill      | Woodward    | bill.woodward@noaa.gov       | woodward       | $2y$10$q1yqlBjmnTBZxlZ0.XvN/u0uvfmJtwoFGm5AP7QVpwgiF2/UMMusa | February 14, 2017  | -834                    |          1
+ Dan       | Engelhaupt  | Daniel.Engelhaupt@hdrinc.com | engelhaupt     | $2y$10$PqO1knGDn.9606WgvC2Q4egy28i56pbQbgiZiNz6ZAdkxDN6llqxu | February 22, 2017  | -9305                   |          1
+           |             | Gregory.Skomal@state.ma.us   | skomal         |                                                              |                    |                         |         99
+ Jonas     | Teilmann    | jte@bios.au.dk               | teilmann       | $2y$10$tJCmcGkyP2knrpAcg3LuA.j8yWTWquZBFr3VQDN5G1BneBoGCzjVK | May 14, 2017       | -2314                   |          1
+ Randall   | Wells       | rwells@mote.org              | wells          | $2y$10$ITa5KmMxCu1Ypr22NMGSPOBk.Y2wTHCpv8SDsxHGErajnD3uosJqC | June 06, 2017      | 37380rwells1496746158   |          0
+           |             | sharklabhawaii@gmail.com     | sharklabhawaii |                                                              |                    |                         |         99
+ Elizabeth | Josephson   | elizabeth.josephson@noaa.gov | josephson      | $2y$10$CN7VkkBgJS7hcV/SfI9w3esCJGeOqgymZPCeSJ.9bEG9ZqE9jZlBa | May 26, 2017       | -7859                   |          1
+ Jacob     | Levenson    | Jacob.Levenson@boem.gov      | levenson       | $2y$10$xfaOEA5OiaBC6jS6jKYpOOnDp9vsNV0mEdpOTzwjivo2bTgCbw6Je | June 15, 2017      | -1218                   |          1
+ David     | Weber       | dweber@uga.edu               | weber          | $2y$10$BL29tH9HSUuOB4oUVIbc/edLTKyDkSMhn90fJf0/dEl/PZ/fy9eUi | October 12, 2017   | -5875                   |          1
+ FOO       | foo         | foo@foo.foo                  | foo            | $2y$10$uOcaqKB.ivFrX/s3VwpvqeHajlwbuWueEWpd1VSJg9aalHGcJbxDe | August 25, 2017    | -434                    |          1
+ Jane      | Provancha   | jane.a.provancha@nasa.gov    | provancha      | $2y$10$7f6zR4gm96XgzvwdZAtijOHxXYHpI8lso1i/LL6E4aeuk/wquo/P. | September 01, 2017 | -5116                   |          1
+           |             | gschorr@marecotel.org        | gschorr        |                                                              |                    |                         |         99
+
+update atn_user set login_name='crawford',registered_date=extract(epoch from to_timestamp('20--','YYYY-MM-DD')),auth_status=1 where id = ;
+update atn_user set login_name='',registered_date=extract(epoch from to_timestamp('20--','YYYY-MM-DD')),auth_status=1 where id = ;
+update atn_user set login_name='',registered_date=extract(epoch from to_timestamp('20--','YYYY-MM-DD')),auth_status=1 where id = ;
+update atn_user set login_name='',registered_date=extract(epoch from to_timestamp('20--','YYYY-MM-DD')),auth_status=1 where id = ;
+update atn_user set login_name='',registered_date=extract(epoch from to_timestamp('20--','YYYY-MM-DD')),auth_status=1 where id = ;
+update atn_user set login_name='',registered_date=extract(epoch from to_timestamp('20--','YYYY-MM-DD')),auth_status=1 where id = ;
+update atn_user set login_name='',registered_date=extract(epoch from to_timestamp('20--','YYYY-MM-DD')),auth_status=1 where id = ;
+
+atndb=# select id, person_name, email from atn_user order by 2;
+ id |     person_name     |            email             
+----+---------------------+------------------------------
+ 37 | Alan Swithenbank    | alans@mola.stanford.edu
+ 30 | Bill Woodward       | bill.woodward@noaa.gov
+ 29 | Dan Engelhaupt      | daniel.engelhaupt@hdrinc.com
+ 31 | Daniel Webster      | daniel_webster@mac.com
+ 24 | David Weber         | dweber@uga.edu
+ 20 | Davis, B            | 
+ 38 | Doug Thompson       | dbt@stanford.edu
+  1 | Dr. Afonso Andre    | afonso.andre@gmail.com
+  2 | Dr. Barbara Block   | bblock@stanford.edu
+  3 | Dr. Bruce Mate      | bruce.mate@oregonstate.edu
+  4 | Dr. Daniel Costa    | costa@ucsc.edu
+ 21 | Dr. Heidi Dewar     | heidi.dewar@noaa.gov
+  5 | Dr. Heidi Dewar     | heidi.dewar@noaa.gov
+  6 | Dr. Scott Eckert    | scott.eckert@principia.edu
+  7 | Dr. Scott Shaffer   | scott.shaffer@sjsu.edu
+ 26 | Elizabeth Josephson | elizabeth.josephson@noaa.gov
+ 39 | Gregory Skomal      | gregory.skomal@state.ma.us
+  8 | Gregory Skomal      | gregory.skomal@state.ma.us
+ 22 | Greg Schorr         | gschorr@marecotel.org
+ 25 | Jacob Levenson      | jacob.levenson@boem.gov
+  9 | Jake Levenson       | Jacob.Levenson@boem.gov
+ 10 | James Sulikowski    | jsulikowski@une.edu
+ 23 | Jane Provancha      | jane.a.provancha@nasa.gov
+ 11 | Jane Provancha      | jane.a.provancha@nasa.gov
+ 12 | Jason Schratwieser  | 
+ 28 | Jonas Teilmann      | jte@bios.au.dk
+ 36 | Jonathan Blythe     | jonathan.blythe@boem.gov
+ 32 | Justin Crawford     | justin.crawford@alaska.gov
+ 13 | Kim Holland         | kholland@hawaii.edu
+ 14 | Lori Quakenbush     | lori.quakenbush@alaska.gov
+ 34 | Lynn deWitt         | lynn.dewitt@noaa.gov
+ 15 | Michael Courtney    | mbcourtney@alaska.edu
+ 35 | Mike Castleton      | mrcastle@stanford.edu
+ 33 | Patrick Robinson    | patrick.robinson@ucsc.edu
+ 27 | Randall Wells       | rwells@mote.org
+ 16 | Robin Baird         | rwbaird@cascadiaresearch.org
+ 18 | Robin Baird         | rwbaird@cascadiaresearch.org
+ 17 | Robin Baird         | rwbaird@cascadiaresearch.org
+ 19 | Whoriskey, F.       | 
+

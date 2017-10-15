@@ -1,0 +1,27 @@
+id|firstname|lastname|email|password|userdir|date|organization|authcode|authorized|defperm|username|regcite 
+----+-----------+-------------+------------------------------+--------------------------------------------------------------+-------------------------------------+--------------------+----------------------------------------------------------------+-------------------------+------------+---------+----------------+------------------------
+93|Kim|Holland|kholland@hawaii.edu|$2y$10$91BOmkG2rmXeFOxdSDooPeSMw8522xFfOYfDm6NMdinKAeSc.604a|kholland_18061507577981|October 09, 2017|Hawaii Institute of Marine Biology|86810kholland1507577981|0||holland|
+77|||jganong@gmail.com||||||1||jganong|
+82|z|z|z@y.x|$2y$10$T62B4KwMHyTino.u84XwhOGL0l7TT4DHmth2ObRO9L9MN7gb2fC1W|z_610611501886062|August 04, 2017|z|14202z1501886062|0||z|z
+80|James|Sulikowski|jsulikowski@une.edu|$2y$10$TrYQfYZxeF2UH3DKP.afO.D0gnjjI1xLvCoba3fwY9XXQrwmeXLV6|jsulikowski_337151501873714|August 04, 2017|Univerity of New England|-4279|1||sulikowski|
+83|Barbara|Block|bblock@stanford.edu|$2y$10$3sq/22IhmKQK.844kPgSq.YJVK7W71aU2mr02t0P7uYydgbO/G1Te|bblock_484051503112889|August 18, 2017|Stanford University|74112bblock1503112889|0||block|
+33|Lynn|deWitt|lynn.dewitt@noaa.gov|$2y$10$6Zx0fvfPtvkSaQNKVr17/e8WclIJUp.S538MHOLbmj1ebgxjHRPou|lynn.dewitt_918061481740955|December 14, 2016|NOAA|-4161|1||dewitt|
+36|Michael|Courtney|mbcourtney@alaska.edu|$2y$10$8P7yN7LpA8LxY/nogTWBjOZ/yQHGcIz7vPhJASIoD0j19Q1RFZ7cW|mbcourtney_39051483492026|January 03, 2017|College of Fisheries and Ocean Sciences|-732|1||courtney|
+35|Mike|Castleton|mrcastle@stanford.edu|$2y$10$DrfsuFCBVOXXP2PNwvd5WO2oQRhcPOQeyqoG2T44DWDIdvUiX/GFu|mrcastle_647011482446295|December 22, 2016|Stanford|-2443|1||castleton|
+38|Jonathan|Blythe|jonathan.blythe@boem.gov|$2y$10$CO600/4BlSi7O56dGuA3f.MxwjXKDnNJBs0p2KetzkZMQHbFaHKuC|jonathan.blythe_854431485356895|January 25, 2017|Bureau of Ocean Energy Management|-5564|1||blythe|
+14|Alan|Swithenbank|alans@mola.stanford.edu|$2y$10$9H2KyPADB49P4f4lHAKwWOQv7V6VUzmITSlNJSpFUQphC3dk3uLna|alans_903691473718025|September 12, 2016|HMS|-46357|1|1|swithenbank|
+30|Patrick|Robinson|patrick.robinson@ucsc.edu|$2y$10$0U4PV6eO/dsVT1WSXb1zGOpwdv63M4.KykvXA0Po22RsDIrN7mF5m|patrick.robinson_374791478485584|November 06, 2016|UC Santa Cruz|-9439|1||robinson|
+31|Justin|Crawford|justin.crawford@alaska.gov|$2y$10$la3bHF3uCv4VTihGZQJs4e0qwIklAwSncaeUokRdZCTT2qtIFb.ny|justin.crawford_327371478820157|November 10, 2016|Alaska Department of Fish and Game|-3488|1||crawford|
+32|Daniel|Webster|daniel_webster@mac.com|$2y$10$u0qwDWqI1A4CLdot2tx07e/qfvZg/hhTHfZWiKR1XynwvDtOjfX36|daniel_webster_599961479074892|November 13, 2016|Cascadia Research Collective|-6812|1||webster|
+41|Bill|Woodward|bill.woodward@noaa.gov|$2y$10$q1yqlBjmnTBZxlZ0.XvN/u0uvfmJtwoFGm5AP7QVpwgiF2/UMMusa|bill.woodward_140481487119708|February 14, 2017|NOAA/IOOS|-834|1||woodward|
+42|Dan|Engelhaupt|Daniel.Engelhaupt@hdrinc.com|$2y$10$PqO1knGDn.9606WgvC2Q4egy28i56pbQbgiZiNz6ZAdkxDN6llqxu|Daniel.Engelhaupt_984181487801674|February 22, 2017|HDR|-9305|1||engelhaupt|
+46|||Gregory.Skomal@state.ma.us||||||99||skomal|
+56|Jonas|Teilmann|jte@bios.au.dk|$2y$10$tJCmcGkyP2knrpAcg3LuA.j8yWTWquZBFr3VQDN5G1BneBoGCzjVK|jte_516741494760745|May 14, 2017|Aarhus University|-2314|1||teilmann|
+58|Randall|Wells|rwells@mote.org|$2y$10$ITa5KmMxCu1Ypr22NMGSPOBk.Y2wTHCpv8SDsxHGErajnD3uosJqC|rwells_80181496746158|June 06, 2017|Chicago Zoological Society's Saarasota Dolphin Researh Program|37380rwells1496746158|0||wells|
+59|||sharklabhawaii@gmail.com||||||99||sharklabhawaii|
+57|Elizabeth|Josephson|elizabeth.josephson@noaa.gov|$2y$10$CN7VkkBgJS7hcV/SfI9w3esCJGeOqgymZPCeSJ.9bEG9ZqE9jZlBa|elizabeth.josephson_208121495823996|May 26, 2017|NOAA-Northeast Fisheries Science Center|-7859|1||josephson|
+60|Jacob|Levenson|Jacob.Levenson@boem.gov|$2y$10$xfaOEA5OiaBC6jS6jKYpOOnDp9vsNV0mEdpOTzwjivo2bTgCbw6Je|Jacob.Levenson_792921497528417|June 15, 2017|Bureau of Ocean Energy Management|-1218|1||levenson|
+94|David|Weber|dweber@uga.edu|$2y$10$BL29tH9HSUuOB4oUVIbc/edLTKyDkSMhn90fJf0/dEl/PZ/fy9eUi|dweber_899761507834401|October 12, 2017|Burton 4-H Center/University of Georgia|-5875|1||weber|
+90|FOO|foo|foo@foo.foo|$2y$10$uOcaqKB.ivFrX/s3VwpvqeHajlwbuWueEWpd1VSJg9aalHGcJbxDe|foo_690341503697392|August 25, 2017|far|-434|1||foo|foo
+91|Jane|Provancha|jane.a.provancha@nasa.gov|$2y$10$7f6zR4gm96XgzvwdZAtijOHxXYHpI8lso1i/LL6E4aeuk/wquo/P.|jane.a.provancha_378381504285209|September 01, 2017|IMSS/NASA/NAVY|-5116|1||provancha|Canaveral Shoals Study
+92|||gschorr@marecotel.org||||||99||gschorr|

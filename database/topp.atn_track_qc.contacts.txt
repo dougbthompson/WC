@@ -1,0 +1,79 @@
+
+insert into atn_user(user_name,email) values('','');
+insert into atn_organization(org_name) values ('');
+
+ Dr. Afonso Andre<br>Universidade Federal Rural de Pernambuco <br>afonso.andre@gmail.com
+insert into atn_user(user_name,email) values('Dr. Afonso Andre','afonso.andre@gmail.com');
+insert into atn_organization(org_name) values ('Universidade Federal Rural de Pernambuco');
+
+ Dr. Barbara Block<br>Hopkins Marine Station, Stanford University<br>bblock@stanford.edu
+insert into atn_user(user_name,address1,address2,address3,email,phone) values('Dr. Barbara Block','Hopkins Marine Station','120 Oceanview Blvd.','Pacific Grove, CA 93950','bblock@stanford.edu','831-655-6236');
+
+ Dr. Bruce Mate<br>Oregon State University Marine Mammal Institute<br>bruce.mate@oregonstate.edu
+insert into atn_user(user_name,email) values('Dr. Bruce Mate','bruce.mate@oregonstate.edu');
+insert into atn_organization(org_name) values ('Oregon State University Marine Mammal Institute');
+
+ Dr. Daniel Costa<br>University of California, Santa Cruz<br>costa@ucsc.edu
+insert into atn_user(user_name,email) values('Dr. Daniel Costa','costa@ucsc.edu');
+
+ Dr. Heidi Dewar<br>Southwest Fisheries Science Center<br>heidi.dewar@noaa.gov
+insert into atn_user(user_name,email) values('Dr. Heidi Dewar','heidi.dewar@noaa.gov');
+insert into atn_organization(org_name) values ('Southwest Fisheries Science Center');
+
+ Dr. Scott Eckert<br>Wider Caribbean Sea Turtle Conservation Network (WIDECAST)<br>scott.eckert@principia.edu
+insert into atn_user(user_name,email) values('Dr. Scott Eckert','scott.eckert@principia.edu');
+insert into atn_organization(org_name) values ('Wider Caribbean Sea Turtle Conservation Network (WIDECAST)');
+
+ Dr. Scott Shaffer<br>San Jose State University<br>scott.shaffer@sjsu.edu
+insert into atn_user(user_name,email) values('Dr. Scott Shaffer','scott.shaffer@sjsu.edu');
+insert into atn_organization(org_name) values ('San Jose State University');
+
+ Gregory Skomal<br>MA Marine Fisheries<br>gregory.skomal@state.ma.us
+insert into atn_user(user_name,email) values('Gregory Skomal','gregory.skomal@state.ma.us');
+insert into atn_organization(org_name) values ('MA Marine Fisheries');
+
+ heidi.dewar@noaa.gov
+insert into atn_user(user_name,email) values('Heidi Dewar','heidi.dewar@noaa.gov');
+
+ Jake Levenson<br>Bureau of Ocean Energy Management<br>Jacob.Levenson@boem.gov
+insert into atn_user(user_name,email) values('Jake Levenson','Jacob.Levenson@boem.gov');
+
+ James Sulikowski<br>University of New England<br>jsulikowski@une.edu
+insert into atn_user(user_name,email) values('James Sulikowski','jsulikowski@une.edu');
+
+ Jane Provancha<br>Canaveral Shoals Study<br>jane.a.provancha@nasa.gov
+insert into atn_user(user_name,email) values('Jane Provancha','jane.a.provancha@nasa.gov');
+insert into atn_project(project_name) values ('Canaveral Shoals Study');
+
+ Jason Schratwieser<br>Conservation Director<br>IGFA<br>300 Gulf Stream Way<br>Dania Beach FL 33004<br>954-924-4320<br><br><br>
+insert into atn_user(user_name,title,address1,address2,phone) values('Jason Schratwieser','Conservation Director','300 Gulf Stream Way','Dania Beach FL 33004','954-924-4320');
+insert into atn_organization(org_name) values ('IGFA - Internation Game Fish Association');
+ Dr. Barbara Block<br>Tagging of Pacific Pelagics (TOPP)<br>Hopkins Marine Station<br>120 Oceanview Blvd.<br>Pacific Grove, CA 93950<br>bblock@stanford.edu<br>(831)655-6236<br>
+insert into atn_project(project_name) values ('Tagging of Pacific Pelagics (TOPP)');
+
+ Kim N. Holland PHD<br>Hawaii Institute of Marine Biology<br>kholland@hawaii.edu
+insert into atn_user(user_name,email) values('kim Holland','kholland@hawaii.edu');
+
+ Lori Quakenbush<br>1300 College Road, Fairbanks, AK 99701<br><br>email: lori.quakenbush@alaska.gov
+insert into atn_user(user_name,address1,address2,email) values('Lori Quakenbush','1300 College Road','Fairbanks, AK 99701','lori.quakenbush@alaska.gov');
+
+ Michael Courtney<br>University of Alaska Fairbanks<br>mbcourtney@alaska.edu<br>Courtney MB, Scanlon BS, Rikardsen AH, Seitz AC. In P. Oceanic behavior and dispersal of important subsistence fish in Arctic Alaska, the Dolly Varden. Environmental Biology of Fishes. February 2016, Volume 99, Issue 2, pp 209â€“222
+
+insert into atn_user(user_name,email,citation) values('Michael Courtney','mbcourtney@alaska.edu','Courtney MB, Scanlon BS, Rikardsen AH, Seitz AC. In P. Oceanic behavior and dispersal of important subsistence fish in Arctic Alaska, the Dolly Varden. Environmental Biology of Fishes. February 2016, Volume 99, Issue 2, pp 209 -“222');
+insert into atn_organization(org_name) values ('University of Alaska, Fairbanks');
+
+ Robin Baird<br>Cascadia Research Collective<br>rwbaird@cascadia.org
+insert into atn_user(user_name,email) values('Robin Baird','rwbaird@cascadiaresearch.org');
+
+ Robin Baird<br>Cascadia Research Collective<br>rwbaird@cascadiaresearch.org<br>Baird, R.W., D. Cholewiak, D.L. Webster, G.S. Schorr, S.D. Mahaffy, C. Curtice, J. Harrison and S.M. Van Parijs. 2015. Biologically important areas for cetaceans within U.S. waters - Hawaiâ€˜i region. Aquatic Mammals 41:54-64.
+insert into atn_user(user_name,email,citation) values('Robin Baird','rwbaird@cascadiaresearch.org','Baird, R.W., D. Cholewiak, D.L. Webster, G.S. Schorr, S.D. Mahaffy, C. Curtice, J. Harrison and S.M. Van Parijs. 2015. Biologically important areas for cetaceans within U.S. waters - Hawaii region. Aquatic Mammals 41:54-64.');
+
+ Robin Baird<br>Cascadia Research Collective<br>rwbaird@cascadiaresearch.org<br>Schorr, G.S., R.W. Baird, M.B. Hanson, D.L. Webster, D.J. McSweeney and R.D. Andrews. 2009. Movements of satellite-tagged Blainville's beaked whales off the island of Hawaiâ€˜i. Endangered Species Research 10:203-213.
+insert into atn_user(user_name,email,citation) values('Robin Baird','rwbaird@cascadiaresearch.org','Schorr, G.S., R.W. Baird, M.B. Hanson, D.L. Webster, D.J. McSweeney and R.D. Andrews. 2009. Movements of satellite-tagged Blainville beaked whales off the island of Hawaii. Endangered Species Research 10:203-213.');
+
+ Whoriskey, F., Davis, B. 2013.<br>Ocean Tracking Network Nova Scotia Blue Shark Tracking<br><br>Ocean Tracking Network 2017-01-13<br>http://oceantrackingnetwork.org/ [oceantrackingnetwork.org]
+insert into atn_user(user_name) values('Whoriskey, F.');
+insert into atn_user(user_name) values('Davis, B');
+insert into atn_organization(org_name,website) values ('OTN - Ocean Tracking Network','http://oceantrackingnetwork.org');
+insert into atn_project(project_name,project_year) values ('OTN - Blue Shark Tracking - 2017-01-13',2017);
+

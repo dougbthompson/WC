@@ -2,8 +2,9 @@
 drop table if exists biologging.atn_user;
 create table biologging.atn_user (
     id                serial        primary key,
-    user_name         varchar(255)      null,
-    user_password     varchar(255)      null,
+    person_name       varchar(255)      null,
+    login_name        varchar(255)      null,
+    login_password    varchar(255)      null,
     title             varchar(255)      null,
     address1          varchar(255)      null,
     address2          varchar(255)      null,
@@ -14,8 +15,8 @@ create table biologging.atn_user (
     auth_code         varchar(255)      null,
     auth_status       varchar(8)        null,
     citation          varchar(255)      null,
-    registered_date   integer       not null,
-    last_update_date  integer       not null
+    registered_date   integer           null,
+    last_update_date  integer           null
 );
 drop table if exists biologging.atn_user_role;
 create table biologging.atn_user_role (
