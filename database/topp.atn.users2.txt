@@ -1,3 +1,4 @@
+
  firstname |  lastname   |            email             |    username    |                           password                           |        date        |        authcode         | authorized 
 -----------+-------------+------------------------------+----------------+--------------------------------------------------------------+--------------------+-------------------------+------------
  Kim       | Holland     | kholland@hawaii.edu          | holland        | $2y$10$91BOmkG2rmXeFOxdSDooPeSMw8522xFfOYfDm6NMdinKAeSc.604a | October 09, 2017   | 86810kholland1507577981 |          0
