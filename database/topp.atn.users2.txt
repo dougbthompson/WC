@@ -26,7 +26,7 @@
  Jane      | Provancha   | jane.a.provancha@nasa.gov    | provancha      | $2y$10$7f6zR4gm96XgzvwdZAtijOHxXYHpI8lso1i/LL6E4aeuk/wquo/P. | September 01, 2017 | -5116                   |          1
            |             | gschorr@marecotel.org        | gschorr        |                                                              |                    |                         |         99
 
-update atn_user set login_name='crawford',registered_date=extract(epoch from to_timestamp('20--','YYYY-MM-DD')),auth_status=1 where id = ;
+update atn_user set login_name='crawford',registered_date=extract(epoch from to_timestamp('2016-11-10','YYYY-MM-DD')),auth_status=1 where id = 32;
 update atn_user set login_name='',registered_date=extract(epoch from to_timestamp('20--','YYYY-MM-DD')),auth_status=1 where id = ;
 update atn_user set login_name='',registered_date=extract(epoch from to_timestamp('20--','YYYY-MM-DD')),auth_status=1 where id = ;
 update atn_user set login_name='',registered_date=extract(epoch from to_timestamp('20--','YYYY-MM-DD')),auth_status=1 where id = ;
