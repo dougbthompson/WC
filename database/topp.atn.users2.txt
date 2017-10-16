@@ -26,13 +26,13 @@
  Jane      | Provancha   | jane.a.provancha@nasa.gov    | provancha      | $2y$10$7f6zR4gm96XgzvwdZAtijOHxXYHpI8lso1i/LL6E4aeuk/wquo/P. | September 01, 2017 | -5116                   |          1
            |             | gschorr@marecotel.org        | gschorr        |                                                              |                    |                         |         99
 
-update atn_user set login_name='crawford',registered_date=extract(epoch from to_timestamp('2016-11-10','YYYY-MM-DD')),auth_status=1 where id = 32;
-update atn_user set login_name='',registered_date=extract(epoch from to_timestamp('20--','YYYY-MM-DD')),auth_status=1 where id = ;
-update atn_user set login_name='',registered_date=extract(epoch from to_timestamp('20--','YYYY-MM-DD')),auth_status=1 where id = ;
-update atn_user set login_name='',registered_date=extract(epoch from to_timestamp('20--','YYYY-MM-DD')),auth_status=1 where id = ;
-update atn_user set login_name='',registered_date=extract(epoch from to_timestamp('20--','YYYY-MM-DD')),auth_status=1 where id = ;
-update atn_user set login_name='',registered_date=extract(epoch from to_timestamp('20--','YYYY-MM-DD')),auth_status=1 where id = ;
-update atn_user set login_name='',registered_date=extract(epoch from to_timestamp('20--','YYYY-MM-DD')),auth_status=1 where id = ;
+update atn_user set login_name='teilmann',registered_date=extract(epoch from to_timestamp('2017-05-14','YYYY-MM-DD')),auth_status=1 where id = 28;
+update atn_user set login_name='wells',registered_date=extract(epoch from to_timestamp('2017-06-15','YYYY-MM-DD')),auth_status=1 where id = 27;
+update atn_user set login_name='josephson',registered_date=extract(epoch from to_timestamp('2017-05-26','YYYY-MM-DD')),auth_status=1 where id = 26;
+update atn_user set login_name='levenson',registered_date=extract(epoch from to_timestamp('2017-06-15','YYYY-MM-DD')),auth_status=1 where id = 25;
+update atn_user set login_name='weber',registered_date=extract(epoch from to_timestamp('2017-10-12','YYYY-MM-DD')),auth_status=1 where id = 24;
+update atn_user set login_name='provancha',registered_date=extract(epoch from to_timestamp('2017-09-01','YYYY-MM-DD')),auth_status=1 where id = 23;
+update atn_user set login_name='gschorr',registered_date=extract(epoch from to_timestamp('2017-09-01','YYYY-MM-DD')),auth_status=1 where id = 22;
 
 atndb=# select id, person_name, email from atn_user order by 2;
  id |     person_name     |            email             
