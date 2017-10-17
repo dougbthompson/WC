@@ -8,8 +8,8 @@ cd /home/dougt/wc/wc
 cp data/* data.old
 rm data/5*
 
-# psql -p 5433 -U dougt atndb -c "delete from biologging.event; copy biologging.event from '/home/dougt/wc/wc/xls/event.csv' delimiters ',' csv;"
-# psql -p 5433 -U dougt atndb -c "delete from biologging.atn_track; copy biologging.atn_track from '/home/dougt/wc/wc/xls/atn_track.csv' delimiters ',' csv;"
+psql -p 5433 -U dougt atndb -c "delete from biologging.event; copy biologging.event from '/home/dougt/wc/wc/xls/event.csv' delimiters '|' csv;"
+psql -p 5433 -U dougt atndb -c "delete from biologging.atn_track; copy biologging.atn_track from '/home/dougt/wc/wc/xls/atn_track.csv' delimiters '|' csv;"
 
 R --silent --vanilla < main.R
 
