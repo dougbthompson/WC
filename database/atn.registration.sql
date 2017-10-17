@@ -23,7 +23,8 @@ create table biologging.atn_user_role (
     id               serial        primary key,
     role_name        varchar(255)  not null
 );
-insert into biologging.atn_user_role(role_name) values('Principal Investigator'),('Co-Investigator'),
+insert into biologging.atn_user_role(role_name)
+values ('Principal Investigator'),('Co-Investigator'),
        ('Research Assistant'),('Technical Assistant'),('Administrator'),('Student');
 
 drop table if exists biologging.atn_contact;
