@@ -48,7 +48,7 @@ drop table if exists biologging.atn_project;
 create table biologging.atn_project (
     id               serial        primary key,
     project_name     varchar(255)  not null,
-    project_year     bigint        not null,
+    project_year     integer       not null,
     project_desc     text              null
 );
 
