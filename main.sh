@@ -8,13 +8,26 @@ cd /home/dougt/wc/wc
 cp data/* data.old
 rm data/5*
 
+# psql -p 5433 -U dougt atndb -c "delete from biologging.event; copy biologging.event from '/home/dougt/wc/wc/xls/event.csv' delimiters ',' csv;"
+# psql -p 5433 -U dougt atndb -c "delete from biologging.atn_track; copy biologging.atn_track from '/home/dougt/wc/wc/xls/atn_track.csv' delimiters ',' csv;"
+
 R --silent --vanilla < main.R
 
 export DT=`date "+%Y-%m-%d"`
 
 cd /home/dougt/wc/wc
-echo ""     > /tmp/wc.dat
-./main2.sh >> /tmp/wc.dat
+
+echo ""              > /tmp/wc.dat
+# ./main2.sh        >> /tmp/wc.dat
+./main3.sh          >> /tmp/wc.dat
+echo ""             >> /tmp/wc.dat
+./main3.sh .csv csv >> /tmp/wc.dat
+echo ""             >> /tmp/wc.dat
+
+psql -p 5433 -U dougt atndb -c "select n_live_tup, relname FROM pg_stat_user_tables where schemaname = 'biologging' and relname like 'atn%' ORDER BY 2;" >> /tmp/wc.dat
+
+psql -p 5433 -U dougt atndb -c "select n_live_tup, relname FROM pg_stat_user_tables where schemaname = 'biologging' and relname like 'atn%' ORDER BY 2;" | egrep "\|" | egrep -v "relname" | cut -c1-11 > xls/cnt.${DT}.txt
+
 echo ""    >> /tmp/wc.dat
 ls -alR    >> /tmp/wc.dat
 
@@ -41,5 +54,5 @@ ls -alR    >> /tmp/wc.dat
         }
 ' /tmp/wc.dat | /usr/sbin/sendmail -t
 
-rm /tmp/wc.dat
+# rm /tmp/wc.dat
 
