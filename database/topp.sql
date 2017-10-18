@@ -26,6 +26,7 @@ create table biologging.atn_track (
     vis_filter    integer,
     embargolon    real,
     embargolat    real,
-    plot_points   integer
+    plot_points   integer,
+    plot_dashes   integer
 );
 
