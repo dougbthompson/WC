@@ -17,6 +17,18 @@ export DT=`date "+%Y-%m-%d"`
 
 cd /home/dougt/wc/wc
 
+export RES=0; 
+for V in `./main3.sh .csv csv | while read LINE; do export VAL=\`cut -c72- | cut -d'-' -f1\`; echo "${VAL}"; done`; 
+do
+    export RES="${RES}+${V}"; 
+done;
+
+for V in `./main3.sh | while read LINE; do export VAL=\`cut -c72- | cut -d'-' -f1\`; echo "${VAL}"; done`; 
+do
+    export RES="${RES}+${V}"; 
+done;
+export RESX=`echo ${RES} | bc -l`
+
 echo ""              > /tmp/wc.dat
 # ./main2.sh        >> /tmp/wc.dat
 ./main3.sh          >> /tmp/wc.dat
@@ -28,15 +40,15 @@ psql -p 5433 -U dougt atndb -c "select n_live_tup, relname FROM pg_stat_user_tab
 
 psql -p 5433 -U dougt atndb -c "select n_live_tup, relname FROM pg_stat_user_tables where schemaname = 'biologging' and relname like 'atn%' ORDER BY 2;" | egrep "\|" | egrep -v "relname" | cut -c1-11 > xls/cnt.${DT}.txt
 
-echo ""    >> /tmp/wc.dat
-ls -alR    >> /tmp/wc.dat
+echo "" >> /tmp/wc.dat
+ls -alR -Idata.all >> /tmp/wc.dat
 
 # cat /tmp/wc.dat | mailx -s"SYS:SQL ${DT}" dbt@stanford.edu
 /usr/bin/nawk -F, '
         BEGIN {
                 print "From: ray@stanford.edu"
                 print "To: dbt@stanford.edu"
-                print "Subject: WC '${DT}'"
+                print "Subject: WC '${DT}' - '${RESX}'"
                 print "MIME-Version: 1.0"
                 print "Content-Type: text/html; charset=us-ascii"
                 print "Content-Disposition: inline"
@@ -55,4 +67,5 @@ ls -alR    >> /tmp/wc.dat
 ' /tmp/wc.dat | /usr/sbin/sendmail -t
 
 # rm /tmp/wc.dat
+rm -f tmp
 
