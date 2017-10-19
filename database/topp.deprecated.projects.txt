@@ -1,0 +1,128 @@
+
+topp=# select * from deprecated.projectaliases;
+ projectid |       alias       
+-----------+-------------------
+        98 | 1/7/2004
+        18 | Shogun 2002
+        21 | Free Willy 2002
+        22 | Ensenada 2002
+        30 | Shogun 2003
+        40 | Shogun 2004
+        23 | alaska2002
+        33 | alaska2003
+        43 | alaska2004
+        15 | anoNuevo
+        42 | carolina2004
+        39 | nantucket2003
+        48 | playaGrande2004
+        32 | SEA03
+        15 | Whales04
+        44 | Holt04
+        46 | japanmola04
+        28 | Mola mola
+        29 | harpoon-swordfish
+         0 | 
+(20 rows)
+
+topp=# select * from deprecated.projects;
+ projectid |      projectname       | ownerid | areaname | year | numberoftags |      generallocation      |           projectcomment            
+-----------+------------------------+---------+----------+------+--------------+---------------------------+-------------------------------------
+         0 | Unknown                |       0 |          | UNUN |           -1 |                           | 
+        18 | Shogun 2002            |       1 |          | 2002 |           -1 |                           | 
+        21 | Free Willy 2002        |       1 |          | 2002 |           -1 |                           | 
+        22 | Ensenada 2002          |       1 |          | 2002 |           -1 |                           | 
+        30 | Shogun 2003            |       1 |          | 2003 |           -1 |                           | 
+        40 | Shogun 2004            |       1 |          | 2004 |           -1 |                           | 
+        98 | Unknown 1/7/2004       |       1 |          | 2004 |           -1 |                           | 
+        23 | Alaska 2002            |       1 |          | 2002 |           -1 | Cordova, Alaska           | Salmon Shark
+        33 | Alaska 2003            |       1 |          | 2003 |           24 | Cordova, Alaska           | 
+        43 | Alaska 2004            |       1 |          | 2004 |           -1 |                           | 
+         8 | Ano Nuevo              |      32 |          | 1999 |           -1 |                           | 
+        42 | Carolina 2004          |      33 |          | 2004 |           -1 |                           | 
+         7 | Corsica 2000           |       0 |          | 2000 |           -1 |                           | 
+        17 | Corsica 2001           |       0 |          | 2001 |           -1 |                           | 
+         6 | Gulf 2000              |       0 |          | 2000 |            1 | Gulf of Mexico            | Atlantic Bluefin Project
+        16 | Gulf 2001              |       0 |          | 2001 |           -1 |                           | 
+        26 | Gulf 2002              |       0 |          | 2002 |           -1 |                           | 
+        44 | Holt 2004              |      10 |          | 2004 |           -1 |                           | 
+        24 | Holts-Jordan 2002      |      10 |          | 2002 |           -1 | Southern California Bight | 
+        34 | Holts-Jordan 2003      |      10 |          | 2003 |           -1 | Southern California Bight | 
+        38 | Ireland 2003           |      33 |          | 2003 |           -1 |                           | 
+        46 | Japan Mola 2004        |       0 |          | 2004 |           -1 |                           | 
+        36 | Mauritius              |       0 |          | 2003 |           -1 |                           | 
+        27 | MBA White Shark 2002   |       0 |          | 2002 |           -1 |                           | 
+        37 | MBA White Shark 2003   |       0 |          | 2003 |           -1 |                           | 
+        47 | Mola mola              |       0 |          | 2004 |           -1 |                           | 
+         9 | Nantucket 2000         |       0 |          | 2000 |           -1 |                           | 
+        19 | Nantucket 2001         |       0 |          | 2001 |           -1 |                           | 
+        39 | Nantucket 2003         |       0 |          | 2003 |           -1 |                           | 
+         5 | North Carolina 2000    |       1 |          | 2000 |           -1 |                           | 
+        15 | North Carolina 2001    |       1 |          | 2001 |           -1 |                           | 
+        25 | North Carolina 2002    |       1 |          | 2002 |           -1 |                           | 
+        35 | North Carolina 2003    |       1 |          | 2003 |           -1 |                           | 
+        45 | North Carolina 2004    |       1 |          | 2004 |           -1 |                           | 
+        48 | Playa Grande 2004      |       0 |          | 2004 |           -1 |                           | 
+        32 | SEA 2003               |       0 |          | 2003 |            1 | Hawaii                    | stanford@sea 2003 Hawaii to Palmyra
+        49 | Whales 2004            |      30 |          | 2004 |           -1 |                           | 
+         2 | White Shark 1999       |       0 |          | 1999 |            2 | SEFI                      | 
+         4 | White Shark 2000       |       0 |          | 2000 |            8 | SEFI                      | 
+        11 | White Shark 2001       |       0 |          | 2001 |            6 | SEFI                      | 
+        20 | White Shark 2002       |       0 |          | 2002 |            3 |                           | 
+        31 | White Shark 2003       |       0 |          | 2003 |           -1 |                           | 
+        41 | Costa Rica 2004        |       0 |          | 2004 |           -1 |                           | 
+        28 | Mola Mola 2003         |       0 |          | 2003 |           -1 |                           | 
+        29 | Harpoon-Swordfish 2003 |       0 |          | 2003 |           -1 |                           | 
+(45 rows)
+
+topp=# select table_schema,table_name from information_schema.columns where column_name = 'projectid' order by 1, 2;
+ table_schema |         table_name          
+--------------+-----------------------------
+ deprecated   | cases
+ deprecated   | files
+ deprecated   | old_tblfgarchivaldeployment
+ deprecated   | projectaliases
+ deprecated   | projects
+ deprecated   | projectspeciesassociations
+ deprecated   | projecttagtypeassociations
+ deprecated   | tblfgarchivaldeployment_gln
+ deprecated   | trips
+ public       | aec
+ public       | animalview
+ public       | deployview
+ public       | encounterview
+ public       | recoveryview
+ public       | satdeployview
+(15 rows)
+
+topp=# select * from satdeployview where projectid > 0;
+ deploymentid | pttnumber | tagnumber | toppid  | modelname  | speciescode |     speciesname      | projectid |      projectname       | startdate  |  enddate   | actualpopupdate | agentid | lastname  | email 
+--------------+-----------+-----------+---------+------------+-------------+----------------------+-----------+------------------------+------------+------------+-----------------+---------+-----------+-------
+         1590 |     30232 | 00-1025   | 1002099 | PAT2       | 10          | Pacific Bluefin Tuna |        21 | Free Willy 2002        | 2002-11-18 |            |                 |       4 | Weng      | 
+         1591 |      3123 | 02-340    | 1002100 | PAT2       | 10          | Pacific Bluefin Tuna |        21 | Free Willy 2002        | 2002-11-18 |            |                 |       4 | Weng      | 
+         1592 |      3234 | 00-783    | 1002102 | PAT2       | 00          | Unknown              |        21 | Free Willy 2002        | 2002-11-18 |            |                 |       4 | Weng      | 
+         1593 |     29699 | 00-951    | 1002103 | PAT2       | 10          | Pacific Bluefin Tuna |        21 | Free Willy 2002        | 2002-11-18 |            |                 |       4 | Weng      | 
+         1610 |     30134 | 00-1016   | 1002101 | PAT2       | 10          | Pacific Bluefin Tuna |        21 | Free Willy 2002        | 2002-11-18 |            |                 |       4 | Weng      | 
+         1652 |     41724 | 03-161    | 1003049 | PAT3       | 10          | Pacific Bluefin Tuna |        30 | Shogun 2003            | 2003-07-25 |            |                 |       1 | Block     | 
+         1724 |      3246 | 00-769    | 1002061 | PAT2       | 10          | Pacific Bluefin Tuna |        18 | Shogun 2002            | 2002-08-11 |            |                 |       1 | Block     | 
+         1725 |      3235 | 00-784    | 1002060 | PAT2       | 10          | Pacific Bluefin Tuna |        18 | Shogun 2002            | 2002-08-11 |            |                 |       1 | Block     | 
+         1726 |      3192 | 00-763    | 1002055 | PAT2       | 10          | Pacific Bluefin Tuna |        18 | Shogun 2002            | 2002-08-11 |            |                 |       1 | Block     | 
+         1727 |      3124 | 00-726    | 1002053 | PAT2       | 10          | Pacific Bluefin Tuna |        18 | Shogun 2002            | 2002-08-11 |            |                 |       1 | Block     | 
+         1728 |      3208 | 00-768    | 1002052 | PAT2       | 10          | Pacific Bluefin Tuna |        18 | Shogun 2002            | 2002-08-11 |            |                 |       1 | Block     | 
+         1729 |      3251 | 00-770    | 1002050 | PAT2       | 10          | Pacific Bluefin Tuna |        18 | Shogun 2002            | 2002-08-11 |            |                 |       1 | Block     | 
+         1730 |      3160 | 00-729    | 1002051 | PAT2       | 10          | Pacific Bluefin Tuna |        18 | Shogun 2002            | 2002-08-11 | 2002-09-03 |                 |       1 | Block     | 
+         1954 |     30410 | 605       | 1403002 | PAT2       | 00          | Unknown              |        29 | Harpoon-Swordfish 2003 | 2003-11-04 |            |                 |      74 | Lance     | 
+         1955 |     30321 | 648       | 1403005 | PAT2       | 00          | Unknown              |        29 | Harpoon-Swordfish 2003 | 2003-11-19 |            |                 |      74 | Lance     | 
+         1956 |     40560 | 603       | 1403004 | PAT2       | 00          | Unknown              |        29 | Harpoon-Swordfish 2003 | 2003-11-19 |            |                 |      74 | Lance     | 
+         1957 |     30406 | 604       | 1403006 | PAT2       | 00          | Unknown              |        29 | Harpoon-Swordfish 2003 | 2003-12-16 |            |                 |      75 | Leon      | 
+         1958 |     30376 | 600       | 1403001 | PAT2       | 00          | Unknown              |        29 | Harpoon-Swordfish 2003 | 2003-10-28 |            |                 |      74 | Lance     | 
+         1959 |     30260 | 636       | 1403003 | PAT2       | 00          | Unknown              |        29 | Harpoon-Swordfish 2003 | 2003-11-14 |            |                 |      74 | Lance     | 
+         1960 |     30257 | 02P0655   | 1303003 | unknownSat | 13          | Ocean Sunfish        |        28 | Mola Mola 2003         | 2003-08-16 |            |                 |      76 | Thys      | 
+         1961 |     41749 | 03P0245   | 1303008 | unknownSat | 13          | Ocean Sunfish        |        28 | Mola Mola 2003         | 2003-09-06 |            |                 |      76 | Thys      | 
+         1962 |     41767 | 03PD201   | 1303007 | unknownSat | 13          | Ocean Sunfish        |        28 | Mola Mola 2003         | 2003-09-06 |            |                 |      76 | Thys      | 
+         1963 |     41752 | 03P0248   | 1303006 | unknownSat | 13          | Ocean Sunfish        |        28 | Mola Mola 2003         | 2003-09-06 |            |                 |      76 | Thys      | 
+         1964 |     41742 | 03P0266   | 1303005 | unknownSat | 13          | Ocean Sunfish        |        28 | Mola Mola 2003         | 2003-09-06 |            |                 |      76 | Thys      | 
+         1965 |     41756 | 03P0216   | 1303004 | unknownSat | 13          | Ocean Sunfish        |        28 | Mola Mola 2003         | 2003-09-06 |            |                 |      76 | Thys      | 
+         1966 |     40561 | 03P0063   | 1303002 | unknownSat | 13          | Ocean Sunfish        |        28 | Mola Mola 2003         | 2003-04-17 |            |                 |      77 | Nakatsubo | 
+         1967 |     40562 | 03P0064   | 1303001 | unknownSat | 13          | Ocean Sunfish        |        28 | Mola Mola 2003         | 2003-04-15 |            |                 |      78 | Okad      | 
+(27 rows)
+
