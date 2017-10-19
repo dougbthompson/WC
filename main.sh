@@ -69,3 +69,9 @@ ls -alR -Idata.all >> /tmp/wc.dat
 # rm /tmp/wc.dat
 rm -f tmp
 
+cd /home/dougt/wc/wc/netcdf
+cp /home/dougt/wc/wc/data/2*SSM.txt /home/dougt/wc/wc/netcdf/data/uploads/
+
+export HOME=/home/dougt/wc/wc/netcdf
+perl ./MakeNetCDFSSMAuto.pl
+
