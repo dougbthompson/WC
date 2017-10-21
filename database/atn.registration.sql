@@ -20,7 +20,7 @@ create table biologging.atn_user (
 );
 drop table if exists biologging.atn_user_role;
 create table biologging.atn_user_role (
-    id               serial        primary key,
+    id               serial         primary key,
     role_name        varchar(255)      null
 );
 insert into biologging.atn_user_role(role_name)
