@@ -55,7 +55,7 @@ create table biologging.atn_project (
 
 drop table if exists biologging.atn_organization_project;
 create table biologging.atn_organization_project (
-    id               serial       primary key,
+    id               serial        primary key,
     org_id           bigint           null,
     project_id       bigint           null
 );
