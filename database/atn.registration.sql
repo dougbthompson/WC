@@ -61,11 +61,10 @@ create table biologging.atn_organization_project (
 );
 drop table if exists biologging.atn_project_user_role;
 create table biologging.atn_project_user_role (
-    id               serial       primary key,
+    id               serial        primary key,
     project_id       bigint           null,
     user_id          bigint           null,
     user_role_id     bigint           null,
     contact_id       bigint           null
 );
-
 
