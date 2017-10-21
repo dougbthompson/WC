@@ -1,7 +1,7 @@
 
 drop table if exists biologging.atn_user;
 create table biologging.atn_user (
-    id                serial        primary key,
+    id                serial         primary key,
     person_name       varchar(255)      null,
     login_name        varchar(255)      null,
     login_password    varchar(255)      null,
