@@ -21,7 +21,7 @@ create table biologging.atn_user (
 drop table if exists biologging.atn_user_role;
 create table biologging.atn_user_role (
     id               serial        primary key,
-    role_name        varchar(255)  not null
+    role_name        varchar(255)      null
 );
 insert into biologging.atn_user_role(role_name)
 values ('Principal Investigator'),('Co-Investigator'),
@@ -36,7 +36,7 @@ create table biologging.atn_contact (
 drop table if exists biologging.atn_organization;
 create table biologging.atn_organization (
     id               serial        primary key,
-    org_name         varchar(255)  not null,
+    org_name         varchar(255)      null,
     fax              varchar(255)      null,
     phone            varchar(255)      null,
     address1         varchar(255)      null,
@@ -48,8 +48,8 @@ create table biologging.atn_organization (
 drop table if exists biologging.atn_project;
 create table biologging.atn_project (
     id               serial        primary key,
-    project_name     varchar(255)  not null,
-    project_year     integer       not null,
+    project_name     varchar(255)      null,
+    project_year     integer           null,
     project_desc     text              null
 );
 
@@ -62,9 +62,9 @@ create table biologging.atn_organization_project (
 drop table if exists biologging.atn_project_user_role;
 create table biologging.atn_project_user_role (
     id               serial       primary key,
-    org_project_id   bigint           null,
-    user_role_id     bigint           null,
+    project_id       bigint           null,
     user_id          bigint           null,
+    user_role_id     bigint           null,
     contact_id       bigint           null
 );
 
