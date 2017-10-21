@@ -29,13 +29,13 @@ values ('Principal Investigator'),('Co-Investigator'),
 
 drop table if exists biologging.atn_contact;
 create table biologging.atn_contact (
-    id               serial        primary key,
+    id               serial         primary key,
     contact_desc     varchar(255)      null
 );
 
 drop table if exists biologging.atn_organization;
 create table biologging.atn_organization (
-    id               serial        primary key,
+    id               serial         primary key,
     org_name         varchar(255)      null,
     fax              varchar(255)      null,
     phone            varchar(255)      null,
@@ -47,7 +47,7 @@ create table biologging.atn_organization (
 
 drop table if exists biologging.atn_project;
 create table biologging.atn_project (
-    id               serial        primary key,
+    id               serial         primary key,
     project_name     varchar(255)      null,
     project_year     integer           null,
     project_desc     text              null
