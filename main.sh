@@ -6,6 +6,7 @@ export OTHER="other"
 
 cd /home/dougt/wc/wc
 cp data/* data.old
+rm -rf data.all/*
 rm data/5*
 
 psql -p 5433 -U dougt atndb -c "delete from biologging.event; copy biologging.event from '/home/dougt/wc/wc/xls/event.csv' delimiters '|' csv;"
