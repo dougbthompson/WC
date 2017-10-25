@@ -1,5 +1,6 @@
  
 ssh argos@mola "echo -e 'unix_day_0\n1970-01-01' | /usr/local/nosql/bin/julian unix_day_0"  
+ssh argos@mola "echo -e 'unix_day_0\n1970-01-01' | /usr/local/nosql/bin/julian unix_day_0"  
 
 > main()
 > main()
