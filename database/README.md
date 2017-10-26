@@ -25,6 +25,7 @@
 ### the core as needed as we build a new framework to support our 
 ### existing data, plus additions to the schema to support new data
 ### formats coming from WC.
+###
 
 ## Registration tables (user registration update 8/17)
 ### atn.registration.sql:
