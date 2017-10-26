@@ -5,6 +5,7 @@ ssh argos@mola "echo -e 'unix_day_0\n1970-01-01' | /usr/local/nosql/bin/julian u
 ----- -----
 
   ### format & filter the deployments that have new locations into SSM style files.
+  ### format & filter the deployments that have new locations into SSM style files.
   ### the deployments that have no new data will already have SSM files.
   a_ply(new_metadata,1, function(r){
 
