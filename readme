@@ -2,7 +2,6 @@
 ssh argos@mola "echo -e 'unix_day_0\n1970-01-01' | /usr/local/nosql/bin/julian unix_day_0"  
 
 > main()
-> main()
 [1] "5769e63befec720f24e15416"
 [1] "57abc3a9efec720de87c862b"
 [1] "58112217efec720cd46e264e"
