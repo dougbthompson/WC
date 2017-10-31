@@ -18,8 +18,10 @@ create table atn_eventid (
 
 drop table if exists atn_eventid_details;
 create table atn_eventid_details (
-  atn_ev_id       int,
-  atn_ev_details  jsonb
+  atn_ev_details_id  serial,
+  atn_ev_id          integer,
+  atn_table_name     text,
+  atn_ev_details     jsonb
 );
 
 insert into atn_eventid_details (atn_ev_id, atn_ev_details) values(2, '{
