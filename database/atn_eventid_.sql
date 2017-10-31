@@ -53,7 +53,9 @@ topp=# \d+ eventid_union
  tag_serial_number     | text                        |           | extended | 
  deployment_date       | timestamp without time zone |           | plain    | 
  tag_model             | text                        |           | extended | 
+
 View definition:
+
  SELECT x.eventid,
     x.column_name,
     x.table_name,
