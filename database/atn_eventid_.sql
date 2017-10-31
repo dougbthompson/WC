@@ -372,10 +372,6 @@ atndb=# select * from atn_eventid_details limit 1;
                  1 |         1 | satdeployments | {"id": 1, "ptt": 166391, "toppid": 1017004, "eventid": 101700401, "tag_model": "miniPAT", "table_name": "satdeployments", "animal_name": null, "column_name": "eventid", "table_schema": "public", "deployment_date": "2017-09-15T00:00:00", "tag_manufacturer": null, "tag_serial_number": null, "local_deployment_name": null}
 (1 row)
 
-atndb=# select atn_ev_details->eventid from atn_eventid_details limit 1;
-ERROR:  column "eventid" does not exist
-LINE 1: select atn_ev_details->eventid from atn_eventid_details limi...
-                               ^
 atndb=# select atn_ev_details->'eventid' from atn_eventid_details limit 1;
  ?column?  
 -----------
