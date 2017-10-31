@@ -320,3 +320,15 @@ In postgresqlExecStatement(conn, statement, ...) :
 4 {"id" : 4, "eventid" : 100513200, "column_name" : "eventid", "table_name" : "satdeployments", "table_schema" : "public", "toppid" : 1005132}
 >
 
+COPY (SELECT * FROM satdeployments) TO '/tmp/atn_x_satdeployments.csv' delimiter '|' csv header; 
+COPY (SELECT * FROM tblfgsatdeployments) TO '/tmp/atn_x_tblfgsatdeployments.csv' delimiter '|' csv header; 
+COPY (SELECT * FROM tbltgsatdeployment) TO '/tmp/atn_x_tbltgsatdeployment.csv' delimiter '|' csv header; 
+COPY (SELECT * FROM tbltgsmrudeployments) TO '/tmp/atn_x_tbltgsmrudeployments.csv' delimiter '|' csv header; 
+COPY (SELECT * FROM tblsharkdeployment) TO '/tmp/atn_x_tblsharkdeployment.csv' delimiter '|' csv header; 
+COPY (SELECT * FROM tblsatdeployments) TO '/tmp/atn_x_tblsatdeployments.csv' delimiter '|' csv header; 
+COPY (SELECT * FROM tbltrccsatdeployment) TO '/tmp/atn_x_tbltrccsatdeployment.csv' delimiter '|' csv header; 
+COPY (SELECT * FROM tblsgarchivaldeployment) TO '/tmp/atn_x_tblsgarchivaldeployment.csv' delimiter '|' csv header; 
+COPY (SELECT * FROM tbltrccarchivaldeployment) TO '/tmp/atn_x_tbltrccarchivaldeployment.csv' delimiter '|' csv header; 
+COPY (SELECT * FROM tblfgarchivaldeployment) TO '/tmp/atn_x_tblfgarchivaldeployment.csv' delimiter '|' csv header; 
+COPY (SELECT * FROM tbltgarchivaldeployment) TO '/tmp/atn_x_tbltgarchivaldeployment.csv' delimiter '|' csv header; 
+
