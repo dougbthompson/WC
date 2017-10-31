@@ -221,6 +221,7 @@ View definition:
            FROM tbltgarchivaldeployment) x
   WHERE x.eventid >= 100000000;
 
+
 satdeployments             .eventid
 tblfgsatdeployments        .fgsdkey               AS eventid,
 tbltgsatdeployment         .tgsdkey     ::integer AS eventid,
