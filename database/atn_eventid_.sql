@@ -332,3 +332,5 @@ COPY (SELECT * FROM tbltrccarchivaldeployment) TO '/tmp/atn_x_tbltrccarchivaldep
 COPY (SELECT * FROM tblfgarchivaldeployment) TO '/tmp/atn_x_tblfgarchivaldeployment.csv' delimiter '|' csv header; 
 COPY (SELECT * FROM tbltgarchivaldeployment) TO '/tmp/atn_x_tbltgarchivaldeployment.csv' delimiter '|' csv header; 
 
+COPY ?? INTO 
+
