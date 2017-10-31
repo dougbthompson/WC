@@ -332,5 +332,54 @@ COPY (SELECT * FROM tbltrccarchivaldeployment) TO '/tmp/atn_x_tbltrccarchivaldep
 COPY (SELECT * FROM tblfgarchivaldeployment) TO '/tmp/atn_x_tblfgarchivaldeployment.csv' delimiter '|' csv header; 
 COPY (SELECT * FROM tbltgarchivaldeployment) TO '/tmp/atn_x_tbltgarchivaldeployment.csv' delimiter '|' csv header; 
 
-COPY ?? INTO 
+atndb=# select * from tmp_x_satdeployments where eventid = '101700401';
+-[ RECORD 1 ]---+-------------------
+satdeploymentid | 7083
+toppid          | 1017004
+pttnumber       | 166391
+speciesname     | pacificBluefinTuna
+startdate       | 2017-09-15
+enddate         | 
+actualpopupdate | 
+tagnumber       | 16P1975
+comment         | Shogun 2017
+contact         | 
+projectname     | 
+modelname       | miniPAT
+testingnote     | 
+owner           | Block
+eventid         | 101700401
+las             | 
+tagcode         | PAM116P1975
+starttime       | 
+endtime         | 
+est_end_date    | 
+
+atndb=# \x
+Expanded display is off.
+atndb=# \d atn_eventid_details
+                                      Table "public.atn_eventid_details"
+      Column       |  Type   |                                    Modifiers                                    
+-------------------+---------+---------------------------------------------------------------------------------
+ atn_ev_details_id | integer | not null default nextval('atn_eventid_details_atn_ev_details_id_seq'::regclass)
+ atn_ev_id         | integer | 
+ atn_table_name    | text    | 
+ atn_ev_details    | jsonb   | 
+
+atndb=# select * from atn_eventid_details limit 1;
+ atn_ev_details_id | atn_ev_id | atn_table_name |                                                                                                                                                          atn_ev_details                                                                                                                                                          
+-------------------+-----------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                 1 |         1 | satdeployments | {"id": 1, "ptt": 166391, "toppid": 1017004, "eventid": 101700401, "tag_model": "miniPAT", "table_name": "satdeployments", "animal_name": null, "column_name": "eventid", "table_schema": "public", "deployment_date": "2017-09-15T00:00:00", "tag_manufacturer": null, "tag_serial_number": null, "local_deployment_name": null}
+(1 row)
+
+atndb=# select atn_ev_details->eventid from atn_eventid_details limit 1;
+ERROR:  column "eventid" does not exist
+LINE 1: select atn_ev_details->eventid from atn_eventid_details limi...
+                               ^
+atndb=# select atn_ev_details->'eventid' from atn_eventid_details limit 1;
+ ?column?  
+-----------
+ 101700401
+(1 row)
+
 
