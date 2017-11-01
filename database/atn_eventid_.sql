@@ -36,7 +36,6 @@ insert into atn_eventid_details (atn_ev_id, atn_ev_details) values(2, '{
     "tags": [ "enim", "aliquip", "qui" ]
 }');
 
-
 topp=# \d+ eventid_union
                                View "public.eventid_union"
         Column         |            Type             | Modifiers | Storage  | Description 
