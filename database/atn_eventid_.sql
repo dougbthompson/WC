@@ -380,4 +380,3 @@ atndb=# select atn_ev_details->'eventid' from atn_eventid_details limit 1;
  101700401
 (1 row)
 
-
