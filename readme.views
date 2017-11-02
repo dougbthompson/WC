@@ -1,0 +1,253 @@
+
+ ac_deploy_current
+ acoustic_atn_station
+ acoustic_data_vmt
+ acoustic_dep_current
+ acoustic_whiteshark
+ ac_palmyra_stations_vw
+ aec
+ animalexcursioncopyview
+ animalview
+ argos_diag_with_lc_lat_lon_view
+ argos_diag_with_lc_lat_lon_view2
+ atn_deploy_rec_fgsg
+ bestsessions
+ bestupdates
+ best_url
+ bs2
+ casecopyview
+ conventionalrecoveriescopyview
+ conventionaltaggingcopyview
+ dbltagshark_with_metadata
+ dbltagsmarlin_with_metadata
+ dbltag_with_metadata
+ deploymentcopyview
+ deployview
+ diag_satdeployments
+ diag_satdeployments_mc
+ encountercopyview
+ encounterdatacopyview
+ encounterview
+ eventid_combined
+ eventid_combined_with_ownerid
+ eventid_combined_with_ownerid_all_rows
+ eventid_parsed
+ eventid_union
+ examinationcopyview
+ fishencountercopyview
+ fishgroup_popups
+ fishgroup_popups_diag
+ freshness
+ harvested_files_url
+ ltd2310programingview
+ mamvis_deployments
+ mamvis_diag
+ my_dbltagshark_with_metadata
+ my_fishgroup_popups_diag
+ my_pdt_after_popoff_with_metadata
+ my_pdt_with_metadata
+ my_psatlongitude_with_metadata
+ my_satellitelocation_with_metadata
+ my_sharkgroup_popups_diag
+ my_tad_with_metadata
+ my_tat_with_metadata
+ my_tat_with_metadata2
+ pdt_location
+ pdt_with_satdeploymentid
+ popups_diag
+ private_turtle_archival
+ private_turtle_sat
+ private_turtle_smru
+ progd
+ progs
+ prv_satdeployments
+ psatlongitude_with_satdeploymentid
+ pttcopyview
+ pttview
+ public_turtle_archival
+ public_turtle_sat
+ public_turtle_smru
+ recoveriescopyview
+ recoveryview
+ satdeployments_report_url
+ satdeployments_report_url_beta
+ satdeployments_url
+ satdeployments_with_urls
+ satdeployview
+ satellitelocation_with_satdeploymentid
+ sat_turtles_non_smru
+ sharkgroup_popups_diag
+ source_files
+ spot_goodness
+ tables_with_comments
+ tad_with_satdeploymentid
+ tagcopyview
+ taggingcopyview
+ tagprocessingcopyview
+ tagview
+ tat_with_satdeploymentid
+ tblabft_deploy_all
+ tblabft_deploy_rec_all
+ tblabft_iccat
+ tblabft_iccat_nodata
+ tblabft_recovery_all
+ tblchagos_deploy_rec_all
+ tblchagos_receivers
+ tblfgarchivalfiles
+ tblpbft_days_afterdeploy
+ tblpbft_deploy_all
+ tblpbft_deploy_rec_all
+ tblpbft_recovery_all
+ tblprogbins_dvw
+ tblprogbins_tvw
+ tblshark_deploy_rec_all
+ tblshark_spot_endpoints
+ tbltgsmrudeployments_non_null
+ tbltuna_arch_deprec_stats
+ tbltuna_sat_ac_deprec_stats
+ temp_diag_satdeployments_mc
+ temp_fast_max_datetime
+ temp_fishgroup_popups_diag
+ temp_sharkgroup_popups_diag
+ test_stat_id_view
+ tm_acoustic_with_eventid
+ tm_archival_with_eventid
+ tm_sat_with_eventid
+ toppid_tagcode_url
+ ts
+ turtle_archival
+ turtle_archival_url
+ turtle_dive_analysis_with_metadata
+ turtle_sat
+ turtle_satfiles_url
+ turtle_smru
+ updatesessions
+ updatessessions
+ vwfgconventional
+
+ topp          | public             | ac_deploy_current
+ topp          | public             | acoustic_data_vmt
+ topp          | public             | animalview
+ topp          | public             | aec
+ topp          | public             | animalexcursioncopyview
+ topp          | public             | harvested_files_url
+ topp          | public             | best_url
+ topp          | public             | updatessessions
+ topp          | public             | bestupdates
+ topp          | public             | updatesessions
+ topp          | public             | bs2
+ topp          | public             | casecopyview
+ topp          | public             | conventionalrecoveriescopyview
+ topp          | public             | conventionaltaggingcopyview
+ topp          | public             | dbltag_with_metadata
+ topp          | public             | dbltagshark_with_metadata
+ topp          | public             | dbltagsmarlin_with_metadata
+ topp          | public             | deployview
+ topp          | public             | deploymentcopyview
+ topp          | public             | diag_satdeployments
+ topp          | public             | encountercopyview
+ topp          | public             | encounterdatacopyview
+ topp          | public             | encounterview
+ topp          | public             | examinationcopyview
+ topp          | public             | prv_satdeployments
+ topp          | public             | fishencountercopyview
+ topp          | public             | fishgroup_popups
+ topp          | public             | tblabft_recovery_all
+ topp          | public             | temp_fast_max_datetime
+ topp          | public             | progs
+ topp          | public             | progd
+ topp          | public             | ltd2310programingview
+ topp          | public             | mamvis_deployments
+ topp          | public             | mamvis_diag
+ topp          | public             | my_dbltagshark_with_metadata
+ topp          | public             | my_tad_with_metadata
+ topp          | public             | my_pdt_after_popoff_with_metadata
+ topp          | public             | my_pdt_with_metadata
+ topp          | public             | my_psatlongitude_with_metadata
+ topp          | public             | my_satellitelocation_with_metadata
+ topp          | public             | my_tat_with_metadata2
+ topp          | public             | my_tat_with_metadata
+ topp          | public             | pdt_location
+ topp          | public             | pdt_with_satdeploymentid
+ topp          | public             | turtle_archival_url
+ topp          | public             | private_turtle_archival
+ topp          | public             | sat_turtles_non_smru
+ topp          | public             | satdeployments_with_urls
+ topp          | public             | private_turtle_smru
+ topp          | public             | turtle_satfiles_url
+ topp          | public             | private_turtle_sat
+ topp          | public             | tbltgsmrudeployments_non_null
+ topp          | public             | psatlongitude_with_satdeploymentid
+ topp          | public             | pttcopyview
+ topp          | public             | pttview
+ topp          | public             | public_turtle_archival
+ topp          | public             | public_turtle_sat
+ topp          | public             | public_turtle_smru
+ topp          | public             | recoveriescopyview
+ topp          | public             | recoveryview
+ topp          | public             | satdeployments_report_url
+ topp          | public             | satdeployments_url
+ topp          | public             | satdeployments_report_url_beta
+ topp          | public             | satdeployview
+ topp          | public             | satellitelocation_with_satdeploymentid
+ topp          | public             | tblchagos_receivers
+ topp          | public             | spot_goodness
+ topp          | public             | tblfgarchivalfiles
+ topp          | public             | source_files
+ topp          | public             | tad_with_satdeploymentid
+ topp          | public             | tagcopyview
+ topp          | public             | taggingcopyview
+ topp          | public             | tagprocessingcopyview
+ topp          | public             | tagview
+ topp          | public             | tat_with_satdeploymentid
+ topp          | public             | tblpbft_days_afterdeploy
+ topp          | public             | temp_diag_satdeployments_mc
+ topp          | public             | temp_sharkgroup_popups_diag
+ topp          | public             | temp_fishgroup_popups_diag
+ topp          | public             | tblshark_spot_endpoints
+ topp          | public             | tbltuna_arch_deprec_stats
+ topp          | public             | tbltuna_sat_ac_deprec_stats
+ topp          | public             | test_stat_id_view
+ topp          | public             | toppid_tagcode_url
+ topp          | public             | turtle_archival
+ topp          | public             | turtle_dive_analysis_with_metadata
+ topp          | public             | turtle_smru
+ topp          | public             | turtle_sat
+ topp          | public             | vwfgconventional
+ topp          | public             | bestsessions
+ topp          | public             | tblprogbins_dvw
+ topp          | public             | tblprogbins_tvw
+ topp          | public             | tblabft_deploy_rec_all
+ topp          | public             | tblabft_deploy_all
+ topp          | public             | eventid_union
+ topp          | public             | tblabft_iccat
+ topp          | public             | tblpbft_deploy_all
+ topp          | public             | tblabft_iccat_nodata
+ topp          | public             | tblshark_deploy_rec_all
+ topp          | public             | acoustic_dep_current
+ topp          | public             | ac_palmyra_stations_vw
+ topp          | public             | ts
+ topp          | public             | tblpbft_recovery_all
+ topp          | public             | tblchagos_deploy_rec_all
+ topp          | public             | eventid_parsed
+ topp          | public             | eventid_combined
+ topp          | public             | eventid_combined_with_ownerid_all_rows
+ topp          | public             | eventid_combined_with_ownerid
+ topp          | public             | diag_satdeployments_mc
+ topp          | public             | fishgroup_popups_diag
+ topp          | public             | my_fishgroup_popups_diag
+ topp          | public             | sharkgroup_popups_diag
+ topp          | public             | my_sharkgroup_popups_diag
+ topp          | public             | freshness
+ topp          | public             | acoustic_whiteshark
+ topp          | public             | acoustic_atn_station
+ topp          | public             | tables_with_comments
+ topp          | public             | tm_acoustic_with_eventid
+ topp          | public             | tm_archival_with_eventid
+ topp          | public             | tblpbft_deploy_rec_all
+ topp          | public             | argos_diag_with_lc_lat_lon_view2
+ topp          | public             | tm_sat_with_eventid
+ topp          | public             | atn_deploy_rec_fgsg
+ topp          | public             | popups_diag
+ topp          | public             | argos_diag_with_lc_lat_lon_view
+
