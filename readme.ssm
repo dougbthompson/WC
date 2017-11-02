@@ -1,27 +1,26 @@
 
 ssh argos@mola "echo -e 'unix_day_0\n1970-01-01' | /usr/local/nosql/bin/julian unix_day_0"
-ssh argos@mola "echo -e 'unix_day_0\n1970-01-01' | /usr/local/nosql/bin/julian unix_day_0"
 
 ----- -----
 
   ### format & filter the deployments that have new locations into SSM style files.
   ### format & filter the deployments that have new locations into SSM style files.
   ### the deployments that have no new data will already have SSM files.
-  a_ply(new_metadata,1, function(r){
+      a_ply(new_metadata,1, function(r){
 
-### ### all the stuff to filter locations is not needed because alans just uses the gps
-    location_filename=paste0(data_dir, '/',r$eventid,'SSM.txt')
-    profile_filename=paste0(data_dir, '/',r$eventid,'SSM.profile.txt')
-    readRDS(file=paste0(data_dir, '/',r$wc_id,'.rds')) -> raw_data
+  ### all the stuff to filter locations is not needed because alans just uses the gps
+      location_filename=paste0(data_dir, '/',r$eventid,'SSM.txt')
+      profile_filename=paste0(data_dir, '/',r$eventid,'SSM.profile.txt')
+      readRDS(file=paste0(data_dir, '/',r$wc_id,'.rds')) -> raw_data
 
-    if (nrow(raw_data)) {
+      if (nrow(raw_data)) {
   ### scp the deployments that have changes to the atndac pipeline.
   ### the way to invalidate the metadata for a deployment is to delete its metadata rows,
   ### and then when this script reruns, it will reinsert them,
   ### and they will go into the list of files that need to be scp'ed again.
   ### scp'ing a file triggers getting it reloaded into the erddap and hence the atn dac site.
   ### it would be tacky to just "scp *SSM.txt" because lynn turned up her cycles to every half hour,
-### in the context of us only sending incremental changes.
+  ### in the context of us only sending incremental changes.
 
 
 ### format & filter the deployments that have new locations into SSM style files.
