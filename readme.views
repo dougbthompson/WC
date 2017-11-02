@@ -115,7 +115,7 @@
  tm_archival_with_eventid
  tm_sat_with_eventid
  toppid_tagcode_url
- ts
+ ts (select * from toppspecies)
  turtle_archival
  turtle_archival_url
  turtle_dive_analysis_with_metadata
