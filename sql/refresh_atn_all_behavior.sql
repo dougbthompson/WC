@@ -157,6 +157,12 @@ BEGIN
                  and a.v7 = v_date_start and a.v8 = v_date_end
                limit 1;
 
+              select array[ nullif(v13,'')::double precision, nullif(v19,'')::double precision
+                from biologging.wc_zip_behavior a
+               where a.wc_id = v_wc_id and a.v1 = v_deployid and a.v2 = v_ptt and a.v5 = v_instrument
+                 and a.v7 = v_date_start and a.v8 = v_date_end
+               limit 1;
+
             end if;
 
             if v_which = 29
