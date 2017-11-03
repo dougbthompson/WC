@@ -48,6 +48,7 @@ BEGIN
         wc_id text);
     end if;
 
+    alter table biologging.wc_zip_behavior owner to postgres;
     return 1;
 END;
 $$ LANGUAGE plpgsql volatile;
