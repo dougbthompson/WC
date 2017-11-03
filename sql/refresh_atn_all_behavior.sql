@@ -137,6 +137,14 @@ BEGIN
 
             if v_which = 23
             then
+              select array[ nullif(v10,'')::integer, nullif(v16,'')::integer ],
+                     nullif(v22,'')::double precision, nullif(v23,'')::double precision
+                into v_number, v_shallow, v_deep
+                from biologging.wc_zip_behavior a
+               where a.wc_id = v_wc_id and a.v1 = v_deployid and a.v2 = v_ptt and a.v5 = v_instrument
+                 and a.v7 = v_date_start and a.v8 = v_date_end
+               limit 1;
+
             end if;
 
             if v_which = 29
