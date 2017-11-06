@@ -13,7 +13,7 @@ ssh argos@mola "echo -e 'unix_day_0\n1970-01-01' | /usr/local/nosql/bin/julian u
       profile_filename=paste0(data_dir, '/',r$eventid,'SSM.profile.txt')
       readRDS(file=paste0(data_dir, '/',r$wc_id,'.rds')) -> raw_data
 
-      if (nrow(raw_data)) {
+  if (nrow(raw_data)) {
   ### scp the deployments that have changes to the atndac pipeline.
   ### the way to invalidate the metadata for a deployment is to delete its metadata rows,
   ### and then when this script reruns, it will reinsert them,
