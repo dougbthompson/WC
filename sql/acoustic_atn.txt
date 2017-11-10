@@ -1,4 +1,6 @@
 
+# select valid deployments, that contain complete data sets
+
 select site, station,
        round(cast(avg(dlondd) as numeric),5),
        round(cast(avg(dlatdd) as numeric),5)
@@ -9,7 +11,7 @@ select site, station,
  group by 1,2
  order by 1,2;
 
-View definition:
+View definition: public.tm_acoustic_with_eventid
 
 SELECT tm.serialnum, tm.idcode, tm.invoicedate, tm.ordernumber, tm.tagfamily, tm.interval_min, tm.interval_max, tm.est_taglife,
        tm.codespace1, tm.idcode2, tm.codespace2, tm.sensor, tm.slope, tm.intercept, tm.idcode3, tm.codespace3, tm.sensor2, tm.slope2,
