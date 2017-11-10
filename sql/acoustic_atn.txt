@@ -48,7 +48,7 @@ SELECT tm.serialnum, tm.idcode, tm.invoicedate, tm.ordernumber, tm.tagfamily, tm
         Column        |            Type             | Modifiers 
 ----------------------+-----------------------------+-----------
  id                   | bigint                      | not null ... make serial? -- ad.tkey
- version              | bigint                      | not null ... 'unknown'
+ version              | bigint                      | not null ... 0
  acoustic_releaseid   | character varying(255)      | not null ... ad.project
  bottom_depthm        | real                        | not null ... ad.bottom_depth_m
  comments             | character varying(255)      | not null ... ad.type
@@ -56,15 +56,22 @@ SELECT tm.serialnum, tm.idcode, tm.invoicedate, tm.ordernumber, tm.tagfamily, tm
  deployment_number    | integer                     | not null ... ad.receiver_dnum
  depth_below_surfacem | real                        | not null ... ad.receiver_depth
  location             | bytea                       | not null ... null -- see atn_acoustic_station record for location
- mooring_type_id      | bigint                      | not null ... ad.substrate + ad.cable_len
+ mooring_type_id      | bigint                      | not null ... null -- ad.substrate + ad.cable_len
  receiver_id          | bigint                      | not null ... ad.receiver
  receiver_orientation | character varying(255)      | not null ... 'unknown'
  recovery_date        | timestamp without time zone | not null ... '12/31/9999'
  station_id           | bigint                      | not null ... atn_acoustic_station.station_id (topp_station_id = ad.tkey)
 
 
+copy (select 0,0,coalesce(ad.project,'unknown'),coalesce(ad.bottom_depth_m,0),concat(ad.type,' - ',ad.substrate,' - ',ad.cable_len),
+      coalesce(ad.deploystamp,'2000-01-01'),ad.receiver_dnum,coalesce(ad.receiver_depth,0),0,0,ad.receiver,'unknown','2100-12-31',0
+ from acoustic_deployment ad)
+   to '/tmp/topp.acoustic_deployment-2.csv' delimiter '|';
+
+copy receiver_deployment from '/tmp/topp.acoustic_deployment-2.csv' delimiter '|';
+
 insert into atndb.aatams.receiver_deployment ()
-select 0,'unknown',ad.project,ad.bottom_depth_m,ad.type,ad.deploystamp,ad.receiver_dnum,
+select 0,0,ad.project,ad.bottom_depth_m,ad.type,ad.deploystamp,ad.receiver_dnum,
        ad.receiver_depth,null,concat(ad.substrate,' ',ad.cable_len),ad.receiver,'unknown',
        '2100-12-31',0
   from acoustic_deployment ad;
