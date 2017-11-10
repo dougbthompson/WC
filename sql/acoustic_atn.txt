@@ -47,21 +47,27 @@ SELECT tm.serialnum, tm.idcode, tm.invoicedate, tm.ordernumber, tm.tagfamily, tm
  Table "aatams.receiver_deployment"
         Column        |            Type             | Modifiers 
 ----------------------+-----------------------------+-----------
- id                   | bigint                      | not null ... ad.tkey?
- version              | bigint                      | not null ... 
- acoustic_releaseid   | character varying(255)      | not null ... 
- bottom_depthm        | real                        | not null ... 
- comments             | character varying(255)      | not null ... 
+ id                   | bigint                      | not null ... make serial? -- ad.tkey
+ version              | bigint                      | not null ... 'unknown'
+ acoustic_releaseid   | character varying(255)      | not null ... ad.project
+ bottom_depthm        | real                        | not null ... ad.bottom_depth_m
+ comments             | character varying(255)      | not null ... ad.type
  deployment_date      | timestamp without time zone | not null ... ad.deploystamp
  deployment_number    | integer                     | not null ... ad.receiver_dnum
  depth_below_surfacem | real                        | not null ... ad.receiver_depth
- location             | bytea                       | not null ... 
- mooring_type_id      | bigint                      | not null ... 
+ location             | bytea                       | not null ... null -- see atn_acoustic_station record for location
+ mooring_type_id      | bigint                      | not null ... ad.substrate + ad.cable_len
  receiver_id          | bigint                      | not null ... ad.receiver
- receiver_orientation | character varying(255)      | not null ... 
- recovery_date        | timestamp without time zone | not null ... 
- station_id           | bigint                      | not null ... 
+ receiver_orientation | character varying(255)      | not null ... 'unknown'
+ recovery_date        | timestamp without time zone | not null ... '12/31/9999'
+ station_id           | bigint                      | not null ... atn_acoustic_station.station_id (topp_station_id = ad.tkey)
 
+
+insert into atndb.aatams.receiver_deployment ()
+select 0,'unknown',ad.project,ad.bottom_depth_m,ad.type,ad.deploystamp,ad.receiver_dnum,
+       ad.receiver_depth,null,concat(ad.substrate,' ',ad.cable_len),ad.receiver,'unknown',
+       '2100-12-31',0
+  from acoustic_deployment ad;
 
  Table "public.acoustic_deployment"
      Column     |            Type             |                             Modifiers                              
@@ -112,4 +118,5 @@ copy (select tkey,project,region,site,station,dlondd,dlatdd from acoustic_deploy
 # into atndb.aatams
 copy atn_acoustic_station (topp_station_id,station_project,station_region,station_site,station_name,longitude,latitude)
      from '/tmp/topp.acoustic_deployment.csv' delimiter '|';
+
 
