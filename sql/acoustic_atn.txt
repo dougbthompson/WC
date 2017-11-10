@@ -44,3 +44,72 @@ SELECT tm.serialnum, tm.idcode, tm.invoicedate, tm.ordernumber, tm.tagfamily, tm
  WHERE uni.tagtype ~~* 'acoustic'::text
  ORDER BY uni.eventid;
 
+ Table "aatams.receiver_deployment"
+        Column        |            Type             | Modifiers 
+----------------------+-----------------------------+-----------
+ id                   | bigint                      | not null ... ad.tkey?
+ version              | bigint                      | not null ... 
+ acoustic_releaseid   | character varying(255)      | not null ... 
+ bottom_depthm        | real                        | not null ... 
+ comments             | character varying(255)      | not null ... 
+ deployment_date      | timestamp without time zone | not null ... ad.deploystamp
+ deployment_number    | integer                     | not null ... ad.receiver_dnum
+ depth_below_surfacem | real                        | not null ... ad.receiver_depth
+ location             | bytea                       | not null ... 
+ mooring_type_id      | bigint                      | not null ... 
+ receiver_id          | bigint                      | not null ... ad.receiver
+ receiver_orientation | character varying(255)      | not null ... 
+ recovery_date        | timestamp without time zone | not null ... 
+ station_id           | bigint                      | not null ... 
+
+
+ Table "public.acoustic_deployment"
+     Column     |            Type             |                             Modifiers                              
+----------------+-----------------------------+--------------------------------------------------------------------
+ deploystamp    | timestamp without time zone | 
+ latdeg         | text                        | 
+ latmin         | text                        | 
+ londeg         | text                        | 
+ lonmin         | text                        | 
+ tzone          | text                        | 
+ site           | text                        | default 'unknown'::text
+ project        | text                        | default 'unknown'::text
+ dlondd         | double precision            | 
+ dlatdd         | double precision            | 
+ riser_m        | double precision            | 
+ bottom_depth_m | double precision            | 
+ type           | text                        | default 'unknown'::text
+ comments       | text                        | 
+ receiver_dnum  | integer                     | 
+ station        | text                        | default 'unknown'::text
+ tkey           | integer                     | not null default nextval('acoustic_deployment_tkey_seq'::regclass)
+ downloadid     | bigint                      | 
+ receiver       | integer                     | 
+ receiver_depth | double precision            | 
+ region         | text                        | default 'unknown'::text
+ lost_missing   | text                        | default '0'::text
+ substrate      | text                        | 
+ hydrophone     | integer                     | 
+ cable_len      | text                        | 
+ atn_site       | integer                     | 
+
+drop table if exists atn_acoustic_station;
+create table atn_acoustic_station (
+    station_id       serial,
+    topp_station_id  int,
+    station_project  text,
+    station_region   text,
+    station_site     text,
+    station_name     text,
+    longitude        double precision,
+    latitude         double precision
+);
+
+# from topp.public
+copy (select tkey,project,region,site,station,dlondd,dlatdd from acoustic_deployment order by tkey)
+     to '/tmp/topp.acoustic_deployment.csv' delimiter '|';
+
+# into atndb.aatams
+copy atn_acoustic_station (topp_station_id,station_project,station_region,station_site,station_name,longitude,latitude)
+     from '/tmp/topp.acoustic_deployment.csv' delimiter '|';
+
