@@ -9,3 +9,36 @@ select site, station,
  group by 1,2
  order by 1,2;
 
+View definition:
+
+SELECT tm.serialnum, tm.idcode, tm.invoicedate, tm.ordernumber, tm.tagfamily, tm.interval_min, tm.interval_max, tm.est_taglife,
+       tm.codespace1, tm.idcode2, tm.codespace2, tm.sensor, tm.slope, tm.intercept, tm.idcode3, tm.codespace3, tm.sensor2, tm.slope2,
+       tm.intercept2, uni.eventid, uni.tagcode, uni.ptt, tm.vr4_feed, uni.taggingdate, uni.animal_id, uni.nickname, uni.commonname,
+       uni.taggingtime, uni.len1, uni.species, uni.dlatdd, uni.dlondd, tm.dead_by_date, tm.last_detect_date, uni.seriesname, uni.toppid,
+       uni.sex, uni.len1type, tm.sensor3, tm.slope3, tm.intercept3, uni.angler, uni.baittype, uni.deploycomment, uni.fishmethod,
+       uni.fishingdepth, uni.halfgirth, uni.injuries, uni.leadtagger, uni.len2, uni.len2type, uni.mass, uni.masstype, uni.sstprobe,
+       uni.sst, uni.seastate, uni.sexmaturity, uni.tageventcomment, uni.tagposition, uni.tagteam, uni.taggingvessel, uni.weather, 
+       uni.tag1side, uni.tag2side, uni.waterdepth, uni.claspers, uni.len3, uni.len3type, tm.taglocation, tm.tagtype
+  FROM tbltmacoustic tm
+
+  JOIN (
+       SELECT fg.fgsdkey AS eventid, fg.ptt, fg.tagcode, fg.tagtype, fg.taggingdate, fg.animal_id, ''::text AS nickname, fg.commonname,
+              fg.taggingtime, fg.len1, fg.species, fg.dlatdd, fg.dlondd, fg.seriesname, fg.toppid, fg.sex, fg.len1type, fg.angler,
+              fg.baittype, fg.deploycomment, fg.fishmethod, fg.fishingdepth, fg.halfgirth, fg.injuries, fg.leadtagger, fg.len2,
+              fg.len2type, fg.mass, fg.masstype, fg.sstprobe, fg.sst, fg.seastate, ''::text AS sexmaturity, fg.tageventcomment,
+              fg.tagposition, fg.tagteam, fg.surgeryboat AS taggingvessel, fg.weather, ''::text AS tag1side, ''::text AS tag2side,
+              ''::text AS waterdepth, ''::text AS claspers, ''::text AS len3, ''::text AS len3type
+         FROM tblfgsatdeployments fg
+        UNION ALL
+       SELECT sg.sgdepkey AS eventid, sg.ptt, sg.tagcode, sg.tagtype, sg.taggingdate, sg.animal_id, sg.nickname, sg.commonname,
+              sg.taggingtime, sg.len1, sg.species, sg.dlatdd, sg.dlondd, sg.seriesname, sg.toppid, sg.sex, sg.len1type, sg.angler,
+              sg.baittype, sg.deploycomment, sg.fishmethod, sg.fishingdepth, sg.halfgirth, sg.injuries, sg.leadtagger, sg.len2,
+              sg.len2type, sg.masskg, sg.masstype, sg.probe, sg.sst, sg.seastate, sg.sexmaturity, sg.tageventcomment,
+              sg.tagposition, sg.tagteam, sg.taggingvessel, sg.weather, sg.tag1side, sg.tag2side, sg.waterdepth, sg.claspers,
+              sg.len3, sg.len3type
+         FROM tblsharkdeployment sg
+       ) uni ON uni.ptt = tm.idcode
+                AND "substring"(uni.tagcode, 5, 9) = tm.serialnum
+ WHERE uni.tagtype ~~* 'acoustic'::text
+ ORDER BY uni.eventid;
+
