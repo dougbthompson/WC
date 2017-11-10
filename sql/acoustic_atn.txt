@@ -1,0 +1,11 @@
+
+select site, station,
+       round(cast(avg(dlondd) as numeric),5),
+       round(cast(avg(dlatdd) as numeric),5)
+  from acoustic_deployment
+ where site      <> ''
+   and station   <> 'unknown'
+   and (dlondd is not null and dlatdd is not null)
+ group by 1,2
+ order by 1,2;
+
