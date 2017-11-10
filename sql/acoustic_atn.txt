@@ -70,6 +70,10 @@ copy (select 0,0,coalesce(ad.project,'unknown'),coalesce(ad.bottom_depth_m,0),co
 
 copy receiver_deployment from '/tmp/topp.acoustic_deployment-2.csv' delimiter '|';
 
+# next:
+# - fill in "id" column, alter table column to "serial"
+# - retrieve station_id = atn_acoustic_station.station_id (topp_station_id = ad.tkey)
+
 insert into atndb.aatams.receiver_deployment ()
 select 0,0,ad.project,ad.bottom_depth_m,ad.type,ad.deploystamp,ad.receiver_dnum,
        ad.receiver_depth,null,concat(ad.substrate,' ',ad.cable_len),ad.receiver,'unknown',
