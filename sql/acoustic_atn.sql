@@ -12,6 +12,6 @@ as
          a.commoname   as commonname
 
     from acoustic_data a
-   where a.
+   where a.code
 
 
