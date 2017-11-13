@@ -204,3 +204,40 @@ SELECT tm.eventid,
    AND ac.ping_detection  < 'now'::text::date
    AND ac.false_hit      <> 1;
 
+topp=# select tkey,tagfamily,serialnum,idcode,codespace1,sensor,slope,idcode2,sensor2,slope2,codespace2,tagtype from tbltmacoustic limit 32;
+ tkey |   tagfamily    | serialnum | idcode | codespace1 |   sensor    |  slope   | idcode2 | sensor2  |  slope2  | codespace2 | tagtype  
+------+----------------+-----------+--------+------------+-------------+----------+---------+----------+----------+------------+----------
+  339 | VR2W-069k-110  | 107963    |        |            |             |          |         |          |          |            | 
+ 1136 | VR4 Hydrophone | 210142    |        |            |             |          |         |          |          |            | 
+  333 | V9P-2L         | 5023G     |        |            |             |          |         |          |          |            | external
+  331 | V13P-1X        | 3943H     |        |            |             |          |         |          |          |            | external
+  946 | V16-4H         | 1238270   |  19505 | A69-9001   |             |          |         |          |          |            | internal
+  912 | VMT            | 1224519   |  20920 | A69-9001   |             |          |         |          |          |            | 
+  314 | V13T-1H        | 1079497   |    230 | A69-1105   | Temperature |   0.1569 |         |          |          |            | external
+  906 | V16TP-5H       | 1219577   |        |            | Temperature |  -78.431 |         | Pressure | -758.075 |            | external
+  908 | VR4 Hydrophone | 210112    |        |            |             |          |         |          |          |            | 
+  905 | VR4G Hose ring |           |        |            |             |          |         |          |          |            | 
+  907 | VR4 Hydrophone | 210109    |        |            |             |          |         |          |          |            | 
+  316 | V13T-1H        | 1079499   |    232 | A69-1105   | Temperature |   0.1569 |         |          |          |            | external
+  974 | V13AP-1H       | 1238298   |   2400 | A69-9004   | Accel       | 0.013588 |    2401 | Pressure |   0.6065 | A69-9004   | internal
+  975 | V13AP-1H       | 1238299   |   2402 | A69-9004   | Accel       | 0.013588 |    2403 | Pressure |   0.6065 | A69-9004   | internal
+  789 | V16-4H         | 1200065   |   6347 | A69-1303   |             |          |         |          |          |            | external
+  910 | VMT            | 1224517   |  20918 | A69-9001   |             |          |         |          |          |            | 
+  911 | VMT            | 1224518   |  20919 | A69-9001   |             |          |         |          |          |            | 
+  976 | V13AP-1H       | 1238300   |   2404 | A69-9004   | Accel       | 0.013588 |    2405 | Pressure |   0.6065 | A69-9004   | internal
+  971 | V13AP-1H       | 1238295   |   2394 | A69-9004   | Accel       | 0.013588 |    2395 | Pressure |   0.6065 | A69-9004   | internal
+  977 | V13AP-1H       | 1238301   |   2406 | A69-9004   | Accel       | 0.013588 |    2407 | Pressure |   0.6065 | A69-9004   | internal
+  338 | VR2W-069k-110  | 107961    |        |            |             |          |         |          |          |            | 
+  904 | VR4-Alkaline   | 260197    |        |            |             |          |         |          |          |            | 
+ 1195 | V16-6H         | 1275513   |  12990 | A69-9001   |             |          |         |          |          |            | external
+  909 | VR4 Hydrophone | 210113    |        |            |             |          |         |          |          |            | 
+ 1139 | VR4-Alkaline   | 260232    |        |            |             |          |         |          |          |            | 
+ 1137 | VR4-Alkaline   | 260230    |        |            |             |          |         |          |          |            | 
+ 1196 | V16-6H         | 1275514   |  12991 | A69-9001   |             |          |         |          |          |            | external
+ 1197 | V16-6H         | 1275515   |  12992 | A69-9001   |             |          |         |          |          |            | external
+ 1138 | VR4-Alkaline   | 260231    |        |            |             |          |         |          |          |            | 
+ 1198 | V16-6H         | 1275516   |  12993 | A69-9001   |             |          |         |          |          |            | external
+ 1140 | VR4-Alkaline   | 260233    |        |            |             |          |         |          |          |            | 
+ 1191 | V16-6H         | 1275509   |  12986 | A69-9001   |             |          |         |          |          |            | external
+(32 rows)
+
