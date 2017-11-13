@@ -130,4 +130,75 @@ copy (select tkey,project,region,site,station,dlondd,dlatdd from acoustic_deploy
 copy atn_acoustic_station (topp_station_id,station_project,station_region,station_site,station_name,longitude,latitude)
      from '/tmp/topp.acoustic_deployment.csv' delimiter '|';
 
+-----
+                                        Table "public.acoustic_data"
+     Column     |            Type             |                          Modifiers                           
+----------------+-----------------------------+--------------------------------------------------------------
+ tkey           | integer                     | not null default nextval('acoustic_data_tkey_seq'::regclass)
+ channel        | text                        | 
+ code           | integer                     | 
+ date           | text                        | 
+ time           | text                        | 
+ data           | text                        | 
+ units          | text                        | 
+ receiver       | integer                     | 
+ dataid         | integer                     | 
+ downloadid     | bigint                      | 
+ longitude      | double precision            | 
+ latitude       | double precision            | 
+ receiver_dnum  | integer                     | 
+ codespace      | text                        | 
+ false_hit      | integer                     | default 0
+ fdate          | text                        | 
+ ftime          | text                        | 
+ ping_detection | timestamp without time zone | 
+Indexes:
+    "acoustic_data_pkey" PRIMARY KEY, btree (tkey)
+
+topp=# \d acoustic_whiteshark
+            View "public.acoustic_whiteshark"
+     Column     |            Type             | Modifiers 
+----------------+-----------------------------+-----------
+ eventid        | integer                     | 
+ code           | integer                     | 
+ codespace      | text                        | 
+ receiver       | integer                     | 
+ ping_detection | timestamp without time zone | 
+ site           | text                        | 
+ station        | text                        | 
+ dlondd         | double precision            | 
+ dlatdd         | double precision            | 
+
+topp=#
+
+SELECT tm.eventid,
+       ac.code, ac.codespace, ac.receiver, ac.ping_detection,
+       ad.site, ad.station, ad.dlondd, ad.dlatdd
+  FROM acoustic_data ac
+       JOIN acoustic_deployment ad
+         ON ac.receiver      = ad.receiver
+        AND ac.receiver_dnum = ad.receiver_dnum
+
+       JOIN (
+       SELECT tm_acoustic_with_eventid.idcode, tm_acoustic_with_eventid.codespace1,
+              tm_acoustic_with_eventid.taggingdate::date AS tagdate, tm_acoustic_with_eventid.eventid
+         FROM tm_acoustic_with_eventid
+        WHERE tm_acoustic_with_eventid.eventid::text ~~ '19%'::text
+        UNION ALL
+       SELECT tm_acoustic_with_eventid.idcode2, tm_acoustic_with_eventid.codespace2,
+              tm_acoustic_with_eventid.taggingdate::date AS taggingdate, tm_acoustic_with_eventid.eventid
+         FROM tm_acoustic_with_eventid
+        WHERE tm_acoustic_with_eventid.idcode2 IS NOT NULL AND tm_acoustic_with_eventid.eventid::text ~~ '19%'::text
+        UNION ALL
+       SELECT tm_acoustic_with_eventid.idcode3, tm_acoustic_with_eventid.codespace3,
+              tm_acoustic_with_eventid.taggingdate::date AS taggingdate, tm_acoustic_with_eventid.eventid
+         FROM tm_acoustic_with_eventid
+        WHERE tm_acoustic_with_eventid.idcode3 IS NOT NULL
+          AND tm_acoustic_with_eventid.eventid::text ~~ '19%'::text) tm
+           ON ac.code      = tm.idcode
+          AND ac.codespace = tm.codespace1
+
+ WHERE ac.ping_detection  > tm.tagdate
+   AND ac.ping_detection  < 'now'::text::date
+   AND ac.false_hit      <> 1;
 
