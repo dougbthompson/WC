@@ -188,13 +188,15 @@ SELECT tm.eventid,
        SELECT tm_acoustic_with_eventid.idcode2, tm_acoustic_with_eventid.codespace2,
               tm_acoustic_with_eventid.taggingdate::date AS taggingdate, tm_acoustic_with_eventid.eventid
          FROM tm_acoustic_with_eventid
-        WHERE tm_acoustic_with_eventid.idcode2 IS NOT NULL AND tm_acoustic_with_eventid.eventid::text ~~ '19%'::text
+        WHERE tm_acoustic_with_eventid.idcode2 IS NOT NULL
+          AND tm_acoustic_with_eventid.eventid::text ~~ '19%'::text
         UNION ALL
        SELECT tm_acoustic_with_eventid.idcode3, tm_acoustic_with_eventid.codespace3,
               tm_acoustic_with_eventid.taggingdate::date AS taggingdate, tm_acoustic_with_eventid.eventid
          FROM tm_acoustic_with_eventid
         WHERE tm_acoustic_with_eventid.idcode3 IS NOT NULL
           AND tm_acoustic_with_eventid.eventid::text ~~ '19%'::text) tm
+
            ON ac.code      = tm.idcode
           AND ac.codespace = tm.codespace1
 
