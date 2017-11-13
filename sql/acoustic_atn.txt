@@ -130,7 +130,6 @@ copy (select tkey,project,region,site,station,dlondd,dlatdd from acoustic_deploy
 copy atn_acoustic_station (topp_station_id,station_project,station_region,station_site,station_name,longitude,latitude)
      from '/tmp/topp.acoustic_deployment.csv' delimiter '|';
 
------
                                         Table "public.acoustic_data"
      Column     |            Type             |                          Modifiers                           
 ----------------+-----------------------------+--------------------------------------------------------------
@@ -240,4 +239,30 @@ topp=# select tkey,tagfamily,serialnum,idcode,codespace1,sensor,slope,idcode2,se
  1140 | VR4-Alkaline   | 260233    |        |            |             |          |         |          |          |            | 
  1191 | V16-6H         | 1275509   |  12986 | A69-9001   |             |          |         |          |          |            | external
 (32 rows)
+
+                             View "public.animalview"
+       Column        |          Type          | Modifiers | Storage  | Description 
+---------------------+------------------------+-----------+----------+-------------
+ speciescode         | character varying(2)   |           | extended | 
+ animalid            | character varying(40)  |           | extended | 
+ gender              | character varying(20)  |           | extended | 
+ identifyingfeatures | character varying(255) |           | extended | 
+ nickname            | character varying(40)  |           | extended | 
+ red                 | integer                |           | plain    | 
+ green               | integer                |           | plain    | 
+ blue                | integer                |           | plain    | 
+ speciesname         | character varying(80)  |           | extended | 
+ genus               | character varying(80)  |           | extended | 
+ species             | character varying(80)  |           | extended | 
+ taxongroup          | character varying(80)  |           | extended | 
+ workinggroup        | character varying(80)  |           | extended | 
+ abreviation         | character varying(20)  |           | extended | 
+ concatname          | text                   |           | extended | 
+ toppid              | character varying(20)  |           | extended | 
+ projectid           | integer                |           | plain    | 
+ name                | character varying(80)  |           | extended | 
+ casecomment         | text                   |           | extended | 
+ ownerid             | integer                |           | plain    | 
+ contactid           | integer                |           | plain    | 
+ provisional         | boolean                |           | plain    | 
 
