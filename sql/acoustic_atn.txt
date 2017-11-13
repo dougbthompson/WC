@@ -1,4 +1,57 @@
 
+topp=# select * from acoustic_atn_station;
+ code  | detections |   site    |    station    | longitude | latitude |   commonname    
+-------+------------+-----------+---------------+-----------+----------+-----------------
+  6160 |        804 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
+  6161 |         72 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
+  6165 |       1164 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
+  6166 |       1413 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
+  6167 |         15 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
+  6168 |          5 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
+  6169 |        165 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
+  6171 |        490 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
+  6338 |        147 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
+  6349 |        208 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
+  6350 |         17 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
+  6354 |        583 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
+ 12141 |        165 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
+ 12142 |         98 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
+ 12143 |         70 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
+ 12144 |         17 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
+ 12145 |        235 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
+ 12147 |        116 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
+ 32537 |         31 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
+ 32550 |         22 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
+  6346 |        233 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
+ 16695 |        709 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
+ 16696 |        378 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
+ 16697 |        774 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
+ 16698 |        899 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
+ 16699 |        667 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
+ 26925 |         19 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
+ 27155 |        249 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
+ 27156 |       1105 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
+ 27158 |        797 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
+ 27160 |        686 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
+ 27161 |        449 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
+ 27162 |        764 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
+ 27165 |        112 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
+ 27166 |        647 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
+ 33561 |        162 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Grey Reef Shark
+ 33563 |        311 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
+  6160 |          5 | Tomales   | Tomales Point | -122.9975 |  38.2365 | White Shark
+  6161 |          5 | Tomales   | Tomales Point | -122.9975 |  38.2365 | White Shark
+  6165 |         54 | Tomales   | Tomales Point | -122.9975 |  38.2365 | White Shark
+  6167 |          5 | Tomales   | Tomales Point | -122.9975 |  38.2365 | White Shark
+  6168 |        164 | Tomales   | Tomales Point | -122.9975 |  38.2365 | White Shark
+  6169 |         16 | Tomales   | Tomales Point | -122.9975 |  38.2365 | White Shark
+  6171 |          3 | Tomales   | Tomales Point | -122.9975 |  38.2365 | White Shark
+  6175 |         36 | Tomales   | Tomales Point | -122.9975 |  38.2365 | White Shark
+  6337 |          4 | Tomales   | Tomales Point | -122.9975 |  38.2365 | White Shark
+  6338 |          5 | Tomales   | Tomales Point | -122.9975 |  38.2365 | White Shark
+ 32538 |         21 | Tomales   | Tomales Point | -122.9975 |  38.2365 | White Shark
+(48 rows)
+
 # select valid deployments, that contain complete data sets
 
 select site, station,
