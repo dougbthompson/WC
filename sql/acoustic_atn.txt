@@ -477,3 +477,38 @@ copy atn_acoustic_meta (serialnum, tagfamily, eventid, tagcode, ptt, toppid, tag
      intercept2, idcode3, codespace3, sensor3, slope3, intercept3, vr4_feed)
      from '/tmp/topp.tm_acoustic_with_eventid.csv' delimiter '|';
 
+-----
+
+atndb=# select * from acoustic_atn_station limit 2;
+ code | detections |   site    |    station    | longitude | latitude | commonname  
+------+------------+-----------+---------------+-----------+----------+-------------
+ 6160 |        633 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | unknown
+ 6161 |         73 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
+(2 rows)
+
+atndb=# select * from atn_acoustic_station limit 2;
+ station_id | topp_station_id | station_project | station_region | station_site | station_name | longitude | latitude 
+------------+-----------------+-----------------+----------------+--------------+--------------+-----------+----------
+          1 |               1 | OTN             | Belle Isle     | Belle Isle   | SBX012       | -56.70799 | 51.42807
+          2 |               2 | OTN             | Belle Isle     | Belle Isle   | SBX015       | -56.73324 | 51.44192
+(2 rows)
+
+atndb=# select * from atn_acoustic_meta limit 2;
+ acoustic_meta_id | serialnum | tagfamily |  eventid  |   tagcode   | ptt | toppid  | taggingdate | animal_id | len1 | len1type | len2 | len2type | len3 | len3type | mass | masstype | sex |      species       |      commonname      | dlatdd  |  dlondd   |    seriesname    | idcode1 | codespace1 |   sensor1   | slope1 | intercept1 | idcode2 | codespace2 | sensor2 | slope2 | intercept2 | idcode3 | codespace3 | sensor3 | slope3 | intercept3 | vr4_feed 
+------------------+-----------+-----------+-----------+-------------+-----+---------+-------------+-----------+------+----------+------+----------+------+----------+------+----------+-----+--------------------+----------------------+---------+-----------+------------------+---------+------------+-------------+--------+------------+---------+------------+---------+--------+------------+---------+------------+---------+--------+------------+----------
+                1 | 1100773   | V16T-4L   | 101000400 | VM011100773 |  21 | 1010004 | 12/13/2010  |   2000205 | 94   | CFL      |      |          |      |          |      |          |     | Thunnus orientalis | Pacific Bluefin Tuna | 32.3945 | -117.2351 | Ensenada Dec2010 |      21 | A69-1105   | Temperature | 0.1569 |          0 |         |            |         |        |            |         |            |         |        |            | 
+                2 | 1100774   | V16T-4L   | 101000500 | VM011100774 |  22 | 1010005 | 12/13/2010  |   2000206 | 91.5 | CFL      |      |          |      |          |      |          |     | Thunnus orientalis | Pacific Bluefin Tuna | 32.3945 | -117.2351 | Ensenada Dec2010 |      22 | A69-1105   | Temperature | 0.1569 |          0 |         |            |         |        |            |         |            |         |        |            | 
+(2 rows)
+
+atndb=# select * from atn_animal_view limit 2;
+ animal_view_id | speciescode | animalid | gender | identifyingfeatures | nickname | red | green | blue | speciesname | genus | species | taxongroup | workinggroup | abreviation | concatname | toppid  | projectid | name | casecomment | ownerid | contactid | provisional 
+----------------+-------------+----------+--------+---------------------+----------+-----+-------+------+-------------+-------+---------+------------+--------------+-------------+------------+---------+-----------+------+-------------+---------+-----------+-------------
+              1 | 00          | 1002102  |        |                     |          |     |       |      | Unknown     |       |         |            |              | UNKN        | unknown    | 1002102 |        21 |      | False       |         |           | 
+              2 | 00          | 1403001  |        |                     |          |     |       |      | Unknown     |       |         |            |              | UNKN        | unknown    | 1403001 |        29 |      | False       |         |           | 
+(2 rows)
+
+
+create or replace view acoustic_atn_station_view
+as
+;
+
