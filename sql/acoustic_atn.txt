@@ -373,3 +373,78 @@ copy atn_animal_view (
      casecomment,ownerid,contactid,provisional)
      from '/tmp/topp.animalview.csv' delimiter '|';
 
+
+                  View "public.tm_acoustic_with_eventid"
+      Column      |       Type       | Modifiers | Storage  | Description 
+------------------+------------------+-----------+----------+-------------
+ serialnum        | text             |           | extended | 
+ idcode           | integer          |           | plain    | 
+ invoicedate      | text             |           | extended | 
+ ordernumber      | text             |           | extended | 
+ tagfamily        | text             |           | extended | 
+ interval_min     | text             |           | extended | 
+ interval_max     | text             |           | extended | 
+ est_taglife      | text             |           | extended | 
+ codespace1       | text             |           | extended | 
+ idcode2          | integer          |           | plain    | 
+ codespace2       | text             |           | extended | 
+ sensor           | text             |           | extended | 
+ slope            | real             |           | plain    | 
+ intercept        | real             |           | plain    | 
+ idcode3          | integer          |           | plain    | 
+ codespace3       | text             |           | extended | 
+ sensor2          | text             |           | extended | 
+ slope2           | real             |           | plain    | 
+ intercept2       | real             |           | plain    | 
+ eventid          | integer          |           | plain    | 
+ tagcode          | text             |           | extended | 
+ ptt              | integer          |           | plain    | 
+ vr4_feed         | text             |           | extended | 
+ taggingdate      | text             |           | extended | 
+ animal_id        | integer          |           | plain    | 
+ nickname         | text             |           | extended | 
+ commonname       | text             |           | extended | 
+ taggingtime      | text             |           | extended | 
+ len1             | text             |           | extended | 
+ species          | text             |           | extended | 
+ dlatdd           | double precision |           | plain    | 
+ dlondd           | double precision |           | plain    | 
+ dead_by_date     | text             |           | extended | 
+ last_detect_date | text             |           | extended | 
+ seriesname       | text             |           | extended | 
+ toppid           | integer          |           | plain    | 
+ sex              | text             |           | extended | 
+ len1type         | text             |           | extended | 
+ sensor3          | text             |           | extended | 
+ slope3           | real             |           | plain    | 
+ intercept3       | real             |           | plain    | 
+ angler           | text             |           | extended | 
+ baittype         | text             |           | extended | 
+ deploycomment    | text             |           | extended | 
+ fishmethod       | text             |           | extended | 
+ fishingdepth     | text             |           | extended | 
+ halfgirth        | text             |           | extended | 
+ injuries         | text             |           | extended | 
+ leadtagger       | text             |           | extended | 
+ len2             | text             |           | extended | 
+ len2type         | text             |           | extended | 
+ mass             | text             |           | extended | 
+ masstype         | text             |           | extended | 
+ sstprobe         | text             |           | extended | 
+ sst              | text             |           | extended | 
+ seastate         | text             |           | extended | 
+ sexmaturity      | text             |           | extended | 
+ tageventcomment  | text             |           | extended | 
+ tagposition      | text             |           | extended | 
+ tagteam          | text             |           | extended | 
+ taggingvessel    | text             |           | extended | 
+ weather          | text             |           | extended | 
+ tag1side         | text             |           | extended | 
+ tag2side         | text             |           | extended | 
+ waterdepth       | text             |           | extended | 
+ claspers         | text             |           | extended | 
+ len3             | text             |           | extended | 
+ len3type         | text             |           | extended | 
+ taglocation      | text             |           | extended | 
+ tagtype          | text             |           | extended | 
+
