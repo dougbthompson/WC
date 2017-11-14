@@ -1,4 +1,20 @@
 
+                      Table "aatams.detection"
+          Column           |            Type             | Modifiers 
+---------------------------+-----------------------------+-----------
+ id                        | bigint                      | not null ... tm_acoustic_with_eventid.ptt
+ version                   | bigint                      | not null ... 1
+ location                  | bytea                       |          ... NULL
+ receiver_id               | bigint                      | not null ... acoustic_data.receiver
+ station_name              | character varying(255)      |          ... acoustic_deployment.station
+ timestamp                 | timestamp without time zone | not null ... acoustic_data.ping_detection
+ transmitter_name          | character varying(255)      |          ... tm_acoustic_with_eventid.tagcode
+ transmitter_serial_number | character varying(255)      |          ... tm_acoustic_with_eventid.serialnum
+ class                     | character varying(255)      | not null ... tm_acoustic_with_eventid.tagfamily
+ sensor_unit               | character varying(255)      |          ... tm_acoustic_with_eventid.sensor
+ uncalibrated_value        | real                        |          ... NULL
+
+
 topp=# select * from acoustic_atn_station;
  code  | detections |   site    |    station    | longitude | latitude |   commonname    
 -------+------------+-----------+---------------+-----------+----------+-----------------
