@@ -14,7 +14,7 @@
  sensor_unit               | character varying(255)      |          ... tm_acoustic_with_eventid.sensor
  uncalibrated_value        | real                        |          ... NULL
 
-copy (select tm.ptt, 1, null, ada.receiver, ade.station, ada.ping_detection, tm.tagcode, tm.serialnum, tm.tagfamily, tm.sensor, null from tm_acoustic_with_eventid tm, acoustic_deployment ade, acoustic_data ada where tm.ptt = ada.code and ade.receiver = ada.receiver and ade.receiver_dnum = ada.receiver_dnum and ada.ping_detection > ('now'::text::date - 90) and ada.ping_detection <= 'now'::text::date)
+copy (select tm.ptt, 1, null, ada.receiver, ade.station, ada.ping_detection, tm.tagcode, tm.serialnum, tm.tagfamily, tm.sensor, null from tm_acoustic_with_eventid tm, acoustic_deployment ade, acoustic_data ada where tm.ptt = ada.code and ade.receiver = ada.receiver and ade.receiver_dnum = ada.receiver_dnum and ada.ping_detection > ('now'::text::date - 90) and ada.ping_detection <= 'now'::text::date and ada.false_hit = 0)
      to '/tmp/topp.detection.csv' delimiter '|';
 
 # into atndb.aatams
@@ -24,10 +24,10 @@ copy detection from '/tmp/topp.detection.csv' delimiter '|';
 topp=# select * from acoustic_atn_station;
  code  | detections |   site    |    station    | longitude | latitude |   commonname    
 -------+------------+-----------+---------------+-----------+----------+-----------------
-  6160 |        804 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
-  6161 |         72 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
-  6165 |       1164 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
-  6166 |       1413 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
+  6160 |        824 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
+  6161 |         59 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
+  6165 |       1168 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
+  6166 |       1430 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
   6167 |         15 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
   6168 |          5 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
   6169 |        165 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
@@ -36,31 +36,31 @@ topp=# select * from acoustic_atn_station;
   6349 |        208 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
   6350 |         17 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
   6354 |        583 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
- 12141 |        165 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
+ 12141 |        206 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
  12142 |         98 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
  12143 |         70 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
  12144 |         17 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
- 12145 |        235 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
- 12147 |        116 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
- 32537 |         31 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
+ 12145 |        250 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
+ 12147 |        117 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
+ 32537 |         30 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
  32550 |         22 | Ano Nuevo | MBARI ANO OA2 | -122.3253 |  37.0932 | White Shark
   6346 |        233 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
- 16695 |        709 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
+ 16695 |        714 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
  16696 |        378 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
- 16697 |        774 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
- 16698 |        899 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
- 16699 |        667 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
- 26925 |         19 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
- 27155 |        249 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
- 27156 |       1105 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
- 27158 |        797 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
- 27160 |        686 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
- 27161 |        449 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
- 27162 |        764 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
+ 16697 |        773 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
+ 16698 |        903 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
+ 16699 |        679 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
+ 26925 |         20 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
+ 27155 |        254 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
+ 27156 |       1111 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
+ 27158 |        794 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
+ 27160 |        714 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
+ 27161 |        442 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
+ 27162 |        750 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
  27165 |        112 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
- 27166 |        647 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
+ 27166 |        679 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
  33561 |        162 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Grey Reef Shark
- 33563 |        311 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
+ 33563 |        309 | Palmyra   | Inner Channel | -162.1068 |   5.8768 | Manta Ray
   6160 |          5 | Tomales   | Tomales Point | -122.9975 |  38.2365 | White Shark
   6161 |          5 | Tomales   | Tomales Point | -122.9975 |  38.2365 | White Shark
   6165 |         54 | Tomales   | Tomales Point | -122.9975 |  38.2365 | White Shark
@@ -71,7 +71,7 @@ topp=# select * from acoustic_atn_station;
   6175 |         36 | Tomales   | Tomales Point | -122.9975 |  38.2365 | White Shark
   6337 |          4 | Tomales   | Tomales Point | -122.9975 |  38.2365 | White Shark
   6338 |          5 | Tomales   | Tomales Point | -122.9975 |  38.2365 | White Shark
- 32538 |         21 | Tomales   | Tomales Point | -122.9975 |  38.2365 | White Shark
+ 32538 |         11 | Tomales   | Tomales Point | -122.9975 |  38.2365 | White Shark
 (48 rows)
 
 # select valid deployments, that contain complete data sets
