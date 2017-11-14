@@ -223,6 +223,28 @@ copy atn_acoustic_station (topp_station_id,station_project,station_region,statio
 Indexes:
     "acoustic_data_pkey" PRIMARY KEY, btree (tkey)
 
+drop table if exists atn_acoustic_data;
+create table atn_acoustic_data (
+    acoustic_data_id  serial,
+    tkey              integer,
+    code              integer,
+    codespace         text,
+    date              text,
+    receiver          integer,
+    receiver_dnum     integer,
+    false_hit         integer,
+    ping_detection    timestamp
+);
+
+# from topp.public
+copy (select tkey,code,codespace,date,receiver,receiver_dnum,false_hit,ping_detection)
+     to '/tmp/topp.acoustic_data.csv' delimiter '|';
+
+# into atndb.aatams
+copy atn_acoustic_data (tkey,code,codespace,date,receiver,receiver_dnum,false_hit,ping_detection)
+     from '/tmp/topp.acoustic_data.csv' delimiter '|';
+
+
 topp=# \d acoustic_whiteshark
             View "public.acoustic_whiteshark"
      Column     |            Type             | Modifiers 
@@ -237,7 +259,7 @@ topp=# \d acoustic_whiteshark
  dlondd         | double precision            | 
  dlatdd         | double precision            | 
 
-topp=#
+view: acoustic_atn_station: 
 
 SELECT tm.eventid,
        ac.code, ac.codespace, ac.receiver, ac.ping_detection,
