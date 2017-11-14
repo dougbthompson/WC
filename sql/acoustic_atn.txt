@@ -477,4 +477,3 @@ copy atn_acoustic_meta (serialnum, tagfamily, eventid, tagcode, ptt, toppid, tag
      intercept2, idcode3, codespace3, sensor3, slope3, intercept3, vr4_feed)
      from '/tmp/topp.tm_acoustic_with_eventid.csv' delimiter '|';
 
-
