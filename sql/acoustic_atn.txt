@@ -237,7 +237,7 @@ create table atn_acoustic_data (
 );
 
 # from topp.public
-copy (select tkey,code,codespace,date,receiver,receiver_dnum,false_hit,ping_detection)
+copy (select tkey,code,codespace,date,receiver,receiver_dnum,false_hit,ping_detection from acoustic_data)
      to '/tmp/topp.acoustic_data.csv' delimiter '|';
 
 # into atndb.aatams
