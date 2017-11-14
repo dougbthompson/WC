@@ -193,16 +193,19 @@ create table atn_acoustic_station (
     station_region   text,
     station_site     text,
     station_name     text,
+    receiver         integer,
+    receiver_dnum    integer,
     longitude        double precision,
     latitude         double precision
 );
 
 # from topp.public
-copy (select tkey,project,region,site,station,dlondd,dlatdd from acoustic_deployment order by tkey)
+copy (select tkey,project,region,site,station,receiver,receiver_dnum,dlondd,dlatdd from acoustic_deployment order by tkey)
      to '/tmp/topp.acoustic_deployment.csv' delimiter '|';
 
 # into atndb.aatams
-copy atn_acoustic_station (topp_station_id,station_project,station_region,station_site,station_name,longitude,latitude)
+copy atn_acoustic_station (topp_station_id,station_project,station_region,station_site,station_name,
+     receiver,receiver_dnum,longitude,latitude)
      from '/tmp/topp.acoustic_deployment.csv' delimiter '|';
 
                                         Table "public.acoustic_data"
