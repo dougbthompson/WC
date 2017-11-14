@@ -362,3 +362,14 @@ create table atn_animal_view (
     provisional          boolean
 );
 
+# from topp.public
+copy (select * from animalview order by speciescode, animalid)
+     to '/tmp/topp.animalview.csv' delimiter '|';
+
+# into atndb.aatams
+copy atn_animal_view (
+     speciescode,animalid,gender,identifyingfeatures,nickname,red,green,blue,speciesname,
+     genus,species,taxongroup,workinggroup,abreviation,concatname,toppid,projectid,name,
+     casecomment,ownerid,contactid,provisional)
+     from '/tmp/topp.animalview.csv' delimiter '|';
+
