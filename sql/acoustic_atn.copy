@@ -1,0 +1,205 @@
+
+# from topp.public
+copy (select tm.ptt, 1, null, ada.receiver, ade.station, ada.ping_detection, tm.tagcode, tm.serialnum, tm.tagfamily, tm.sensor, null
+     from tm_acoustic_with_eventid tm, acoustic_deployment ade, acoustic_data ada where tm.ptt = ada.code and ade.receiver = ada.receiver
+     and ade.receiver_dnum = ada.receiver_dnum and ada.ping_detection > ('now'::text::date - 90) and ada.ping_detection <= 'now'::text::date
+     and ada.false_hit = 0)
+     to '/tmp/topp.detection.csv' delimiter '|';
+
+# into atndb.aatams
+copy detection from '/tmp/topp.detection.csv' delimiter '|';
+
+copy (select 0,0,coalesce(ad.project,'unknown'),coalesce(ad.bottom_depth_m,0),concat(ad.type,' - ',ad.substrate,' - ',ad.cable_len),
+     coalesce(ad.deploystamp,'2000-01-01'),ad.receiver_dnum,coalesce(ad.receiver_depth,0),0,0,ad.receiver,'unknown','2100-12-31',0
+     from acoustic_deployment ad)
+     to '/tmp/topp.acoustic_deployment-2.csv' delimiter '|';
+
+copy receiver_deployment from '/tmp/topp.acoustic_deployment-2.csv' delimiter '|';
+
+# next:
+# - fill in "id" column, alter table column to "serial"
+# - retrieve station_id = atn_acoustic_station.station_id (topp_station_id = ad.tkey)
+
+insert into atndb.aatams.receiver_deployment ()
+select 0,0,ad.project,ad.bottom_depth_m,ad.type,ad.deploystamp,ad.receiver_dnum,
+       ad.receiver_depth,null,concat(ad.substrate,' ',ad.cable_len),ad.receiver,'unknown',
+       '2100-12-31',0
+  from acoustic_deployment ad;
+
+drop table if exists atn_acoustic_station;
+create table atn_acoustic_station (
+    station_id       serial,
+    topp_station_id  int,
+    station_project  text,
+    station_region   text,
+    station_site     text,
+    station_name     text,
+    receiver         integer,
+    receiver_dnum    integer,
+    longitude        double precision,
+    latitude         double precision
+);
+
+# from topp.public
+copy (select tkey,project,region,site,station,receiver,receiver_dnum,dlondd,dlatdd from acoustic_deployment order by tkey)
+     to '/tmp/topp.acoustic_deployment.csv' delimiter '|';
+
+# into atndb.aatams
+copy atn_acoustic_station (topp_station_id,station_project,station_region,station_site,station_name,
+     receiver,receiver_dnum,longitude,latitude)
+     from '/tmp/topp.acoustic_deployment.csv' delimiter '|';
+
+drop table if exists atn_acoustic_data;
+create table atn_acoustic_data (
+    acoustic_data_id  serial,
+    tkey              integer,
+    code              integer,
+    codespace         text,
+    date              text,
+    receiver          integer,
+    receiver_dnum     integer,
+    false_hit         integer,
+    ping_detection    timestamp
+);
+
+# from topp.public
+copy (select tkey,code,codespace,date,receiver,receiver_dnum,false_hit,ping_detection from acoustic_data)
+     to '/tmp/topp.acoustic_data.csv' delimiter '|';
+
+# into atndb.aatams
+copy atn_acoustic_data (tkey,code,codespace,date,receiver,receiver_dnum,false_hit,ping_detection)
+     from '/tmp/topp.acoustic_data.csv' delimiter '|';
+
+drop table if exists atn_animal_view;
+create table atn_animal_view (
+    animal_view_id       serial,
+    speciescode          character varying(2),
+    animalid             character varying(40),
+    gender               character varying(20),
+    identifyingfeatures  character varying(255),
+    nickname             character varying(40),
+    red                  integer,
+    green                integer,
+    blue                 integer,
+    speciesname          character varying(80),
+    genus                character varying(80),
+    species              character varying(80),
+    taxongroup           character varying(80),
+    workinggroup         character varying(80),
+    abreviation          character varying(20),
+    concatname           text,
+    toppid               character varying(20),
+    projectid            integer,
+    name                 character varying(80),
+    casecomment          text,
+    ownerid              integer,
+    contactid            integer,
+    provisional          boolean
+);
+
+# from topp.public
+copy (select * from animalview order by speciescode, animalid)
+     to '/tmp/topp.animalview.csv' delimiter '|';
+
+# into atndb.aatams
+copy atn_animal_view (
+     speciescode,animalid,gender,identifyingfeatures,nickname,red,green,blue,speciesname,
+     genus,species,taxongroup,workinggroup,abreviation,concatname,toppid,projectid,name,
+     casecomment,ownerid,contactid,provisional)
+     from '/tmp/topp.animalview.csv' delimiter '|';
+
+drop table if exists atn_acoustic_meta;
+create table atn_acoustic_meta (
+    acoustic_meta_id  serial,
+    serialnum         text,
+    tagfamily         text,
+    eventid           integer,
+    tagcode           text,
+    ptt               integer,
+    toppid            integer,
+    taggingdate       text,
+    animal_id         integer,
+    len1              text,
+    len1type          text,
+    len2              text,
+    len2type          text,
+    len3              text,
+    len3type          text,
+    mass              text,
+    masstype          text,
+    sex               text,
+    species           text,
+    commonname        text,
+    dlatdd            double precision,
+    dlondd            double precision,
+    seriesname        text,
+    idcode1           integer,
+    codespace1        text,
+    sensor1           text,
+    slope1            real,
+    intercept1        real,
+    idcode2           integer,
+    codespace2        text,
+    sensor2           text,
+    slope2            real,
+    intercept2        real,
+    idcode3           integer,
+    codespace3        text,
+    sensor3           text,
+    slope3            real,
+    intercept3        real,
+    vr4_feed          text
+);
+
+# from topp.public
+copy (select serialnum, tagfamily, eventid, tagcode, ptt, toppid, taggingdate, animal_id,
+     len1, len1type, len2, len2type, len3, len3type, mass, masstype, sex, species, commonname, dlatdd, dlondd,
+     seriesname, idcode, codespace1, sensor, slope, intercept, idcode2, codespace2, sensor2, slope2,
+     intercept2, idcode3, codespace3, sensor3, slope3, intercept3, vr4_feed from tm_acoustic_with_eventid)
+     to '/tmp/topp.tm_acoustic_with_eventid.csv' delimiter '|';
+
+# into atndb.aatams
+copy atn_acoustic_meta (serialnum, tagfamily, eventid, tagcode, ptt, toppid, taggingdate, animal_id,
+     len1, len1type, len2, len2type, len3, len3type, mass, masstype, sex, species, commonname, dlatdd, dlondd,
+     seriesname, idcode1, codespace1, sensor1, slope1, intercept1, idcode2, codespace2, sensor2, slope2,
+     intercept2, idcode3, codespace3, sensor3, slope3, intercept3, vr4_feed)
+     from '/tmp/topp.tm_acoustic_with_eventid.csv' delimiter '|';
+
+
+topp=# select tkey,tagfamily,serialnum,idcode,codespace1,sensor,slope,idcode2,sensor2,slope2,codespace2,tagtype from tbltmacoustic limit 32;
+ tkey |   tagfamily    | serialnum | idcode | codespace1 |   sensor    |  slope   | idcode2 | sensor2  |  slope2  | codespace2 | tagtype
+------+----------------+-----------+--------+------------+-------------+----------+---------+----------+----------+------------+----------
+  339 | VR2W-069k-110  | 107963    |        |            |             |          |         |          |          |            |
+ 1136 | VR4 Hydrophone | 210142    |        |            |             |          |         |          |          |            |
+  333 | V9P-2L         | 5023G     |        |            |             |          |         |          |          |            | external
+  331 | V13P-1X        | 3943H     |        |            |             |          |         |          |          |            | external
+  946 | V16-4H         | 1238270   |  19505 | A69-9001   |             |          |         |          |          |            | internal
+  912 | VMT            | 1224519   |  20920 | A69-9001   |             |          |         |          |          |            |
+  314 | V13T-1H        | 1079497   |    230 | A69-1105   | Temperature |   0.1569 |         |          |          |            | external
+  906 | V16TP-5H       | 1219577   |        |            | Temperature |  -78.431 |         | Pressure | -758.075 |            | external
+  908 | VR4 Hydrophone | 210112    |        |            |             |          |         |          |          |            |
+  905 | VR4G Hose ring |           |        |            |             |          |         |          |          |            |
+  907 | VR4 Hydrophone | 210109    |        |            |             |          |         |          |          |            |
+  316 | V13T-1H        | 1079499   |    232 | A69-1105   | Temperature |   0.1569 |         |          |          |            | external
+  974 | V13AP-1H       | 1238298   |   2400 | A69-9004   | Accel       | 0.013588 |    2401 | Pressure |   0.6065 | A69-9004   | internal
+  975 | V13AP-1H       | 1238299   |   2402 | A69-9004   | Accel       | 0.013588 |    2403 | Pressure |   0.6065 | A69-9004   | internal
+  789 | V16-4H         | 1200065   |   6347 | A69-1303   |             |          |         |          |          |            | external
+  910 | VMT            | 1224517   |  20918 | A69-9001   |             |          |         |          |          |            |
+  911 | VMT            | 1224518   |  20919 | A69-9001   |             |          |         |          |          |            |
+  976 | V13AP-1H       | 1238300   |   2404 | A69-9004   | Accel       | 0.013588 |    2405 | Pressure |   0.6065 | A69-9004   | internal
+  971 | V13AP-1H       | 1238295   |   2394 | A69-9004   | Accel       | 0.013588 |    2395 | Pressure |   0.6065 | A69-9004   | internal
+  977 | V13AP-1H       | 1238301   |   2406 | A69-9004   | Accel       | 0.013588 |    2407 | Pressure |   0.6065 | A69-9004   | internal
+  338 | VR2W-069k-110  | 107961    |        |            |             |          |         |          |          |            |
+  904 | VR4-Alkaline   | 260197    |        |            |             |          |         |          |          |            |
+ 1195 | V16-6H         | 1275513   |  12990 | A69-9001   |             |          |         |          |          |            | external
+  909 | VR4 Hydrophone | 210113    |        |            |             |          |         |          |          |            |
+ 1139 | VR4-Alkaline   | 260232    |        |            |             |          |         |          |          |            |
+ 1137 | VR4-Alkaline   | 260230    |        |            |             |          |         |          |          |            |
+ 1196 | V16-6H         | 1275514   |  12991 | A69-9001   |             |          |         |          |          |            | external
+ 1197 | V16-6H         | 1275515   |  12992 | A69-9001   |             |          |         |          |          |            | external
+ 1138 | VR4-Alkaline   | 260231    |        |            |             |          |         |          |          |            |
+ 1198 | V16-6H         | 1275516   |  12993 | A69-9001   |             |          |         |          |          |            | external
+ 1140 | VR4-Alkaline   | 260233    |        |            |             |          |         |          |          |            |
+ 1191 | V16-6H         | 1275509   |  12986 | A69-9001   |             |          |         |          |          |            | external
+(32 rows)
+
