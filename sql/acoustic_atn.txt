@@ -14,6 +14,12 @@
  sensor_unit               | character varying(255)      |          ... tm_acoustic_with_eventid.sensor
  uncalibrated_value        | real                        |          ... NULL
 
+copy (select tm.ptt, 1, null, ada.receiver, ade.station, ada.ping_detection, tm.tagcode, tm.serialnum, tm.tagfamily, tm.sensor, null from tm_acoustic_with_eventid tm, acoustic_deployment ade, acoustic_data ada where tm.ptt = ada.code and ade.receiver = ada.receiver and ade.receiver_dnum = ada.receiver_dnum and ada.ping_detection > ('now'::text::date - 90) and ada.ping_detection <= 'now'::text::date)
+     to '/tmp/topp.detection.csv' delimiter '|';
+
+# into atndb.aatams
+copy detection from '/tmp/topp.detection.csv' delimiter '|';
+
 
 topp=# select * from acoustic_atn_station;
  code  | detections |   site    |    station    | longitude | latitude |   commonname    
