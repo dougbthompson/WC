@@ -378,73 +378,104 @@ copy atn_animal_view (
       Column      |       Type       | Modifiers | Storage  | Description 
 ------------------+------------------+-----------+----------+-------------
  serialnum        | text             |           | extended | 
- idcode           | integer          |           | plain    | 
- invoicedate      | text             |           | extended | 
- ordernumber      | text             |           | extended | 
  tagfamily        | text             |           | extended | 
- interval_min     | text             |           | extended | 
- interval_max     | text             |           | extended | 
- est_taglife      | text             |           | extended | 
- codespace1       | text             |           | extended | 
- idcode2          | integer          |           | plain    | 
- codespace2       | text             |           | extended | 
- sensor           | text             |           | extended | 
- slope            | real             |           | plain    | 
- intercept        | real             |           | plain    | 
- idcode3          | integer          |           | plain    | 
- codespace3       | text             |           | extended | 
- sensor2          | text             |           | extended | 
- slope2           | real             |           | plain    | 
- intercept2       | real             |           | plain    | 
  eventid          | integer          |           | plain    | 
  tagcode          | text             |           | extended | 
  ptt              | integer          |           | plain    | 
- vr4_feed         | text             |           | extended | 
+ toppid           | integer          |           | plain    | 
  taggingdate      | text             |           | extended | 
  animal_id        | integer          |           | plain    | 
- nickname         | text             |           | extended | 
- commonname       | text             |           | extended | 
- taggingtime      | text             |           | extended | 
  len1             | text             |           | extended | 
+ len1type         | text             |           | extended | 
+ len2             | text             |           | extended | 
+ len2type         | text             |           | extended | 
+ len3             | text             |           | extended | 
+ len3type         | text             |           | extended | 
+ mass             | text             |           | extended | 
+ masstype         | text             |           | extended | 
+ sex              | text             |           | extended | 
  species          | text             |           | extended | 
+ commonname       | text             |           | extended | 
  dlatdd           | double precision |           | plain    | 
  dlondd           | double precision |           | plain    | 
- dead_by_date     | text             |           | extended | 
- last_detect_date | text             |           | extended | 
  seriesname       | text             |           | extended | 
- toppid           | integer          |           | plain    | 
- sex              | text             |           | extended | 
- len1type         | text             |           | extended | 
+
+ idcode           | integer          |           | plain    | 
+ codespace1       | text             |           | extended | 
+ sensor           | text             |           | extended | 
+ slope            | real             |           | plain    | 
+ intercept        | real             |           | plain    | 
+
+ idcode2          | integer          |           | plain    | 
+ codespace2       | text             |           | extended | 
+ sensor2          | text             |           | extended | 
+ slope2           | real             |           | plain    | 
+ intercept2       | real             |           | plain    | 
+
+ idcode3          | integer          |           | plain    | 
+ codespace3       | text             |           | extended | 
  sensor3          | text             |           | extended | 
  slope3           | real             |           | plain    | 
  intercept3       | real             |           | plain    | 
- angler           | text             |           | extended | 
- baittype         | text             |           | extended | 
- deploycomment    | text             |           | extended | 
- fishmethod       | text             |           | extended | 
- fishingdepth     | text             |           | extended | 
- halfgirth        | text             |           | extended | 
- injuries         | text             |           | extended | 
- leadtagger       | text             |           | extended | 
- len2             | text             |           | extended | 
- len2type         | text             |           | extended | 
- mass             | text             |           | extended | 
- masstype         | text             |           | extended | 
- sstprobe         | text             |           | extended | 
- sst              | text             |           | extended | 
- seastate         | text             |           | extended | 
- sexmaturity      | text             |           | extended | 
- tageventcomment  | text             |           | extended | 
- tagposition      | text             |           | extended | 
- tagteam          | text             |           | extended | 
- taggingvessel    | text             |           | extended | 
- weather          | text             |           | extended | 
- tag1side         | text             |           | extended | 
- tag2side         | text             |           | extended | 
- waterdepth       | text             |           | extended | 
- claspers         | text             |           | extended | 
- len3             | text             |           | extended | 
- len3type         | text             |           | extended | 
- taglocation      | text             |           | extended | 
- tagtype          | text             |           | extended | 
+
+ vr4_feed         | text             |           | extended | 
+
+drop table if exists atn_acoustic_meta;
+create table atn_acoustic_meta (
+    acoustic_meta_id  serial,
+    serialnum         text,
+    tagfamily         text,
+    eventid           integer,
+    tagcode           text,
+    ptt               integer,
+    toppid            integer,
+    taggingdate       text,
+    animal_id         integer,
+    len1              text,
+    len1type          text,
+    len2              text,
+    len2type          text,
+    len3              text,
+    len3type          text,
+    mass              text,
+    masstype          text,
+    sex               text,
+    species           text,
+    commonname        text,
+    dlatdd            double precision,
+    dlondd            double precision,
+    seriesname        text,
+    idcode1           integer,
+    codespace1        text,
+    sensor1           text,
+    slope1            real,
+    intercept1        real,
+    idcode2           integer,
+    codespace2        text,
+    sensor2           text,
+    slope2            real,
+    intercept2        real,
+    idcode3           integer,
+    codespace3        text,
+    sensor3           text,
+    slope3            real,
+    intercept3        real,
+    vr4_feed          text
+);
+
+# from topp.public
+copy (select serialnum, tagfamily, eventid, tagcode, ptt, toppid, taggingdate, animal_id,
+      len1, len1type, len2, len2type, len3, len3type, mass, masstype, sex, species, commonname, dlatdd, dlondd,
+      seriesname, idcode, codespace1, sensor, slope, intercept, idcode2, codespace2, sensor2, slope2,
+      intercept2, idcode3, codespace3, sensor3, slope3, intercept3, vr4_feed from tm_acoustic_with_eventid)
+     to '/tmp/topp.tm_acoustic_with_eventid.csv' delimiter '|';
+
+# into atndb.aatams
+copy atn_acoustic_meta (serialnum, tagfamily, eventid, tagcode, ptt, toppid, taggingdate, animal_id,
+     len1, len1type, len2, len2type, len3, len3type, mass, masstype, sex, species, commonname, dlatdd, dlondd,
+     seriesname, idcode1, codespace1, sensor1, slope1, intercept1, idcode2, codespace2, sensor2, slope2,
+     intercept2, idcode3, codespace3, sensor3, slope3, intercept3, vr4_feed)
+     from '/tmp/topp.tm_acoustic_with_eventid.csv' delimiter '|';
+
+
 
