@@ -1,4 +1,6 @@
 
+try 1
+
  Table "aatams.detection"
           Column           |            Type             | Modifiers 
 ---------------------------+-----------------------------+-----------
