@@ -1,6 +1,5 @@
 
 create or replace view acoustic_atn_station_view
-
 as
 select ad.code           as code,
        count(ad.code)    as detections,
