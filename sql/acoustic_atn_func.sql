@@ -1,22 +1,6 @@
 
 CREATE OR REPLACE FUNCTION acoustic_atn_func (p_start_date text, p_end_date text)
-RETURNS integer AS $$
-
-DECLARE
-    v_last_update_date integer;
-    v_wc_id            text;
-
-BEGIN
-
-    if p_start_date is null
-    then
-        p_start_date = ('now'::text::date - 90);
-    end if;
-
-    if p_end_date is null
-    then
-        p_end_date   = ('now'::text::date);
-    end if;
+RETURNS SETOF acoustic_atn_station AS $$
 
     select ad.code           as code,
            count(ad.code)    as detections,
@@ -30,8 +14,8 @@ BEGIN
            atn_acoustic_meta am
      where ad.receiver        = ast.receiver
        and ad.receiver_dnum   = ast.receiver_dnum
-       and ad.ping_detection  > p_start_date
-       and ad.ping_detection <= p_end_date
+       and ad.ping_detection  > $1::date
+       and ad.ping_detection <= $2::date
        and ad.false_hit       = 0
        and am.ptt             = ad.code
        and am.commonname     <> ''
@@ -39,5 +23,5 @@ BEGIN
      group by 1,3,4,7
      order by 3,4,1;
 
-END;
-$$ LANGUAGE plpgsql volatile;
+$$ LANGUAGE sql;
+
