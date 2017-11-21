@@ -583,6 +583,7 @@ select ad.code           as code,
  order by 3,4,1;
 
 -----
+-----
 
 topp=# select deploystamp,region,site,project,round(cast(avg(dlatdd) as numeric), 4),round(cast(avg(dlondd) as numeric), 4),receiver,receiver_dnum,atn_site from acoustic_deployment group by receiver,receiver_dnum,deploystamp,region,site,project,atn_site order by region,site,project,receiver,receiver_dnum;
 
