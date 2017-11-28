@@ -49,4 +49,5 @@ RETURNS SETOF acoustic_atn_station AS $$
      order by 3,4,1;
 
 $$ LANGUAGE sql;
+$$ LANGUAGE sql;
 
