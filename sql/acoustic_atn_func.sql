@@ -1,5 +1,6 @@
 
 CREATE OR REPLACE FUNCTION acoustic_atn_func (p_start_date text, p_end_date text)
+CREATE OR REPLACE FUNCTION acoustic_atn_func (p_start_date text, p_end_date text)
 RETURNS SETOF acoustic_atn_station AS $$
 
     select ad.code           as code,
