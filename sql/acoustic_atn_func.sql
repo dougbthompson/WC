@@ -50,7 +50,6 @@ RETURNS SETOF acoustic_atn_station AS $$
 
 $$ LANGUAGE sql;
 
-# test
 CREATE OR REPLACE FUNCTION acoustic_atn_func_which (p_start_date text, p_end_date text,
                   commonname text default '%', station_project text default '%', station_region text default '%')
 RETURNS SETOF acoustic_atn_station AS $$
