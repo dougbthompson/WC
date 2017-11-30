@@ -586,3 +586,10 @@ select ad.code           as code,
 
 topp=# select deploystamp,region,site,project,round(cast(avg(dlatdd) as numeric), 4),round(cast(avg(dlondd) as numeric), 4),receiver,receiver_dnum,atn_site from acoustic_deployment group by receiver,receiver_dnum,deploystamp,region,site,project,atn_site order by region,site,project,receiver,receiver_dnum;
 
+
+select * from aatams.acoustic_atn_func_which(p_start_date := '2016-01-01', p_end_date := '2017-01-01');
+select * from aatams.acoustic_atn_func_which(p_start_date := '2016-01-01', p_end_date := '2017-01-01', commonname := 'Pacific Bluefin Tuna');
+select * from aatams.acoustic_atn_func_which(p_start_date := '2016-01-01', p_end_date := '2017-01-01', commonname := 'Pacific Bluefin Tuna', station_project := '%', station_region := '%');
+
+
+
