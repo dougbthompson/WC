@@ -98,9 +98,10 @@ $$ LANGUAGE sql;
   6346 | Palmyra | 2017-02-05 20:27:32 | Manta Ray
   6346 | Palmyra | 2017-02-05 20:41:39 | Manta Ray
 
-select ad.code            as code,
+select am.eventid         as eventid,
        ast.station_region as site,
        ad.ping_detection  as date,
+       ad.code            as code,
        am.commonname      as commonname
 
   from atn_acoustic_data ad,
@@ -110,11 +111,12 @@ select ad.code            as code,
  where ast.station_site     = 'Palmyra'
    and ad.receiver          = ast.receiver
    and ad.receiver_dnum     = ast.receiver_dnum
-   and ad.ping_detection    > '2017-06-01'::date
+   and ad.ping_detection    > '2017-07-01'::date
    and ad.ping_detection   <= '2018-01-01'::date
    and ad.false_hit         = 0
    and am.ptt               = ad.code
    and am.commonname       <> ''
+ order by ad.code, ad.ping_detection;
 
 
 
