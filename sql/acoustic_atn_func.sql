@@ -79,3 +79,50 @@ RETURNS SETOF acoustic_atn_station AS $$
 
 $$ LANGUAGE sql;
 
+  eventid  |  site   |        date         | code  | commonname  
+-----------+---------+---------------------+-------+-------------
+ 191201700 | Tomales | 2016-12-05 00:23:55 | 33546 | White Shark
+ 191201700 | Tomales | 2016-12-05 01:45:27 | 33546 | White Shark
+ 191600100 | Tomales | 2016-12-05 01:46:19 |  6168 | White Shark
+ 191600100 | Tomales | 2016-12-05 01:49:38 |  6168 | White Shark
+ 191201700 | Tomales | 2016-12-05 02:16:13 | 33546 | White Shark
+ 191201700 | Tomales | 2016-12-05 02:18:19 | 33546 | White Shark
+
+select am.eventid        as eventid,
+       ast.station_name  as site,
+       ad.ping_detection as date,
+       ad.code           as code,
+       am.commonname     as commonname
+
+  from atn_acoustic_data ad,
+       atn_acoustic_station ast,
+       atn_acoustic_meta am
+
+ where ast.station_site     = 'Palmyra'
+   and ad.receiver          = ast.receiver
+   and ad.receiver_dnum     = ast.receiver_dnum
+   and ad.ping_detection    > '2017-06-01'::date
+   and ad.ping_detection   <= '2018-01-01'::date
+   and ad.false_hit         = 0
+   and am.ptt               = ad.code
+   and am.commonname       <> ''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
