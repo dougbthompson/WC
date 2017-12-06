@@ -4,7 +4,7 @@ CREATE OR REPLACE FUNCTION acoustic_atn_plot_ws (p_start_date text, p_end_date t
 RETURNS SETOF atn_plots AS $$
 
     select am.commonname                  as species,
-           now()                          as date_value,
+           now()::varchar(10)             as date_value,
            which_dt_period                as time_period,
            am.eventid::varchar(64)        as eventid,
            ast.station_site               as site,
@@ -26,6 +26,9 @@ RETURNS SETOF atn_plots AS $$
      order by ad.code, ad.ping_detection;
 
 $$ LANGUAGE sql;
+
+select * from acoustic_atn_plot_ws(('now'::date-(30*12))::text,('now'::date)::text,'White Shark','%','30');
+
 
   eventid  |  site   |        date         | code  | commonname  
 -----------+---------+---------------------+-------+-------------
