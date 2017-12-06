@@ -1,16 +1,16 @@
 
 CREATE OR REPLACE FUNCTION acoustic_atn_plot_ws (p_start_date text, p_end_date text,
                   commonname text default '%', station_site text default '%', which_dt_period text default '30')
-RETURNS SETOF acoustic_atn_station AS $$
+RETURNS SETOF atn_plots AS $$
 
-    select am.commonname      as species,
-           now()::varchar(10) as date_value,
-           which_dt_period    as time_period,
-           am.eventid         as eventid,
-           ast.station_site   as site,
-           ad.ping_detection  as date_value,
-           ad.code            as code,
-           am.commonname      as commonname
+    select am.commonname            as species,
+           now()                    as date_value,
+           which_dt_period          as time_period,
+           am.eventid::varchar(64)  as eventid,
+           ast.station_site         as site,
+           ad.ping_detection        as date_value,
+           ad.code                  as code,
+           am.commonname            as commonname
       from atn_acoustic_data ad,
            atn_acoustic_station ast,
            atn_acoustic_meta am
