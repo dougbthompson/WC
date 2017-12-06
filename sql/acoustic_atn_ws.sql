@@ -3,6 +3,12 @@ CREATE OR REPLACE FUNCTION acoustic_atn_plot_ws (p_start_date text, p_end_date t
                   commonname text default '%', station_site text default '%', which_dt_period text default '30')
 RETURNS SETOF atn_plots AS $$
 
+DECLARE
+    v_dt_period integer;
+
+BEGIN
+    select date_part('day', p_end_date::timestamp - p_start_date::timestamp) into v_dt_period;
+
     select am.commonname                  as species,
            now()::varchar(10)             as date_value,
            which_dt_period                as time_period,
@@ -24,6 +30,8 @@ RETURNS SETOF atn_plots AS $$
        and am.commonname       like $3::text
        and ast.station_site    like $4::text
      order by ad.code, ad.ping_detection;
+END
+$$ LANGUAGE plpgsql;
 
 $$ LANGUAGE sql;
 
