@@ -9,7 +9,7 @@ create table atn_plots_view (
 
 
 CREATE OR REPLACE FUNCTION acoustic_atn_plot_ws_view (p_start_date text, p_end_date text,
-                  commonname text default '%', station_site text default '%', which_dt_period text default '30')
+                  commonname text default '%', station_site text default '%')
 RETURNS SETOF aatams.atn_plots_view AS $$
 
     select am.eventid                     as eventid,
