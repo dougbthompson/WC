@@ -1,7 +1,49 @@
 
+create table atn_plots_view (
+    eventid     integer,
+    site        varchar(64),
+    detect      timestamp without time zone,
+    code        integer,
+    commonname  varchar(128)
+);
+
+
+CREATE OR REPLACE FUNCTION acoustic_atn_plot_ws_view (p_start_date text, p_end_date text,
+                  commonname text default '%', station_site text default '%', which_dt_period text default '30')
+RETURNS SETOF aatams.atn_plots_view AS $$
+
+BEGIN
+
+    -- insert into aatams.atn_plots
+    select am.eventid                     as eventid,
+           ast.station_site               as site,
+           ad.ping_detection              as date,
+           ad.code                        as code,
+           am.commonname                  as commonname
+      from atn_acoustic_data ad,
+           atn_acoustic_station ast,
+           atn_acoustic_meta am
+     where ad.receiver          = ast.receiver
+       and ad.receiver_dnum     = ast.receiver_dnum
+       and ad.ping_detection    > $1::date
+       and ad.ping_detection   <= $2::date
+       and ad.false_hit         = 0
+       and am.ptt               = ad.code
+       and am.commonname       <> ''
+       and am.commonname       like $3::text
+       and ast.station_site    like $4::text
+     order by ad.code, ad.ping_detection;
+
+END
+$$ LANGUAGE sql;
+
+#
+# -----
+# 
+
 CREATE OR REPLACE FUNCTION acoustic_atn_plot_ws (p_start_date text, p_end_date text,
                   commonname text default '%', station_site text default '%', which_dt_period text default '30')
-RETURNS SETOF atn_plots AS $$
+RETURNS integer AS $$
 
 DECLARE
     v_dt_period integer;
@@ -9,9 +51,10 @@ DECLARE
 BEGIN
     select date_part('day', p_end_date::timestamp - p_start_date::timestamp) into v_dt_period;
 
+    insert into aatams.atn_plots
     select am.commonname                  as species,
            now()::varchar(10)             as date_value,
-           which_dt_period                as time_period,
+           v_dt_period::varchar(32)       as time_period,
            am.eventid::varchar(64)        as eventid,
            ast.station_site               as site,
            ad.ping_detection::varchar(64) as date_value,
@@ -30,6 +73,8 @@ BEGIN
        and am.commonname       like $3::text
        and ast.station_site    like $4::text
      order by ad.code, ad.ping_detection;
+
+    return 1;
 END
 $$ LANGUAGE plpgsql;
 
