@@ -12,9 +12,6 @@ CREATE OR REPLACE FUNCTION acoustic_atn_plot_ws_view (p_start_date text, p_end_d
                   commonname text default '%', station_site text default '%', which_dt_period text default '30')
 RETURNS SETOF aatams.atn_plots_view AS $$
 
-BEGIN
-
-    -- insert into aatams.atn_plots
     select am.eventid                     as eventid,
            ast.station_site               as site,
            ad.ping_detection              as date,
@@ -34,7 +31,6 @@ BEGIN
        and ast.station_site    like $4::text
      order by ad.code, ad.ping_detection;
 
-END
 $$ LANGUAGE sql;
 
 #
