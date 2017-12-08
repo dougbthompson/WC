@@ -1,13 +1,14 @@
 
-create table atn_plots_view (
+drop table if exists aatams.atn_plots_view;
+create table aatams.atn_plots_view (
     eventid     integer,
     site        varchar(64),
-    detect      timestamp without time zone,
+    date        timestamp without time zone,
     code        integer,
     commonname  varchar(128)
 );
 
-CREATE OR REPLACE FUNCTION acoustic_atn_plot_ws_view (p_start_date text, p_end_date text,
+CREATE OR REPLACE FUNCTION aatams.acoustic_atn_plot_ws_view (p_start_date text, p_end_date text,
                   commonname text default '%', station_site text default '%')
 RETURNS SETOF aatams.atn_plots_view AS $$
 
