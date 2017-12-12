@@ -1,6 +1,7 @@
 
 #
 #
+#
 drop table if exists aatams.atn_plots_view;
 create table aatams.atn_plots_view (
     eventid     integer,
