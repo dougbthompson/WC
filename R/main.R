@@ -7,7 +7,6 @@
 
 main = function() {
     source ('r_init.R')
-    source ('wc_init.R')
     source ('app_init.R')
 
     source ('app_init.R')
@@ -41,6 +40,10 @@ main = function() {
         saveRDS (file=paste0(app_env@data_dir, wc_id, '.rds'), object=all_locations)
         write.table (file=paste0(app_env@data_dir, wc_id, '.csv'), all_locations, row.names=F, quote=T, sep=',')
       }
+
+      app_locations_csv (wc_id, all_locations, db_connection)
+      app_locations_ssm_csv (wc_id, all_locations, db_connection)
+
       wc_gen_ssm_track (wc_id, db_connection)
       wc_spreadsheet (wc_id, db_connection)
     }
