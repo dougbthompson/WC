@@ -7,7 +7,6 @@
 
 main_all = function() {
     source ('r_init.R')
-    source ('wc_init.R')
     source ('app_init.R')
 
     source ('app_init.R')
