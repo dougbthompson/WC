@@ -591,4 +591,3 @@ select * from aatams.acoustic_atn_func_which(p_start_date := '2016-01-01', p_end
 select * from aatams.acoustic_atn_func_which(p_start_date := '2016-01-01', p_end_date := '2017-01-01', commonname := 'Pacific Bluefin Tuna', station_project := '%', station_region := '%');
 
 
-
