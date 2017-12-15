@@ -7,8 +7,7 @@ DECLARE
 
 BEGIN
 
-    truncate table aatams.atn_acoustic_sites;
-    truncate table aatams.atn_acoustic_sites;
+    truncate table aatams.atn_acoustic_sites_step1;
 
     insert into aatams.atn_acoustic_sites_step1 
     select ast.station_site   as site
@@ -30,6 +29,7 @@ BEGIN
      group by 1,2,3
      order by 1,4 desc;
 
+    truncate table aatams.atn_acoustic_sites;
     insert into aatams.atn_acoustic_sites
     select distinct a.site, 
            round(avg(a.longitude),6) as longitude, 
@@ -45,6 +45,24 @@ BEGIN
        and a.site      <> 'Glider'
      group by 1,4
      order by 1;
+
+    truncate table aatams.atn_acoustic_receivers;
+    insert into aatams.atn_acoustic_receivers
+    select distinct
+           ad.receiver      as receiver
+          ,ad.receiver_dnum as receiver_deploy
+          ,ast.station_site as site
+      from atn_acoustic_data ad,
+           atn_acoustic_station ast,
+           atn_acoustic_meta am
+     where ad.receiver        = ast.receiver
+       and ad.receiver_dnum   = ast.receiver_dnum
+       and ad.ping_detection  > ('now'::text::date - (365 * 12))
+       and ad.ping_detection <= ('now'::text::date)
+       and ad.false_hit       = 0
+       and am.ptt             = ad.code
+       and am.commonname     <> ''
+     order by 1,2,3;
 
     return 1;
 END
@@ -65,9 +83,27 @@ select distinct a.site,
  group by 1,4
  order by 1;
 
+    select distinct
+           ad.receiver      as receiver
+          ,ad.receiver_dnum as receiver_deploy
+          ,ast.station_site as site
+      from atn_acoustic_data ad,
+           atn_acoustic_station ast,
+           atn_acoustic_meta am
+     where ad.receiver        = ast.receiver
+       and ad.receiver_dnum   = ast.receiver_dnum
+       and ad.ping_detection  > ('now'::text::date - (365 * 12))
+       and ad.ping_detection <= ('now'::text::date)
+       and ad.false_hit       = 0
+       and am.ptt             = ad.code
+       and am.commonname     <> ''
+     order by 1,2,3;
+
 select a.site, max(a.detections)
   from atn_acoustic_sites_step1 a
  group by 1;
+
+----- -----
 
 drop table if exists aatams.atn_plots_view;
 create table aatams.atn_plots_view (
