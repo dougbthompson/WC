@@ -1,4 +1,49 @@
 
+CREATE OR REPLACE FUNCTION acoustic_atn_site_list()
+RETURNS integer AS $$
+
+DECLARE
+    v_dt_period integer;
+
+BEGIN
+
+    truncate table aatams.atn_acoustic_sites;
+
+    insert into aatams.atn_acoustic_sites_step1 
+    select ast.station_site   as site
+          ,ast.station_name   as station
+          ,ast.station_region as region
+          ,count(ad.code)     as detections
+          ,round(cast(avg(ast.longitude) as numeric),4) as longitude
+          ,round(cast(avg(ast.latitude)  as numeric),4) as latitude
+      from atn_acoustic_data ad,
+           atn_acoustic_station ast,
+           atn_acoustic_meta am
+     where ad.receiver        = ast.receiver
+       and ad.receiver_dnum   = ast.receiver_dnum
+       and ad.ping_detection  > ('now'::text::date - (365 * 12))
+       and ad.ping_detection <= ('now'::text::date)
+       and ad.false_hit       = 0
+       and am.ptt             = ad.code
+       and am.commonname     <> ''
+     group by 1,2,3
+     order by 1,4 desc;
+
+    insert into aatams.atn_acoustic_sites
+
+    return 1;
+END
+$$ LANGUAGE plpgsql;
+
+select a.site, a.station, a.detections
+  from atn_acoustic_sites_step1 a
+ where a.detections = (
+       select max(b.detections)
+         from atn_acoustic_sites_step1 b
+        where b.site    = a.site
+          and b.station = a.station)
+
+
 drop table if exists aatams.atn_plots_view;
 create table aatams.atn_plots_view (
     eventid     integer,
