@@ -628,7 +628,7 @@ select
 
  where ad.receiver        = ast.receiver
    and ad.receiver_dnum   = ast.receiver_dnum
-   and ad.ping_detection  > ('now'::text::date - 90)
+   and ad.ping_detection  > ('now'::text::date - 3650)
    and ad.ping_detection <= ('now'::text::date)
    and ad.false_hit       = 0
    and am.ptt             = ad.code
