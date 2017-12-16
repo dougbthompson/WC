@@ -99,7 +99,6 @@ select distinct a.site,
        and am.commonname     <> ''
      order by 1,2,3;
 
- group by 1;
 
 ----- -----
 
