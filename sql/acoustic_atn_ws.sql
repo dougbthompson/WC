@@ -99,7 +99,6 @@ select distinct a.site,
        and am.commonname     <> ''
      order by 1,2,3;
 
-select a.site, max(a.detections)
   from atn_acoustic_sites_step1 a
  group by 1;
 
