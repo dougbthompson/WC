@@ -99,7 +99,6 @@ select distinct a.site,
        and am.commonname     <> ''
      order by 1,2,3;
 
-
 drop table if exists aatams.atn_plots_view;
 create table aatams.atn_plots_view (
     eventid     integer,
