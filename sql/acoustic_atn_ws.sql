@@ -68,7 +68,6 @@ BEGIN
 END
 $$ LANGUAGE plpgsql;
 
-select distinct a.site,
        round(avg(a.longitude),6) as longitude,
        round(avg(a.latitude),6)  as latitude,
        a.detections
