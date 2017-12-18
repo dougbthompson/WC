@@ -68,7 +68,6 @@ BEGIN
 END
 $$ LANGUAGE plpgsql;
 
-       a.detections
   from atn_acoustic_sites_step1 a
  where a.detections = (
        select max(b.detections)
