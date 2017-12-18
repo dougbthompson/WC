@@ -68,7 +68,6 @@ BEGIN
 END
 $$ LANGUAGE plpgsql;
 
-       round(avg(a.latitude),6)  as latitude,
        a.detections
   from atn_acoustic_sites_step1 a
  where a.detections = (
