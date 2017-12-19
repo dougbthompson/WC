@@ -68,7 +68,6 @@ BEGIN
 END
 $$ LANGUAGE plpgsql;
 
-   and a.site      <> 'Glider'
  group by 1,4
  order by 1;
 
