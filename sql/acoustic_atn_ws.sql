@@ -68,7 +68,6 @@ BEGIN
 END
 $$ LANGUAGE plpgsql;
 
- group by 1,4
  order by 1;
 
     select distinct
