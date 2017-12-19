@@ -68,7 +68,6 @@ BEGIN
 END
 $$ LANGUAGE plpgsql;
 
-        where b.site = a.site)
    and a.longitude is not null
    and a.latitude  is not null
    and a.site      <> 'Glider'
