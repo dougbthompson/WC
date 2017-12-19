@@ -68,7 +68,6 @@ BEGIN
 END
 $$ LANGUAGE plpgsql;
 
- order by 1;
 
     select distinct
            ad.receiver      as receiver
