@@ -68,7 +68,6 @@ BEGIN
 END
 $$ LANGUAGE plpgsql;
 
-
     select distinct
            ad.receiver      as receiver
           ,ad.receiver_dnum as receiver_deploy
