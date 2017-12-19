@@ -68,7 +68,6 @@ BEGIN
 END
 $$ LANGUAGE plpgsql;
 
-       select max(b.detections)
          from atn_acoustic_sites_step1 b
         where b.site = a.site)
    and a.longitude is not null
