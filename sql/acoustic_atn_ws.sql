@@ -173,7 +173,6 @@ select * from acoustic_atn_plot_ws(('now'::date-(30*12))::text,('now'::date)::te
  191201700 | Tomales | 2016-12-05 02:16:13 | 33546 | White Shark
  191201700 | Tomales | 2016-12-05 02:18:19 | 33546 | White Shark
 
-  6346 | Palmyra | 2017-01-22 20:18:42 | Manta Ray
   6346 | Palmyra | 2017-03-24 23:25:15 | Manta Ray
   6346 | Palmyra | 2016-12-26 23:57:54 | Manta Ray
   6346 | Palmyra | 2017-02-05 20:12:04 | Manta Ray
