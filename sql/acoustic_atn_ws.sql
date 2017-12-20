@@ -173,7 +173,6 @@ select * from acoustic_atn_plot_ws(('now'::date-(30*12))::text,('now'::date)::te
  191201700 | Tomales | 2016-12-05 02:16:13 | 33546 | White Shark
  191201700 | Tomales | 2016-12-05 02:18:19 | 33546 | White Shark
 
-
 select 'White Shark',
        '2017-12-06',
        '30',
