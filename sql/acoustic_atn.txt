@@ -1,5 +1,6 @@
 
  Table "aatams.detection"
+ Table "aatams.detection"
           Column           |            Type             | Modifiers 
 ---------------------------+-----------------------------+-----------
  id                        | bigint                      | not null ... tm_acoustic_with_eventid.ptt
